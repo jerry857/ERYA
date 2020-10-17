@@ -1,0 +1,5 @@
+2020-09-10 10:33:28,336 - test.py[line:25] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/test.py", line 23, in <module>
+    open('/path/to/does/not/exist', 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/path/to/does/not/exist'
