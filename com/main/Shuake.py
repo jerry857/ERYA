@@ -14,10 +14,9 @@ import requests
 import re
 import traceback
 import json
-import random
 import hashlib
 import math
-
+import threading
 class Shuake():
     def __init__(self, GLOBAL):
         self.GLOBAL = GLOBAL
@@ -166,12 +165,14 @@ class Shuake():
         self.init_clazzList()
         self.init_PageList()
         try:
-            for pageinfo in shuake.pageList:
+            for pageinfo in self.pageList:
+                if self.clazzList[pageinfo['courseId']]['courseName'] !='四史学习':continue
                 videosinfoList = self.get_videos_infoList(pageinfo)
                 for videoinfo in videosinfoList:
                     scoreInfo=self.get_scoreInfo(self.clazzList[pageinfo['courseId']]['clazzId'],pageinfo['courseId'])
                     if scoreInfo["dayScore"]>=scoreInfo["dailyMaxScore"]:
-                        print("今天已刷够",scoreInfo["dailyMaxScore"],"分")
+                        print(self.user_info["ps"],"今天已刷够",scoreInfo["dailyMaxScore"],"分")
+                        return
                     if videoinfo['type'] != "video":
                         continue
                     if 'isPassed' in videoinfo and videoinfo['isPassed']:
@@ -185,7 +186,7 @@ class Shuake():
                         'https://mooc1-api.chaoxing.com/ananas/status/{}'.format(videoinfo["objectId"]), params=params).json()
                     for i in range(math.ceil(videoinfo2['duration']/60)):
                         playingTime = i*60 if i*60<=videoinfo2['duration'] else videoinfo2['duration']
-                        print("\r当前正在刷课：", "playingTime:{}".format(playingTime), pageinfo["classifyName"],
+                        print("\r{}正在刷课：".format(self.user_info["ps"]), "playingTime:{}".format(playingTime), pageinfo["classifyName"],
                               pageinfo["name"],end="")
                         # [clazzId][userid][jobid][objectId][currentTimeSec * 1000][d_yHJ!$pdA~5][duration * 1000][clipTime]
                         enc = "[{}][{}][{}][{}][{}][d_yHJ!$pdA~5][{}][{}]".format(self.clazzList[pageinfo['courseId']]['clazzId'],
@@ -210,8 +211,8 @@ class Shuake():
                         )
                         response = self.session.get('https://mooc1-api.chaoxing.com/multimedia/log/a/{}/{}'.format(re.search(r"cpi_(.*)", videoinfo["otherInfo"]).group(1),videoinfo2["dtoken"]), params=params)
                         if response.json()["isPassed"]:
-                            break
-                        time.sleep(55)
+                            pass
+                        time.sleep(45)
         except Exception as e:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "刷课意外")
@@ -232,24 +233,32 @@ def funShuake(user_info):
             loger.error('', exc_info=True)
     else:
         loger.info(users_info[user_uname]["ps"] + "\t" + "： 密码错误")
+
+class myThread(threading.Thread):
+    def __init__(self,user_info):
+        threading.Thread.__init__(self)
+        self.user_info = user_info
+    def run(self):
+        funShuake(self.user_info)
+
+
 if __name__ == '__main__':
     loger.info("运行")
+    threadList=[]
     try:
         JSON_INFO = utils.users_info_load(config.users_path)
         GLOBAL = JSON_INFO["GLOBAL"]
         users_info = JSON_INFO["users_info"]
-        shuake = Shuake(GLOBAL)
         try:
             for user_uname in users_info:
-                user_info = {
-                    "uname": user_uname,
-                }
-                for key in users_info[user_uname]:
-                    user_info[key] = users_info[user_uname][key]
-                if shuake.login(user_info):
-                    shuake.shuake()
-                else:
-                    loger.info(users_info[user_uname]["ps"] + "\t" + "： 密码错误")
+                mythread=myThread(users_info[user_uname])
+                mythread.start()
+                threadList.append(mythread)
+                time.sleep(5)
+                # if user_uname=="15829380839":
+                #     funShuake(users_info[user_uname])
+            for thread in threadList:
+                thread.join()
         except Exception as e:
             loger.error('', exc_info=True)
         finally:

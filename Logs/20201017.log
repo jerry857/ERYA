@@ -154,3 +154,62 @@ requests.exceptions.ProxyError: HTTPSConnectionPool(host='passport2-api.chaoxing
 2020-10-17 10:17:16,243 - Shuake.py[line:245] - INFO: 王文安	： 密码错误
 2020-10-17 10:20:51,842 - Shuake.py[line:226] - INFO: 运行
 2020-10-17 10:31:13,772 - Shuake.py[line:226] - INFO: 运行
+2020-10-17 15:01:15,201 - Shuake.py[line:237] - INFO: 运行
+2020-10-17 15:03:23,101 - Shuake.py[line:237] - INFO: 运行
+2020-10-17 15:03:24,141 - Shuake.py[line:217] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 169, in shuake
+    for pageinfo in shuake.pageList:
+NameError: name 'shuake' is not defined
+2020-10-17 15:03:24,141 - Shuake.py[line:218] - INFO: 18740455867	刷课意外
+2020-10-17 15:03:43,391 - Shuake.py[line:237] - INFO: 运行
+2020-10-17 15:35:30,758 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:35:31,008 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:35:31,008 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:35:31,008 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:35:31,008 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:35:31,008 - Shuake.py[line:235] - INFO: 赵园	： 密码错误
+2020-10-17 15:35:31,008 - Shuake.py[line:235] - INFO: 赵园	： 密码错误
+2020-10-17 15:37:25,169 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:37:25,428 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:37:25,428 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:37:25,428 - Shuake.py[line:235] - INFO: 赵园	： 密码错误
+2020-10-17 15:38:15,387 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:38:16,398 - Shuake.py[line:217] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 169, in shuake
+    if self.clazzList[pageinfo['courseId']]['courseName'] !='四史学习':continue
+KeyError: 215091538
+2020-10-17 15:38:16,398 - Shuake.py[line:218] - INFO: 15829380839	刷课意外
+2020-10-17 15:38:53,407 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:39:51,287 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:39:51,517 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:39:51,517 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:39:51,517 - Shuake.py[line:235] - INFO: 张同	： 密码错误
+2020-10-17 15:40:10,973 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:40:11,207 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:40:11,217 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:40:11,217 - Shuake.py[line:235] - INFO: 张同	： 密码错误
+2020-10-17 15:43:52,177 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:44:24,292 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:45:29,227 - Shuake.py[line:246] - INFO: 运行
