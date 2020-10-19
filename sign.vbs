@@ -1,2 +1,2 @@
 set ws =WScript.CreateObject("WScript.Shell")
-ws.Run".\sign.bat",0
+ws.Run".\Shuake.bat",0
