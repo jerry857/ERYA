@@ -8,6 +8,7 @@ sys.path.append(os.path.split(curPath)[0])
 import config
 from config import loger
 from urllib.parse import urlencode
+import urllib
 import time
 from utils import utils
 import requests
@@ -17,6 +18,10 @@ import json
 import hashlib
 import math
 import threading
+from bs4 import BeautifulSoup
+import random
+
+
 class Shuake():
     def __init__(self, GLOBAL):
         self.GLOBAL = GLOBAL
@@ -65,7 +70,7 @@ class Shuake():
             for course in courseList:
                 self.courseList[course["nodeId"]] = {"jname": course["name"], "coursename": course["pnodeName"],
                                                      "courseId": course["courseId"]}
-            print(self.courseList)
+            # print(self.courseList)
             return True
         except Exception as e:
             loger.error('', exc_info=True)
@@ -89,7 +94,7 @@ class Shuake():
                     self.clazzList[clazz["content"]["course"]["data"][i]["id"]] = {
                         "courseTeacher": clazz["content"]["course"]["data"][i]["teacherfactor"],
                         "clazzId": clazz["content"]["id"], "courseName": clazz["content"]["course"]["data"][i]["name"]}
-            print(self.clazzList)
+            # print(self.clazzList)
             return True
         except Exception as e:
             loger.error('', exc_info=True)
@@ -99,7 +104,7 @@ class Shuake():
     def init_PageList(self):
         # courseid为大课的id 每个大课又包含许多单元（也可以叫做节）
         # jnodeid为单元id（节id）
-        # 返回本单元对应视频列表 以视频id作为索引
+        # 返回本单元对应card列表 以cardid作为索引
         try:
             self.pageList = []
             for jnodeid in self.courseList:
@@ -114,113 +119,221 @@ class Shuake():
                 response = self.session.get(
                     'https://tsjy.chaoxing.com/plaza/course/{}/node-list'.format(self.courseList[jnodeid]["courseId"]),
                     params=params)
-                _VideoList = response.json()
-                for video in _VideoList["data"]["list"]:
-                    _video = {"pageId": video['nodeId'], "jnodeid": video['classifyId'],
-                              'courseId': int(video['courseId']), 'classifyName': video['classifyName'],
-                              'name': video['name'], 'finishStatus': video['finishStatus'], 'read': video['read']}
-                    self.pageList.append(_video)
-            print(self.pageList)
+                _PageList = response.json()
+                for page in _PageList["data"]["list"]:
+                    _page = {"pageId": page['nodeId'], "jnodeid": page['classifyId'],
+                             'courseId': int(page['courseId']), 'classifyName': page['classifyName'],
+                             'name': page['name'], 'finishStatus': page['finishStatus'], 'read': page['read']}
+                    self.pageList.append(_page)
+            # print(self.pageList)
             return True
         except Exception as e:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取视频列表失败")
             return False
-    def get_videos_infoList(self, page):
+
+    def get_cards_info(self, pageInfo,num):
         # video 为videoList的字典
-        pageid = page["pageId"]
-        courseid = page["courseId"]
+        pageid = pageInfo["pageId"]
+        courseid = pageInfo["courseId"]
         clazzid = self.clazzList[courseid]['clazzId']
         try:
             params = (
                 ('clazzid', clazzid),
                 ('courseid', courseid),
                 ('knowledgeid', pageid),
-                ('num', '1'),
+                ('num', num),
                 ('isPhone', '1'),
                 ('control', 'true'),
             )
             response = self.session.get('https://mooc1-api.chaoxing.com/knowledge/cards', params=params).text
-            VideosInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
-            VideosInfo = json.loads(VideosInfo)["attachments"]
-            return VideosInfo
-        except Exception as e:
-            loger.error('', exc_info=True)
-            loger.info(self.user_info["uname"] + "\t" + "获取视频信息失败")
-            return False
-    def get_scoreInfo(self,classId,courseId):
+            cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+            cardsInfo = json.loads(cardsInfo)
+            cardsInfoList = cardsInfo["attachments"]
+            reportInfo = cardsInfo["defaults"]
+            return cardsInfoList, reportInfo,True
+        except:
+            loger.info('', exc_info=True)
+            loger.info(self.user_info["uname"] + "\t" + "获取视cards息失败")
+            return None,None,False
+
+
+    def get_scoreInfo(self, classId, courseId):
         try:
             params = (
                 ('classId', classId),
                 ('userId', self.puid),
             )
-            response = self.session.get('https://tsjy.chaoxing.com/plaza/score/{}/day-score'.format(courseId), params=params)
+            response = self.session.get('https://tsjy.chaoxing.com/plaza/score/{}/day-score'.format(courseId),
+                                        params=params)
             return response.json()["data"]["rule"]
         except Exception as e:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取分数信息失败")
             return False
+
     def shuake(self):
         self.init_courseList()
         self.init_clazzList()
         self.init_PageList()
         try:
-            for pageinfo in self.pageList:
-                if self.clazzList[pageinfo['courseId']]['courseName'] !='四史学习':continue
-                videosinfoList = self.get_videos_infoList(pageinfo)
-                for videoinfo in videosinfoList:
-                    scoreInfo=self.get_scoreInfo(self.clazzList[pageinfo['courseId']]['clazzId'],pageinfo['courseId'])
-                    if scoreInfo["dayScore"]>=scoreInfo["dailyMaxScore"]:
-                        print(self.user_info["ps"],"今天已刷够",scoreInfo["dailyMaxScore"],"分")
-                        return
-                    if videoinfo['type'] != "video":
+            for pageInfo in self.pageList:
+                if self.clazzList[pageInfo['courseId']]['courseName'] != '四史学习': continue
+                for num in ["0","1"]:
+                    cardsInfoList, reportInfo,success= self.get_cards_info(pageInfo,num)
+                    if success==False:
                         continue
-                    if 'isPassed' in videoinfo and videoinfo['isPassed']:
-                        continue
-                    params = (
-                        ('k', '123845'),
-                        ('flag', 'normal'),
-                        ('_dc', '1602816161570'),
-                    )
-                    videoinfo2 = self.session.get(
-                        'https://mooc1-api.chaoxing.com/ananas/status/{}'.format(videoinfo["objectId"]), params=params).json()
-                    for i in range(math.ceil(videoinfo2['duration']/60)):
-                        playingTime = i*60 if i*60<=videoinfo2['duration'] else videoinfo2['duration']
-                        print("\r{}正在刷课：".format(self.user_info["ps"]), "playingTime:{}".format(playingTime), pageinfo["classifyName"],
-                              pageinfo["name"],end="")
-                        # [clazzId][userid][jobid][objectId][currentTimeSec * 1000][d_yHJ!$pdA~5][duration * 1000][clipTime]
-                        enc = "[{}][{}][{}][{}][{}][d_yHJ!$pdA~5][{}][{}]".format(self.clazzList[pageinfo['courseId']]['clazzId'],
-                                                                                  self.puid, videoinfo["jobid"],
-                                                                                  videoinfo["objectId"], playingTime * 1000,
-                                                                                  videoinfo2['duration'] * 1000,
-                                                                                  '0_' + str(videoinfo2['duration']))
-                        md5enc=hashlib.md5(enc.encode()).hexdigest()
-                        params = (
-                            ('clazzId', self.clazzList[pageinfo['courseId']]['clazzId']),
-                            ('playingTime', playingTime),
-                            ('duration', videoinfo2['duration']),
-                            ('clipTime', '0_' + str(videoinfo2['duration'])),
-                            ('objectId', videoinfo["objectId"]),
-                            ('otherInfo', videoinfo["otherInfo"]),
-                            ('jobid', videoinfo["jobid"]),
-                            ('userid', self.puid),
-                            ('isdrag', '3'),
-                            ('enc', md5enc),
-                            ('dtype', 'video'),
-                            ('view', 'json'),
-                        )
-                        response = self.session.get('https://mooc1-api.chaoxing.com/multimedia/log/a/{}/{}'.format(re.search(r"cpi_(.*)", videoinfo["otherInfo"]).group(1),videoinfo2["dtoken"]), params=params)
-                        if response.json()["isPassed"]:
-                            pass
-                        time.sleep(45)
-        except Exception as e:
+                    # print(cardsInfoList)
+                    for cardInfo in cardsInfoList:
+                        scoreInfo = self.get_scoreInfo(self.clazzList[pageInfo['courseId']]['clazzId'],
+                                                       pageInfo['courseId'])
+                        if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
+                            print("\r",self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
+                            return
+                        if cardInfo['type'] == "video":
+                            if 'isPassed' in cardInfo and cardInfo['isPassed']:
+                                continue
+                            params = (
+                                ('k', '123845'),
+                                ('flag', 'normal'),
+                                ('_dc', '1602816161570'),
+                            )
+                            cardInfo2 = self.session.get(
+                                'https://mooc1-api.chaoxing.com/ananas/status/{}'.format(cardInfo["objectId"]),
+                                params=params).json()
+                            for i in range(math.ceil(cardInfo2['duration'] / 60)):
+                                playingTime = i * 60 if i * 60 <= cardInfo2['duration'] else cardInfo2['duration']
+                                print("\r{}\t当前：{}分\t正在刷课：".format(self.user_info["ps"],scoreInfo["dayScore"]), "playingTime:{}".format(playingTime),
+                                      pageInfo["classifyName"],
+                                      pageInfo["name"],cardInfo["property"]['name'], end="")
+                                # [clazzId][userid][jobid][objectId][currentTimeSec * 1000][d_yHJ!$pdA~5][duration * 1000][clipTime]
+                                enc = "[{}][{}][{}][{}][{}][d_yHJ!$pdA~5][{}][{}]".format(reportInfo["clazzId"],
+                                                                                          self.puid, cardInfo["jobid"],
+                                                                                          cardInfo["objectId"],
+                                                                                          playingTime * 1000,
+                                                                                          cardInfo2['duration'] * 1000,
+                                                                                          '0_' + str(cardInfo2['duration']))
+                                md5enc = hashlib.md5(enc.encode()).hexdigest()
+                                params = (
+                                    ('clazzId', reportInfo["clazzId"]),
+                                    ('playingTime', playingTime),
+                                    ('duration', cardInfo2['duration']),
+                                    ('clipTime', '0_' + str(cardInfo2['duration'])),
+                                    ('objectId', cardInfo["objectId"]),
+                                    ('otherInfo', cardInfo["otherInfo"]),
+                                    ('jobid', cardInfo["jobid"]),
+                                    ('userid', self.puid),
+                                    ('isdrag', '3'),
+                                    ('enc', md5enc),
+                                    ('dtype', 'video'),
+                                    ('view', 'json'),
+                                )
+                                response = self.session.get(reportInfo["reportUrl"] + '/{}'.format(cardInfo2["dtoken"]),
+                                                            params=params)
+                                if response.json()["isPassed"]:
+                                    pass
+                                time.sleep(45)
+                        if cardInfo['type'] == "read":
+                            readtime = self.get_read_time(pageInfo, cardInfo, reportInfo)
+                            if readtime >= 180:
+                                continue
+                            chapters = self.get_chapters_info(pageInfo, cardInfo, reportInfo)
+                            for chapter in chapters:
+                                print("\r{}\t当前：{}分\t正在阅读：".format(self.user_info["ps"],scoreInfo["dayScore"]),
+                                      pageInfo["classifyName"],
+                                      pageInfo["name"], cardInfo["property"]["title"], chapter["chaptername"], end="")
+                                if self.get_read_time(pageInfo, cardInfo, reportInfo) >= 180:
+                                    break
+                                response = self.session.get(chapter["url"], ).text
+                                params_info = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(chapter["url"]).query))
+                                try:
+                                    try:
+                                        ponits = eval(re.search(r"points:'(.*?)'", response).group(1))
+                                        total_points = len(ponits)
+                                    except:
+                                        total_points=1
+                                    current_point = 1
+                                    while (current_point < total_points):
+                                        current_point = random.randint(current_point, total_points)
+                                        params = (
+                                            ('courseId', pageInfo['courseId']),
+                                            ('chapterId', chapter["id"][8:]),
+                                            ('point', current_point),
+                                            ('_from_', params_info['_from_']),
+                                            ('rtag', params_info['rtag']),
+                                        )
+                                        response = self.session.get(
+                                            'https://special.zhexuezj.cn/special/course/addUserPoint', params=params)
+                                        resp = response.json()
+                                        time.sleep(5)
+
+                                except AttributeError:
+                                    continue
+        except:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "刷课意外")
             return False
 
+    def get_read_time(self, pageInfo, cardInfo, reportInfo):
+        try:
+            params = (
+                ('courseid', pageInfo['courseId']),
+                ('knowledgeid', reportInfo["knowledgeid"]),
+                ('userid', 'null'),
+                ('ut', 's'),
+                ('clazzId', reportInfo["clazzId"]),
+                ('jobid', cardInfo["jobid"]),
+                ('isphone', 'true'),
+                ('enc', cardInfo["enc"]),
+                ('utenc', 'undefined'),
+                ('cpi', reportInfo["cpi"]),
+            )
+            response = self.session.get('https://mooc1-api.chaoxing.com/coursedata/readjobv2/show', params=params)
+            read_time = int(re.search(r"secondReadTime = \"(.*?)\"", response.text).group(1))
+            return read_time
+        except:
+            loger.error('', exc_info=True)
+            loger.info(self.user_info["uname"] + "\t" + "获取分数信息失败")
+            return False
+
+    def get_chapters_info(self, pageInfo, cardInfo, reportInfo):
+        try:
+            params = (
+                ('classId', '33359344'),
+                ('userId', '34876789'),
+            )
+            enc = self.session.get('https://tsjy.chaoxing.com/plaza/user/215091538/340728584/modify-node',
+                                   params=params).json()["data"]["enc"]
+            params = (
+                ('_from_', '{}_{}_{}_{}'.format(pageInfo['courseId'], reportInfo['clazzId'], self.puid, enc.lower())),
+                ('rtag', '{}_{}_{}'.format(pageInfo['pageId'], reportInfo["cpi"], cardInfo["jobid"])),
+            )
+            response = self.session.get(
+                'https://special.zhexuezj.cn/mobile/mooc/tocourse/{}.html'.format(cardInfo["property"]["id"]),
+                params=params, )
+            soup = BeautifulSoup(response.text, "lxml")
+            chapters_lxml = soup.find(attrs={"class": "topicList"})
+            chapters_a = chapters_lxml.find_all(name="a")
+            chapters = []
+            for chapter in chapters_a:
+                try:
+                    chapter_dict = {}
+                    chapter_dict["url"] = chapter["attr"]
+                    chapter_dict["chaptername"] = chapter["chaptername"]
+                    chapter_dict["id"] = chapter["id"]
+                    chapters.append(chapter_dict)
+                except KeyError:
+                    continue
+            return chapters
+        except:
+            loger.info('', exc_info=True)
+            loger.info(self.user_info["uname"] + "\t" + "获取chapter_info 失败")
+            return []
+
     def clear(self):
         self.session.close()
         self.session = requests.session()
+
 
 def funShuake(user_info):
     JSON_INFO = utils.users_info_load(config.users_path)
@@ -234,24 +347,26 @@ def funShuake(user_info):
     else:
         loger.info(users_info[user_uname]["ps"] + "\t" + "： 密码错误")
 
+
 class myThread(threading.Thread):
-    def __init__(self,user_info):
+    def __init__(self, user_info):
         threading.Thread.__init__(self)
         self.user_info = user_info
+
     def run(self):
         funShuake(self.user_info)
 
 
 if __name__ == '__main__':
     loger.info("运行")
-    threadList=[]
+    threadList = []
     try:
         JSON_INFO = utils.users_info_load(config.users_path)
         GLOBAL = JSON_INFO["GLOBAL"]
         users_info = JSON_INFO["users_info"]
         try:
             for user_uname in users_info:
-                mythread=myThread(users_info[user_uname])
+                mythread = myThread(users_info[user_uname])
                 mythread.start()
                 threadList.append(mythread)
                 time.sleep(5)
