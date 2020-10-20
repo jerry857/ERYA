@@ -154,3 +154,161 @@ requests.exceptions.ProxyError: HTTPSConnectionPool(host='passport2-api.chaoxing
 2020-10-17 10:17:16,243 - Shuake.py[line:245] - INFO: 王文安	： 密码错误
 2020-10-17 10:20:51,842 - Shuake.py[line:226] - INFO: 运行
 2020-10-17 10:31:13,772 - Shuake.py[line:226] - INFO: 运行
+2020-10-17 15:01:15,201 - Shuake.py[line:237] - INFO: 运行
+2020-10-17 15:03:23,101 - Shuake.py[line:237] - INFO: 运行
+2020-10-17 15:03:24,141 - Shuake.py[line:217] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 169, in shuake
+    for pageinfo in shuake.pageList:
+NameError: name 'shuake' is not defined
+2020-10-17 15:03:24,141 - Shuake.py[line:218] - INFO: 18740455867	刷课意外
+2020-10-17 15:03:43,391 - Shuake.py[line:237] - INFO: 运行
+2020-10-17 15:35:30,758 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:35:31,008 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:35:31,008 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:35:31,008 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:35:31,008 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:35:31,008 - Shuake.py[line:235] - INFO: 赵园	： 密码错误
+2020-10-17 15:35:31,008 - Shuake.py[line:235] - INFO: 赵园	： 密码错误
+2020-10-17 15:37:25,169 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:37:25,428 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:37:25,428 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:37:25,428 - Shuake.py[line:235] - INFO: 赵园	： 密码错误
+2020-10-17 15:38:15,387 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:38:16,398 - Shuake.py[line:217] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 169, in shuake
+    if self.clazzList[pageinfo['courseId']]['courseName'] !='四史学习':continue
+KeyError: 215091538
+2020-10-17 15:38:16,398 - Shuake.py[line:218] - INFO: 15829380839	刷课意外
+2020-10-17 15:38:53,407 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:39:51,287 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:39:51,517 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:39:51,517 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:39:51,517 - Shuake.py[line:235] - INFO: 张同	： 密码错误
+2020-10-17 15:40:10,973 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:40:11,207 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 15:40:11,217 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 15:40:11,217 - Shuake.py[line:235] - INFO: 张同	： 密码错误
+2020-10-17 15:43:52,177 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:44:24,292 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 15:45:29,227 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 16:56:09,121 - Shuake.py[line:217] - ERROR: 
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connectionpool.py", line 662, in urlopen
+    self._prepare_proxy(conn)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connectionpool.py", line 948, in _prepare_proxy
+    conn.connect()
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connection.py", line 360, in connect
+    ssl_context=context,
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\util\ssl_.py", line 370, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "D:\Anaconda3\envs\DeepLearning\lib\ssl.py", line 412, in wrap_socket
+    session=session
+  File "D:\Anaconda3\envs\DeepLearning\lib\ssl.py", line 853, in _create
+    self.do_handshake()
+  File "D:\Anaconda3\envs\DeepLearning\lib\ssl.py", line 1117, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connectionpool.py", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\util\retry.py", line 436, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='mooc1-api.chaoxing.com', port=443): Max retries exceeded with url: /multimedia/log/a/134434924/53d4ca88cce4d85519ec790187d77090?clazzId=33359344&playingTime=120&duration=331&clipTime=0_331&objectId=7a6d6314c7a4136db33fa2541e700bb7&otherInfo=nodeId_340728587-cpi_134434924&jobid=1594608914070547&userid=59414233&isdrag=3&enc=218b53fb01a15b5f3549af3152a53b51&dtype=video&view=json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 212, in shuake
+    response = self.session.get('https://mooc1-api.chaoxing.com/multimedia/log/a/{}/{}'.format(re.search(r"cpi_(.*)", videoinfo["otherInfo"]).group(1),videoinfo2["dtoken"]), params=params)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\sessions.py", line 543, in get
+    return self.request('GET', url, **kwargs)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\adapters.py", line 514, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='mooc1-api.chaoxing.com', port=443): Max retries exceeded with url: /multimedia/log/a/134434924/53d4ca88cce4d85519ec790187d77090?clazzId=33359344&playingTime=120&duration=331&clipTime=0_331&objectId=7a6d6314c7a4136db33fa2541e700bb7&otherInfo=nodeId_340728587-cpi_134434924&jobid=1594608914070547&userid=59414233&isdrag=3&enc=218b53fb01a15b5f3549af3152a53b51&dtype=video&view=json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)')))
+2020-10-17 16:56:09,209 - Shuake.py[line:218] - INFO: 18740455867	刷课意外
+2020-10-17 16:56:11,832 - Shuake.py[line:217] - ERROR: 
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connectionpool.py", line 662, in urlopen
+    self._prepare_proxy(conn)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connectionpool.py", line 948, in _prepare_proxy
+    conn.connect()
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connection.py", line 360, in connect
+    ssl_context=context,
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\util\ssl_.py", line 370, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "D:\Anaconda3\envs\DeepLearning\lib\ssl.py", line 412, in wrap_socket
+    session=session
+  File "D:\Anaconda3\envs\DeepLearning\lib\ssl.py", line 853, in _create
+    self.do_handshake()
+  File "D:\Anaconda3\envs\DeepLearning\lib\ssl.py", line 1117, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connectionpool.py", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\util\retry.py", line 436, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='mooc1-api.chaoxing.com', port=443): Max retries exceeded with url: /multimedia/log/a/134434079/880d8ba3c5f7da902d1aad2a3428b465?clazzId=33359344&playingTime=300&duration=393&clipTime=0_393&objectId=b6a3b438bbe8f8e4a594f5b7b831edc3&otherInfo=nodeId_340728585-cpi_134434079&jobid=1594607907427202&userid=109852603&isdrag=3&enc=aca0c8a561039ceb452787ff0ec7df05&dtype=video&view=json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 212, in shuake
+    response = self.session.get('https://mooc1-api.chaoxing.com/multimedia/log/a/{}/{}'.format(re.search(r"cpi_(.*)", videoinfo["otherInfo"]).group(1),videoinfo2["dtoken"]), params=params)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\sessions.py", line 543, in get
+    return self.request('GET', url, **kwargs)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\adapters.py", line 514, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='mooc1-api.chaoxing.com', port=443): Max retries exceeded with url: /multimedia/log/a/134434079/880d8ba3c5f7da902d1aad2a3428b465?clazzId=33359344&playingTime=300&duration=393&clipTime=0_393&objectId=b6a3b438bbe8f8e4a594f5b7b831edc3&otherInfo=nodeId_340728585-cpi_134434079&jobid=1594607907427202&userid=109852603&isdrag=3&enc=aca0c8a561039ceb452787ff0ec7df05&dtype=video&view=json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)')))
+2020-10-17 16:56:11,833 - Shuake.py[line:218] - INFO: 15829380839	刷课意外
+2020-10-17 16:56:34,216 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 16:56:34,470 - Shuake.py[line:53] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_sign-latest/com/main/Shuake.py", line 50, in login
+    self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-17 16:56:34,470 - Shuake.py[line:54] - INFO: 18740455867登陆失败
+2020-10-17 16:56:34,470 - Shuake.py[line:235] - INFO: 张同	： 密码错误
+2020-10-17 16:56:51,721 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 17:18:02,751 - Shuake.py[line:246] - INFO: 运行
+2020-10-17 20:40:19,893 - Shuake.py[line:246] - INFO: 运行

@@ -11,7 +11,7 @@ def get_log():
     curPath = os.path.abspath(os.path.dirname(__file__))
     root_path = os.path.split(os.path.split(curPath)[0])[0]
     logger = logging.getLogger()
-    logger.setLevel(logging.INFO)  # Log等级总开关
+    logger.setLevel(logging.ERROR)  # Log等级总开关
     # 创建一个handler，用于写入日志文件
     rq = time.strftime('%Y%m%d', time.localtime(time.time()))
     log_path = root_path + '/Logs/'
