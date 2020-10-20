@@ -11,7 +11,7 @@ def get_log():
     curPath = os.path.abspath(os.path.dirname(__file__))
     root_path = os.path.split(os.path.split(curPath)[0])[0]
     logger = logging.getLogger()
-    logger.setLevel(logging.ERROR)  # Log等级总开关
+    logger.setLevel(logging.NOTSET)  # Log等级总开关
     # 创建一个handler，用于写入日志文件
     rq = time.strftime('%Y%m%d', time.localtime(time.time()))
     log_path = root_path + '/Logs/'
@@ -19,12 +19,12 @@ def get_log():
     log_name = log_path + rq + '.log'
     logfile = log_name
     fh = logging.FileHandler(logfile, mode='a',encoding="utf-8")
-    fh.setLevel(logging.NOTSET)  # 输出到file的log等级的开关
+    fh.setLevel(logging.INFO)  # 输出到file的log等级的开关
     # 定义handler的输出格式
     formatter = logging.Formatter("%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s")
     fh.setFormatter(formatter)
     rf_handler = logging.StreamHandler(sys.stderr)
-    rf_handler.setLevel(logging.DEBUG)
+    rf_handler.setLevel(logging.ERROR)
     rf_handler.setFormatter(formatter)
     logger.addHandler(fh)
     logger.addHandler(rf_handler)
