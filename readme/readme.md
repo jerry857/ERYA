@@ -16,8 +16,8 @@
 
 - 解释：
   - clazzid（代表班级）
-  - couseid（代表课程）
-  - jnodeid（代表节或者单元）
+  - couseid（代表课程）（四史学习 这是一个课程）
+  - jnodeid（代表节或者单元）（中国共产党史）
   - pageid（代表页，代表客户端刷课页面）
   - cardid（代表视频或者阅读的最小表示单元，也叫做knowlegedid，每个page中可能包含多个card）
 

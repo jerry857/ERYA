@@ -201,7 +201,11 @@ class Shuake():
         self.init_PageList()
         try:
             for pageInfo in self.pageList:
-                if self.clazzList[pageInfo['courseId']]['courseName'].find('学术规范') < 0:
+                flag = 0
+                for course in self.user_info['courseName']:
+                    if self.clazzList[pageInfo['courseId']]['courseName'].find(course) >= 0 :
+                        flag =1
+                if flag != 1:
                     continue
                 for num in ["0","1"]:
                     cardsInfoList, reportInfo,success= self.get_cards_info(pageInfo,num)
@@ -210,13 +214,12 @@ class Shuake():
                     # print(cardsInfoList)
                     for cardInfo in cardsInfoList:
                         scoreInfo = {}
-                        if self.clazzList[pageInfo['courseId']]['courseName'].find('四史学习')>=0 and scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
-
+                        if self.clazzList[pageInfo['courseId']]['courseName'].find('四史学习')>=0:
                             scoreInfo = self.get_scoreInfo(self.clazzList[pageInfo['courseId']]['clazzId'],
-                                                       pageInfo['courseId'])
-
-                            print("\r",self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
-                            break
+                                                           pageInfo['courseId'])
+                            if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
+                                print("\r",self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
+                                break
                         else:
 
                             scoreInfo["dayScore"] = 100
@@ -224,7 +227,7 @@ class Shuake():
                         #cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
                             continue
                         if cardInfo['type'] == "video":
-                            if 'isPassed' in cardInfo and cardInfo['isPassed']:
+                            if cardInfo['isPassed']:
                                 continue
                             params = (
                                 ('k', '123845'),
