@@ -1,492 +1,1345 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-    <!--<base href="http://fanya.chaoxing.com/"/>-->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width,user-scalable=no"/>
-    <meta content="telephone=no" name="format-detection"/>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta name="format-detection" content="telephone=no,email=no,adress=no"/>
+    <meta charset="utf-8">
+
+
+    <title>《中国共产党的九十年》 第一章</title>
+    <link type="text/css" rel="stylesheet" href="/res/css/special/course/style_v2.css?t=20200113"/>
+    <link type="text/css" rel="stylesheet" href="/res/css/special/course/catalog.css?t=20200113"/>
+    <!-- <link type="text/css" rel="stylesheet" href="/res/css/common/pomp.css?t=1"/> -->
+    <link type="text/css" rel="stylesheet" href="/res/css/special/course/static.support.css"/>
+
+    <script type="text/javascript" src="/res/js/jquery.min.js"></script>
+    <script src="/res/js/jquery.hovertreescroll.js"></script>
+    <script src="/res/js/static.support.js"></script>
+    <script src="/res/js/jquery.md5.js" type="text/javascript"></script>
+
+    <script src="/res/js/common/CXJSBridge.js?t=121" type="text/javascript"></script>
+    <script src="/res/js/common/app.utils.js?t=121" type="text/javascript"></script>
+
+    <script src="/res/js/common/web.storage.util.js?t=121" type="text/javascript"></script>
+    <script type="text/javascript" src="/res/js/search.util.js?t=121"></script>
+    <script src="/res/js/map.js?t=121" type="text/javascript"></script>
+    <script src="/res/js/common/tools.js?t=121" type="text/javascript"></script>
+
     <style type="text/css">
-        .writeNotes {
+        .moveTop {
+            width: 40px;
+            height: 40px;
             position: fixed;
-            right: 14px;
-            top: 80%;
-            width: 60px;
-            height: 60px;
-            background: url(/images/phone/writeNotes.png) no-repeat left center;
-            background-size: 100%;
-            -webkit-appearance: none;
-            -webkit-tap-highlight-color: transparent;
-            z-index: 1000;
+            bottom: 100px;
+            right: 15px;
+            z-index: 999;
+            background: url(/res/images/special/market/moveTop.png) no-repeat;
+            background-size: contain;
+            display: none;
         }
 
-        a {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+        /*2015.12.17*/
+        .moveTop_en {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            bottom: 100px;
+            right: 15px;
+            z-index: 999;
+            background: url(/res/images/special/market/moveTop_en.png) no-repeat;
+            background-size: contain;
+            display: none;
         }
 
-        .ans-cc img {
-            height: auto !important;
+        /*2015.12.17*/
+        .onload_pos {
+            height: 50px;
         }
 
-        .ans-job-icon {
-            display: none !important;
+        .tishi {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 8;
+            width: 100%;
+            height: 50px;
+            background: #4a4a4a;
+            padding: 0 100px 0 11px;
         }
+
+        .tishi .close {
+            width: 35px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .tishi .close::before {
+            content: "";
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -7px 0 0 -7px;
+            background: url(/res/images/special/tishi_close.png) no-repeat;
+            background-size: contain;
+        }
+
+        .tishi .btn {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            right: 35px;
+            width: 64px;
+            height: 30px;
+            line-height: 30px;
+            background: #0099ff;
+            border-radius: 5px;
+            color: #FFF;
+            text-align: center;
+            margin-top: -15px;
+            font-size: 12px;
+        }
+
+        .tishi .logo {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .tishi .logo img {
+            display: block;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+
+        .shareBox {
+            padding: 20px 10px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .shareTit {
+            font-size: 16px;
+            color: #000;
+            line-height: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .shareCon {
+            font-size: 16px;
+            line-height: 1.8;
+            word-wrap: break-word;
+            word-break: normal;
+        }
+
+        .shareCon p {
+            margin: 1em 0;
+        }
+
+        .shareCon img {
+            display: block;
+            max-width: 100%;
+            margin: 15px auto;
+        }
+
+        .rewardBtn {
+            padding: 24px 20px 20px;
+            text-align: center;
+            background-color: #FFF;
+            background-image: -webkit-linear-gradient(bottom, transparent 50%, #ebebeb 50%);
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: 100% 1px;
+        }
+
+        .rewardBtn .btn {
+            width: 78px;
+            height: 34px;
+            line-height: 34px;
+            background: #d85449;
+            border-radius: 3px;
+            color: #FFF;
+            text-align: center;
+            font-size: 17px;
+            display: inline-block;;
+            vertical-align: top;
+        }
+
+        .rewardBtn p {
+            margin-top: 18px;
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+        /*评分2016.12.28*/
+        .pj-star {
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .pj-star > * {
+            display: inline-block;
+            font-size: 12px;
+        }
+
+        .pj-star .gray {
+            color: #b3b3b3;
+        }
+
+        .pj-star-icon {
+            display: inline-block;
+            width: 16px;
+            height: 15px;
+            background: url(/res/images/special/course/icon_star.png) -20px 0 no-repeat;
+            background-size: 36px 15px;
+            text-indent: -9999px;
+            vertical-align: -1px;
+        }
+
+        .pj-star-icon.on {
+            background-position: 0 0;
+            background-size: 36px 15px;
+        }
+
+        .pj-star-num {
+            color: #de7067;
+            font-size: 12px;
+            margin: 0 15px 0 7px;
+        }
+
+        .pj-star-num em {
+            font-size: 14px;
+        }
+
+        .pj-txt {
+            margin-top: 10px;
+        }
+
+        .pj-star .addTag {
+            height: 22px;
+            line-height: 21px;
+            font-size: 12px;
+            padding: 0 4px;
+            border-radius: 3px;
+            color: #0099ff;
+            border: 1px solid #0099ff;
+            margin-left: -36px;
+            margin-top: 5px;
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .pj-t-ul {
+            margin-right: -10px;
+            height: auto;
+        }
+
+        .pj-t-ul > a {
+            float: left;
+            height: 27px;
+            line-height: 26px;
+            font-size: 12px;
+            padding: 0 7px;
+            border: 1px solid #dfdfdf;
+            color: #666;
+            border-radius: 3px;
+            margin: 0 9px 15px 0;
+            position: relative;
+        }
+
+        .pj-t-ul .bq {
+            color: #0099ff;
+            border: 1px solid #0099ff;
+        }
+
+        .pj-t-more {
+            font-size: 12px;
+            color: #808080;
+            text-align: center;
+            line-height: 20px;
+            display: none;
+        }
+
+        .pj-t-more b {
+            width: 10px;
+            height: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0 0 4px;
+            background: url(/res/images/special/course/more_star.png) no-repeat;
+            background-size: contain;
+            -webkit-transform: rotate(180deg);
+            -webkit-transition: all 0.3s ease;
+        }
+
+        .pj-t-more-cur b {
+            -webkit-transform: rotate(0deg);
+            -webkit-transition: all 0.3s ease;
+        }
+
+        .face_emoji {
+            vertical-align: middle;
+            width: 12px;
+            height: 12px;
+        }
+
+        .pullUp {
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            text-align: center;
+            color: #b3b3b3;
+        }
+
+        .pullUp .pullUpIcon {
+            display: inline-block;
+            vertical-align: top;
+            width: 16px;
+            height: 16px;
+            margin: 12px 9px 0 0;
+            background: url(http://img.learn.16q.cn/home/2/new/refresh.png) no-repeat;
+            background-size: contain;
+            -webkit-transform: rotate(0deg) translateZ(0);
+            -webkit-transition-duration: 0ms;
+            -webkit-animation-name: loading;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+        }
+
+        @-webkit-keyframes loading {
+            from {
+                -webkit-transform: rotate(0deg) translateZ(0);
+            }
+            to {
+                -webkit-transform: rotate(360deg) translateZ(0);
+            }
+        }
+
+
+        .scoreAll {
+            margin: 10px auto 0 auto;
+            text-align: center;
+            line-height: 32px
+        }
+
+        .scoreAll span {
+            vertical-align: text-bottom;
+            position: relative;
+            left: -50px
+        }
+
+        .star {
+            position: relative;
+            height: 30px;
+            width: 200px;
+            display: inline-block;
+            margin-left: -38px;
+            -webkit-transform: scale(0.5);
+            -moz-transform: scale(0.5);
+        }
+
+        .star i {
+            float: left;
+            width: 40px;
+            height: 30px;
+            background: url(/res/images/special/course/star_05.png) no-repeat center;
+            position: relative;
+            z-index: 99;
+        }
+
+        .star i.noBg {
+            background: none;
+        }
+
+        .starRed {
+            height: 30px;
+            background: url(/res/images/special/course/star_03.png) repeat-x;
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 0
+        }
+
+        .scoreNum {
+            font-size: 14px;
+            color: #de7067;
+            line-height: 38px;
+        }
+
+        .scorePeo {
+            color: #999;
+            font-size: 12px;
+            margin: 0 5px;
+            line-height: 38px;
+        }
+
+        .score {
+            color: #0099ff;
+            font-size: 12px;
+            line-height: 38px;
+        }
+
+
     </style>
-    <title></title>
-    <link href="/ananas/ueditor/themes/iframe_wap.css?v=2020-0903-1027" type="text/css" rel="stylesheet"/>
-    <script src="/js/phone/zepto-1.1.6.min.js"></script>
-    <script src="/js/phone/touch-1.1.6.js"></script>
-    <script src="/ananas/ext-4.2.0.663/ext.js?v=1"></script>
-    <script type="text/javascript">
-        window.requestSatusResourceDownGrade = "0";
+    <script>
+        var clientVersion = ToolsUtils.getClientVersion('clientVersion');
+        var tabBarShowFlag = 1;//1,显示一级菜单 ;0不显示
+        if (clientVersion > '4.0.6.0') {
+            tabBarShowFlag = 0;
+        }
+        $(document).ready(function () {
+            var readTag = '0';
+            if (readTag == '1') {
+                var url = "/special/course/openReceRead/214228146";
+                $.getJSON(url, function (data) {
+                    setTimeout(function () {
+                        try {
+                            var result = data.result;
+                            if (result == 1) {
+                                var _url = data.msg.url;
+                                if (_url == '' || _url == null || _url == undefined) {
+                                    addCookie("tmp_s", JSON.stringify(encodeURIComponent(data)));
+                                    AppUtils.clientMessageDisplay('获取最近阅读出错');
+                                    return;
+                                }
+                                if (_url.indexOf('http://') == -1 && _url.indexOf('https://') == -1) {
+                                    AppUtils.clientMessageDisplay('获取最近阅读地址出错');
+                                    return;
+                                }
+                                var chapterName = '';
+                                AppUtils.openUrl({
+                                    tabBarShowFlag: tabBarShowFlag,//1,显示一级菜单 ;0不显示
+                                    title: chapterName,
+                                    webUrl: _url + "#INNER",
+                                    toolbarType: 2
+                                });
+                            }
+                        } catch (e) {
+                            AppUtils.clientMessageDisplay(e + '获取最近阅读地址异常' + JSON.stringify(data));
+                        }
+                    }, 500);
+                });
+            }
 
-        window.AttachmentSetting = {
-            "attachments": [{
-                "jobid": "read-214228146",
-                "otherInfo": "nodeId_340728584-cpi_139079653",
-                "jtoken": "2425d1d9daeab58ec1a8381cd303e9a1",
-                "property": {
-                    "coverurl": "https://p.ananas.chaoxing.com/star3/193_114c/21b50d656dec0b00220be62dfc7f7c36.png",
-                    "jobid": "read-214228146",
-                    "read": true,
-                    "author": "超星思政案例",
-                    "module": "insertreadV2",
-                    "mid": "2669632541881596447846162",
-                    "id": "214228146",
-                    "title": "《中国共产党的九十年》第一章",
-                    "_jobid": "read-214228146"
-                },
-                "mid": "2669632541881596447846162",
-                "enc": "da9d340577327f9ca620422cbe9a1d35",
-                "type": "read",
-                "aid": 587867374
-            }, {
-                "jobid": "read-214228392",
-                "otherInfo": "nodeId_340728584-cpi_139079653",
-                "jtoken": "ead08058f65b0f840d6ac58f9ede68b7",
-                "property": {
-                    "coverurl": "https://p.ananas.chaoxing.com/star3/origin/21b50d656dec0b00220be62dfc7f7c36.png",
-                    "jobid": "read-214228392",
-                    "read": true,
-                    "author": "超星思政案例",
-                    "module": "insertreadV2",
-                    "mid": "218302644591596447929995",
-                    "id": "214228392",
-                    "title": "《中国共产党的九十年》第二章",
-                    "_jobid": "read-214228392"
-                },
-                "mid": "218302644591596447929995",
-                "enc": "21c5ea761932fa926f70a102048a704a",
-                "type": "read",
-                "aid": 587867375
-            }, {
-                "jobid": "read-214228138",
-                "otherInfo": "nodeId_340728584-cpi_139079653",
-                "jtoken": "9cc8db9854ea458ca5518ec2c53188ac",
-                "property": {
-                    "coverurl": "https://p.ananas.chaoxing.com/star3/origin/accfb48d8671de82d4fe902da16859f1.jpg",
-                    "jobid": "read-214228138",
-                    "read": true,
-                    "author": "超星思政案例",
-                    "module": "insertreadV2",
-                    "mid": "4005286509571596447323371",
-                    "id": "214228138",
-                    "title": "《中国共产党历史第一卷》第一编",
-                    "_jobid": "read-214228138"
-                },
-                "mid": "4005286509571596447323371",
-                "enc": "7098ead7cca862e0f1b77fb635c69d51",
-                "type": "read",
-                "aid": 587867376
-            }, {
-                "jobid": "read-214228484",
-                "otherInfo": "nodeId_340728584-cpi_139079653",
-                "jtoken": "8171a42155ec6c9544b623bef3411169",
-                "property": {
-                    "coverurl": "https://p.ananas.chaoxing.com/star3/origin/accfb48d8671de82d4fe902da16859f1.jpg",
-                    "jobid": "read-214228484",
-                    "read": true,
-                    "author": "超星思政案例",
-                    "module": "insertreadV2",
-                    "mid": "11245568123341596447334611",
-                    "id": "214228484",
-                    "title": "《中国共产党历史第一卷》第二编",
-                    "_jobid": "read-214228484"
-                },
-                "mid": "11245568123341596447334611",
-                "enc": "e3aff71c62a462ad2b3e4e7365fa8f08",
-                "type": "read",
-                "aid": 587867377
-            }],
-            "defaults": {
-                "fid": "123845",
-                "ktoken": "0de583d8e23030069013741dcbab944b",
-                "mtEnc": "b2db6cf34bb48c3014951d68cd99d2ce",
-                "isFiled": 0,
-                "ignoreVideoCtrl": 0,
-                "reportUrl": "https://mooc1-api.chaoxing.com/multimedia/log/a/139079653",
-                "chapterCapture": 0,
-                "userid": "34876789",
-                "reportTimeInterval": 60,
-                "initdataUrl": "https://mooc1-api.chaoxing.com/richvideo/initdatawithviewer",
-                "knowledgeid": 340728584,
-                "qnenc": "e9687466eaee74f07c53e17aadbb5bc4",
-                "defenc": "554558869791f58264ebe7ab8b2a29f4",
-                "clazzId": 33359344,
-                "cardid": 305438455,
-                "imageUrl": "https://p.ananas.chaoxing.com/star3/origin/a19935e8cc68c381deaa83fb9dafd1cd.jpg",
-                "lastmodifytime": 1602328989000,
-                "state": 0,
-                "courseid": 215091538,
-                "cpi": 139079653,
-                "subtitleUrl": "https://mooc1-api.chaoxing.com/richvideo/subtitle"
-            },
-            "control": true
-        };
+            var isHideOperation = '0';
+            if (undefined != isHideOperation && isHideOperation != '') {
+                isHideOperation = parseInt(isHideOperation);
+            }
+            var level = "100";
+            if (null == level || '' == level || undefined == level) {
+                level = 0;
+            }
+        });
+        var show_edit = '1';//是否显示话题编辑按钮
+        var cur_puid = '34876789';//puid
+        var isChaoxingStudy = 'true';
 
-        function windowOnload() {
-            location.href = "nativeapi:onload";
+        function openUrl(THIS) {
+            var _url = $(THIS).attr("attr");
+            var chapterName = $(THIS).attr("chapterName");
+            if (undefined != _url) {
+                if (_url.indexOf('/share/') > -1) {
+                    var courseId = '214228146';
+                    var chapterId = $(THIS).attr("id");
+                    if (chapterId != null && chapterId != "" && chapterId != undefined) {
+                        chapterId = chapterId.replace("chapter_", "");
+                        var chapterCookieName = "special_" + courseId;
+                        addCookie(chapterCookieName, chapterId, 24 * 30);
+                        addStorageData(chapterCookieName, chapterId);
+                    }
+                }
+                if (isChaoxingStudy == 'false') {
+                    document.location.href = _url;
+                    return;
+                }
+                if (_url.indexOf('/mooc/tocourse/') > -1) {
+                    tabBarShowFlag = 0;
+                }
+                try {
+                    parent.postMessage({'msgType': 'openurl', 'url': _url}, '*');
+                } catch (e) {
+                    console.log(e);
+                }
+                AppUtils.openUrl({
+                    tabBarShowFlag: tabBarShowFlag,//1,显示一级菜单 ;0不显示
+                    title: chapterName,
+                    webUrl: _url + "#INNER",
+                    toolbarType: 2
+                });
+            }
         }
 
-        window.VERSION = "2020-0908-1145";
+        function viewLastReaderChapter(chapterName, url) {
+            AppUtils.openUrl({
+                title: chapterName,
+                webUrl: url
+            });
+        }
+
+        function addBBSTopic(bbsid, type) {
+            AppUtils.getUserInfo('', function (tyrz) {
+                if (tyrz) {
+                    AppUtils.addBBSTopic(bbsid, '', '', '', type, '');
+                } else {
+                    AppUtils.doAppLogin('', function () {
+                        AppUtils.addBBSTopic(bbsid, '', '', '', type, '');
+                    });
+                }
+            });
+        }
+
+        function showMsg() {
+            AppUtils.clientMessageDisplay('版权方要求，当前章节需要付费阅读。');
+        }
+
+        function openTag(tagName, tagParentId) {
+            if ($.trim(tagName) == "" || $.trim(tagParentId) == "") {
+                return;
+            }
+            var url = "http://yz4.chaoxing.com/label/openTag?tagName=" + encodeURIComponent(tagName) + "&tagParentId=" + tagParentId;
+            AppUtils.openUrl({
+                title: tagName,
+                webUrl: url
+            });
+        }
+
+        function closeView() {
+            AppUtils.closeView();
+        }
     </script>
-    <script type="text/javascript" src="/static/js/domain.js"></script>
-    <script type="text/javascript" src="/js/ServerHost.js"></script>
-    <script src="/ananas/ueditor/ueditor.parse_wap.js?v=2020-0731-1720"></script>
-
 </head>
-<body onload="windowOnload();">
-<input type="hidden" id="from" value="215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a"/>
-<div class="ans-cc"><p style="text-indent: 0em;"><span
-        style="font-size: 18px; font-family: 宋体, SimSun;">《中国共产党的九十年》</span></p>
-    <p style="text-indent: 0em;">
-        <iframe frameborder="0" scrolling="no" class="ans-module ans-insertreadV2-module" module="insertreadV2"
-                data="{&quot;id&quot;:&quot;214228146&quot;,&quot;title&quot;:&quot;\u300a\u4e2d\u56fd\u5171\u4ea7\u515a\u7684\u4e5d\u5341\u5e74\u300b\u7b2c\u4e00\u7ae0&quot;,&quot;coverurl&quot;:&quot;https://p.ananas.chaoxing.com/star3/193_114c/21b50d656dec0b00220be62dfc7f7c36.png&quot;,&quot;author&quot;:&quot;\u8d85\u661f\u601d\u653f\u6848\u4f8b&quot;,&quot;read&quot;:true,&quot;mid&quot;:&quot;2669632541881596447846162&quot;,&quot;_jobid&quot;:&quot;read-214228146&quot;,&quot;jobid&quot;:&quot;read-214228146&quot;}"></iframe>
-        <br/></p>
-    <p style="text-indent: 0em;">
-        <iframe frameborder="0" scrolling="no" class="ans-module ans-insertreadV2-module" module="insertreadV2"
-                data="{&quot;id&quot;:&quot;214228392&quot;,&quot;title&quot;:&quot;\u300a\u4e2d\u56fd\u5171\u4ea7\u515a\u7684\u4e5d\u5341\u5e74\u300b\u7b2c\u4e8c\u7ae0&quot;,&quot;coverurl&quot;:&quot;https://p.ananas.chaoxing.com/star3/origin/21b50d656dec0b00220be62dfc7f7c36.png&quot;,&quot;author&quot;:&quot;\u8d85\u661f\u601d\u653f\u6848\u4f8b&quot;,&quot;read&quot;:true,&quot;mid&quot;:&quot;218302644591596447929995&quot;,&quot;_jobid&quot;:&quot;read-214228392&quot;,&quot;jobid&quot;:&quot;read-214228392&quot;}"
-                style="white-space: normal;"></iframe>
-    </p>
-    <p style="text-indent: 0em;"><span style="font-size: 18px; font-family: 宋体, SimSun;">《中国共产党历史第一卷》</span></p>
-    <p style="text-indent: 0em;">
-        <iframe frameborder="0" scrolling="no" class="ans-module ans-insertreadV2-module" module="insertreadV2"
-                data="{&quot;id&quot;:&quot;214228138&quot;,&quot;title&quot;:&quot;\u300a\u4e2d\u56fd\u5171\u4ea7\u515a\u5386\u53f2\u7b2c\u4e00\u5377\u300b\u7b2c\u4e00\u7f16&quot;,&quot;coverurl&quot;:&quot;https://p.ananas.chaoxing.com/star3/origin/accfb48d8671de82d4fe902da16859f1.jpg&quot;,&quot;author&quot;:&quot;\u8d85\u661f\u601d\u653f\u6848\u4f8b&quot;,&quot;read&quot;:true,&quot;mid&quot;:&quot;4005286509571596447323371&quot;,&quot;_jobid&quot;:&quot;read-214228138&quot;,&quot;jobid&quot;:&quot;read-214228138&quot;}"></iframe>
-        <br/></p>
-    <p style="text-indent: 0em;">
-        <iframe frameborder="0" scrolling="no" class="ans-module ans-insertreadV2-module" module="insertreadV2"
-                data="{&quot;id&quot;:&quot;214228484&quot;,&quot;title&quot;:&quot;\u300a\u4e2d\u56fd\u5171\u4ea7\u515a\u5386\u53f2\u7b2c\u4e00\u5377\u300b\u7b2c\u4e8c\u7f16&quot;,&quot;coverurl&quot;:&quot;https://p.ananas.chaoxing.com/star3/origin/accfb48d8671de82d4fe902da16859f1.jpg&quot;,&quot;author&quot;:&quot;\u8d85\u661f\u601d\u653f\u6848\u4f8b&quot;,&quot;read&quot;:true,&quot;mid&quot;:&quot;11245568123341596447334611&quot;,&quot;_jobid&quot;:&quot;read-214228484&quot;,&quot;jobid&quot;:&quot;read-214228484&quot;}"></iframe>
-        <br/></p>
+<body class="catalogWrap wrap_grey " style="position: fixed;height: 100%;width:100%;">
+
+<a href="javascript:;" class="moveTop" id="movetop"></a>
+
+<div class="fuzzyHead" style="position: absolute;">
+    <div class="fuzzyBg">
+        <div class="bnr" style=""></div>
+    </div>
+    <div class="fuzzyHead_con">
+        <a class="return" onclick="closeView();"></a>
+        <h2 class="fuzzyHead_tit">《中国共产党的九十年》 第一章</h2>
+        <div id="head_sub" style="display: none;"></div>
+        <!-- 	     <a class="share transfer" style="display:none;" href="javascript:;"></a>转发按钮2020.04.26 -->
+        <a id="head_edit" style="display: none;" class="btn_edit btn_public"></a>
+    </div>
 </div>
-<div class="writeNotes" id="writeNotes" style="display:none"></div>
-<script>
-    var mArg = "";
-    var courseid = "";
-    var knowledgeid = "";
-    var cardid = "";
-    var clazzId = "";
-    var needFace = "";
-    try {
-        mArg = {
-            "attachments": [{
-                "jobid": "read-214228146",
-                "otherInfo": "nodeId_340728584-cpi_139079653",
-                "jtoken": "2425d1d9daeab58ec1a8381cd303e9a1",
-                "property": {
-                    "coverurl": "https://p.ananas.chaoxing.com/star3/193_114c/21b50d656dec0b00220be62dfc7f7c36.png",
-                    "jobid": "read-214228146",
-                    "read": true,
-                    "author": "超星思政案例",
-                    "module": "insertreadV2",
-                    "mid": "2669632541881596447846162",
-                    "id": "214228146",
-                    "title": "《中国共产党的九十年》第一章",
-                    "_jobid": "read-214228146"
-                },
-                "mid": "2669632541881596447846162",
-                "enc": "da9d340577327f9ca620422cbe9a1d35",
-                "type": "read",
-                "aid": 587867374
-            }, {
-                "jobid": "read-214228392",
-                "otherInfo": "nodeId_340728584-cpi_139079653",
-                "jtoken": "ead08058f65b0f840d6ac58f9ede68b7",
-                "property": {
-                    "coverurl": "https://p.ananas.chaoxing.com/star3/origin/21b50d656dec0b00220be62dfc7f7c36.png",
-                    "jobid": "read-214228392",
-                    "read": true,
-                    "author": "超星思政案例",
-                    "module": "insertreadV2",
-                    "mid": "218302644591596447929995",
-                    "id": "214228392",
-                    "title": "《中国共产党的九十年》第二章",
-                    "_jobid": "read-214228392"
-                },
-                "mid": "218302644591596447929995",
-                "enc": "21c5ea761932fa926f70a102048a704a",
-                "type": "read",
-                "aid": 587867375
-            }, {
-                "jobid": "read-214228138",
-                "otherInfo": "nodeId_340728584-cpi_139079653",
-                "jtoken": "9cc8db9854ea458ca5518ec2c53188ac",
-                "property": {
-                    "coverurl": "https://p.ananas.chaoxing.com/star3/origin/accfb48d8671de82d4fe902da16859f1.jpg",
-                    "jobid": "read-214228138",
-                    "read": true,
-                    "author": "超星思政案例",
-                    "module": "insertreadV2",
-                    "mid": "4005286509571596447323371",
-                    "id": "214228138",
-                    "title": "《中国共产党历史第一卷》第一编",
-                    "_jobid": "read-214228138"
-                },
-                "mid": "4005286509571596447323371",
-                "enc": "7098ead7cca862e0f1b77fb635c69d51",
-                "type": "read",
-                "aid": 587867376
-            }, {
-                "jobid": "read-214228484",
-                "otherInfo": "nodeId_340728584-cpi_139079653",
-                "jtoken": "8171a42155ec6c9544b623bef3411169",
-                "property": {
-                    "coverurl": "https://p.ananas.chaoxing.com/star3/origin/accfb48d8671de82d4fe902da16859f1.jpg",
-                    "jobid": "read-214228484",
-                    "read": true,
-                    "author": "超星思政案例",
-                    "module": "insertreadV2",
-                    "mid": "11245568123341596447334611",
-                    "id": "214228484",
-                    "title": "《中国共产党历史第一卷》第二编",
-                    "_jobid": "read-214228484"
-                },
-                "mid": "11245568123341596447334611",
-                "enc": "e3aff71c62a462ad2b3e4e7365fa8f08",
-                "type": "read",
-                "aid": 587867377
-            }],
-            "defaults": {
-                "fid": "123845",
-                "ktoken": "0de583d8e23030069013741dcbab944b",
-                "mtEnc": "b2db6cf34bb48c3014951d68cd99d2ce",
-                "isFiled": 0,
-                "ignoreVideoCtrl": 0,
-                "reportUrl": "https://mooc1-api.chaoxing.com/multimedia/log/a/139079653",
-                "chapterCapture": 0,
-                "userid": "34876789",
-                "reportTimeInterval": 60,
-                "initdataUrl": "https://mooc1-api.chaoxing.com/richvideo/initdatawithviewer",
-                "knowledgeid": 340728584,
-                "qnenc": "e9687466eaee74f07c53e17aadbb5bc4",
-                "defenc": "554558869791f58264ebe7ab8b2a29f4",
-                "clazzId": 33359344,
-                "cardid": 305438455,
-                "imageUrl": "https://p.ananas.chaoxing.com/star3/origin/a19935e8cc68c381deaa83fb9dafd1cd.jpg",
-                "lastmodifytime": 1602328989000,
-                "state": 0,
-                "courseid": 215091538,
-                "cpi": 139079653,
-                "subtitleUrl": "https://mooc1-api.chaoxing.com/richvideo/subtitle"
-            },
-            "control": true
-        };
-        courseid = 215091538;
-        knowledgeid = 340728584;
-        cardid = 305438455;
-        clazzId = 33359344;
-    } catch (e) {
-    }
-    uParse(".ans-cc");
-    var writeNotes = document.getElementById("writeNotes");
-    if (writeNotes) {
-        var flag = 0; //标记是拖曳还是点击
-        var disX, moveX, L, T, starX, starY, starXEnd, starYEnd;
-        writeNotes.addEventListener('touchstart', function (e) {
-            flag = 0;
-            e.preventDefault();//阻止触摸时页面的滚动，缩放
-            disX = e.touches[0].clientX - this.offsetLeft;
-            disY = e.touches[0].clientY - this.offsetTop;
-            //手指按下时的坐标
-            starX = e.touches[0].clientX;
-            starY = e.touches[0].clientY;
-        });
-        writeNotes.addEventListener('touchmove', function (e) {
-            L = e.touches[0].clientX - disX;
-            T = e.touches[0].clientY - disY;
-            //移动时 当前位置与起始位置之间的差值
-            starXEnd = e.touches[0].clientX - starX;
-            starYEnd = e.touches[0].clientY - starY;
-            if (Math.abs(starXEnd) > 10 || Math.abs(starYEnd) > 10) {
-                flag = 1;
-            }
-            if (L < 0) {//限制拖拽的X范围，不能拖出屏幕
-                L = 0;
-            } else if (L > document.documentElement.clientWidth - this.offsetWidth) {
-                L = document.documentElement.clientWidth - this.offsetWidth;
-            }
-            if (T < 0) {//限制拖拽的Y范围，不能拖出屏幕
-                T = 0;
-            } else if (T > document.documentElement.clientHeight - this.offsetHeight) {
-                T = document.documentElement.clientHeight - this.offsetHeight;
-            }
-            moveX = L + 'px';
-            moveY = T + 'px';
-            this.style.left = moveX;
-            this.style.top = moveY;
-        });
-        writeNotes.addEventListener('touchend', function (e) {
-            //判断滑动方向
-            if (flag === 0) {//点击
-                jsBridge.postNotification('CLIENT_WRITE_NOTE_COMMON', {
-                    type: 13, //课堂笔记传13，
-                    changeFile: 0, //0,可以切换文件夹，1，不可切换
-                    saveDarft: 0, //是否保存草稿，0，保存，1，不保存
-                    showSaveDraftPmt: 1, //是否提示保存草稿，0，提示，1，不提示
-                    readNoteDraft: 1, //0,点击进入不考虑是否有相应草稿，1，读取对应草稿
-                    showNoteDetail: 1, //0,不跳转详情，1，跳转详情
-                    releateId: clazzId, //唯一标识id，若需要读取草稿，要传
-                    quoteInfo: "", //附件信息
-                    other: "", //备用字段
-                    resourcesType: 6,
-                    resourcesId: courseid + "_" + knowledgeid
-                })
-            }
-        });
+<!--书封信息-->
+<div class="content_height"
+     style="position: absolute;top:0;left:0;-webkit-overflow-scrolling:touch;height: 100%;width:100%;overflow-y: auto;">
+    <!--2020.05.14-->
+    <div class="fuzzyLib">
+        <div class="fuzzyHead_con">
+            <a class="return" onclick="closeView();"></a>
+            <!-- 	     <a class="share transfer" style="display:none;" href="javascript:;"></a>转发按钮2020.04.26 -->
+        </div>
+        <div class="fuzzyBg">
+            <div class="bnr" style=""></div>
+        </div>
+        <div class="lib">
+            <div class="img"><img
+                    origin_src="https://p.ananas.chaoxing.com/star3/origin/21b50d656dec0b00220be62dfc7f7c36.png?rw=440&rh=329"
+                    id="specialCover" src=""/></div>
+            <div class="art subCount">
+                <div class="artCon">
+                    <h2>《中国共产党的九十年》 第一章</h2>
+                    <p>超星思政案例</p>
+                    <b class="icon"></b>
+                </div>
+            </div>
+        </div>
+
+        <div class="btnHome clearfix">
+            <a id="btnhome_sub" style="display: none;"></a>
+            <a id="btnhome_edit" class="btn_edit btn_public fr" style="display: none;"></a>
+
+            <a id="btnhome_public" class="btn_publish btn_public  fr publish" data="0" style="display: none;">发布</a>
+
+            <a id="btnhome_epub" class="btn_down btn_public fr oper_bookShelf"
+               style="display: none;"><em>epub阅读</em><span class="progress" style="width:1%;"></span></a>
+            <a style="display: none;" class="ztPay" data=""></a>
+        </div>
+
+        <div class="feedback feedback2" id="myModal">
+            <div class="newUnit newmchild">
+                <div class="top">
+
+                    <p>确定不再发布？</p>
+                </div>
+                <div class="unit_btn">
+                    <a href="javascript:" class="feedback-close" id="real_can">取消</a>
+                    <a href="javascript:" class="true feedback-close " id="real_canPub">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--目录-->
+    <div class="topicList-box">
+        <!-- 章节 -->
+        <div style="border-top-left-radius: 0.16rem;border-top-right-radius: 0.16rem;overflow: hidden;background: #FFF;">
+            <div class='topicList'>
+                <div class='topicListH'><h2>第一章　中国共产党的创建</h2></div>
+                <ul class='con'>
+                    <li class='li'><a id='chapter_342714557'
+                                      attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714557?courseId=214228146&name=%E7%AC%AC%E4%B8%80%E7%AB%A0%E3%80%80%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E7%9A%84%E5%88%9B%E5%BB%BA&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                      chapterName='第一章　中国共产党的创建' onclick='openUrl(this);' style='cursor: pointer;'>第一章　中国共产党的创建</a>
+                    </li>
+                    <li class='li2'><a id='chapter_342714558'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714558?courseId=214228146&name=%E4%B8%80%E3%80%81%E8%BF%91%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%9A%84%E7%A4%BE%E4%BC%9A%E6%80%A7%E8%B4%A8%E5%92%8C%E9%9D%A9%E5%91%BD%E4%BB%BB%E5%8A%A1&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='一、近代中国的社会性质和革命任务' onclick='openUrl(this);' style='cursor: pointer;'>一、近代中国的社会性质和革命任务</a>
+                    </li>
+                    <li class='li3'><a id='chapter_342714559'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714559?courseId=214228146&name=%E5%8D%8A%E6%AE%96%E6%B0%91%E5%9C%B0%E5%8D%8A%E5%B0%81%E5%BB%BA%E7%9A%84%E4%B8%AD%E5%9B%BD%E7%A4%BE%E4%BC%9A%E5%92%8C%E4%B8%AD%E5%8D%8E%E6%B0%91%E6%97%8F%E7%9A%84%E4%B8%A4%E5%A4%A7%E5%8E%86%E5%8F%B2%E4%BB%BB%E5%8A%A1&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='半殖民地半封建的中国社会和中华民族的两大历史任务' onclick='openUrl(this);'
+                                       style='cursor: pointer;'>半殖民地半封建的中国社会和中华民族的两大历史任务</a></li>
+                    <li class='li3'><a id='chapter_342714560'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714560?courseId=214228146&name=%E8%BE%9B%E4%BA%A5%E9%9D%A9%E5%91%BD%E7%9A%84%E6%84%8F%E4%B9%89%E5%92%8C%E5%B1%80%E9%99%90&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='辛亥革命的意义和局限' onclick='openUrl(this);' style='cursor: pointer;'>辛亥革命的意义和局限</a>
+                    </li>
+                    <li class='li2'><a id='chapter_342714638'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714638?courseId=214228146&name=%E4%BA%8C%E3%80%81%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8%E5%92%8C%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BC%A0%E6%92%AD&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='二、五四运动和马克思主义在中国的传播' onclick='openUrl(this);'
+                                       style='cursor: pointer;'>二、五四运动和马克思主义在中国的传播</a></li>
+                    <li class='li3'><a id='chapter_342714639'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714639?courseId=214228146&name=%E5%8C%97%E6%B4%8B%E5%86%9B%E9%98%80%E7%9A%84%E7%BB%9F%E6%B2%BB%E5%92%8C%E5%B7%A5%E4%BA%BA%E9%98%B6%E7%BA%A7%E7%9A%84%E6%88%90%E9%95%BF%E5%A3%AE%E5%A4%A7&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='北洋军阀的统治和工人阶级的成长壮大' onclick='openUrl(this);'
+                                       style='cursor: pointer;color:#0099ff;'>北洋军阀的统治和工人阶级的成长壮大</a></li>
+                    <li class='li3'><a id='chapter_342714640'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714640?courseId=214228146&name=%E6%96%B0%E6%96%87%E5%8C%96%E8%BF%90%E5%8A%A8%E7%9A%84%E5%85%B4%E8%B5%B7%E5%92%8C%E4%BF%84%E5%9B%BD%E5%8D%81%E6%9C%88%E9%9D%A9%E5%91%BD%E5%AF%B9%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%BD%B1%E5%93%8D&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='新文化运动的兴起和俄国十月革命对中国的影响' onclick='openUrl(this);'
+                                       style='cursor: pointer;'>新文化运动的兴起和俄国十月革命对中国的影响</a></li>
+                    <li class='li3'><a id='chapter_342714641'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714641?courseId=214228146&name=%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8%EF%BC%9A%E6%96%B0%E6%B0%91%E4%B8%BB%E4%B8%BB%E4%B9%89%E9%9D%A9%E5%91%BD%E7%9A%84%E5%BC%80%E7%AB%AF&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='五四运动：新民主主义革命的开端' onclick='openUrl(this);' style='cursor: pointer;'>五四运动：新民主主义革命的开端</a>
+                    </li>
+                    <li class='li3'><a id='chapter_342714642'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714642?courseId=214228146&name=%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%9A%84%E4%BC%A0%E6%92%AD&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='马克思主义在中国的传播' onclick='openUrl(this);' style='cursor: pointer;'>马克思主义在中国的传播</a>
+                    </li>
+                    <li class='li2'><a id='chapter_342714643'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714643?courseId=214228146&name=%E4%B8%89%E3%80%81%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E7%9A%84%E6%88%90%E7%AB%8B&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='三、中国共产党的成立' onclick='openUrl(this);' style='cursor: pointer;'>三、中国共产党的成立</a>
+                    </li>
+                    <li class='li3'><a id='chapter_342714644'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714644?courseId=214228146&name=%E5%85%B1%E4%BA%A7%E5%85%9A%E6%97%A9%E6%9C%9F%E7%BB%84%E7%BB%87%E7%9A%84%E5%BB%BA%E7%AB%8B%E5%8F%8A%E5%85%B6%E6%B4%BB%E5%8A%A8&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='共产党早期组织的建立及其活动' onclick='openUrl(this);' style='cursor: pointer;'>共产党早期组织的建立及其活动</a>
+                    </li>
+                    <li class='li3'><a id='chapter_342714645'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714645?courseId=214228146&name=%E5%85%9A%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%85%A8%E5%9B%BD%E4%BB%A3%E8%A1%A8%E5%A4%A7%E4%BC%9A&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='党的第一次全国代表大会' onclick='openUrl(this);' style='cursor: pointer;'>党的第一次全国代表大会</a>
+                    </li>
+                    <li class='li2'><a id='chapter_342714646'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714646?courseId=214228146&name=%E5%9B%9B%E3%80%81%E5%88%B6%E5%AE%9A%E6%B0%91%E4%B8%BB%E9%9D%A9%E5%91%BD%E7%BA%B2%E9%A2%86%EF%BC%8C%E5%BC%80%E5%B1%95%E5%B7%A5%E5%86%9C%E8%BF%90%E5%8A%A8&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='四、制定民主革命纲领，开展工农运动' onclick='openUrl(this);'
+                                       style='cursor: pointer;'>四、制定民主革命纲领，开展工农运动</a></li>
+                    <li class='li3'><a id='chapter_342714647'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714647?courseId=214228146&name=%E5%85%9A%E7%9A%84%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%85%A8%E5%9B%BD%E4%BB%A3%E8%A1%A8%E5%A4%A7%E4%BC%9A&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='党的第二次全国代表大会' onclick='openUrl(this);' style='cursor: pointer;'>党的第二次全国代表大会</a>
+                    </li>
+                    <li class='li3'><a id='chapter_342714648'
+                                       attr='https://special.zhexuezj.cn/mobile/mooc/tocard/342714648?courseId=214228146&name=%E5%B7%A5%E4%BA%BA%E8%BF%90%E5%8A%A8%E7%9A%84%E9%AB%98%E6%BD%AE%E5%92%8C%E5%86%9C%E6%B0%91%E8%BF%90%E5%8A%A8%E7%9A%84%E5%88%9D%E6%AD%A5%E5%BC%80%E5%B1%95&code=&_from_=215091538_33359344_34876789_3dd8a5e5286c3f8d89a3b0f0b1a7246a&rtag=340728584_139079653_read-214228146'
+                                       chapterName='工人运动的高潮和农民运动的初步开展' onclick='openUrl(this);'
+                                       style='cursor: pointer;'>工人运动的高潮和农民运动的初步开展</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="topicUlNew" style="display: none;" id="chapterFooter">
+             <div class="scrollMore"  >已经到底了</div>
+        </div> -->
+        <!--        意见反馈定制 -->
+
+
+        <div class="rewardBtn">
+            <!-- 		<div id="huodong" class="huodong_course" style="margin-bottom: 15px; display: none;"></div> -->
+            <div class="payBox" style="display: none;">
+
+
+            </div>
+
+            <!-- 评分 标签-->
+
+
+            <div class="pj-star">
+                <div class="scoreAll">
+                    <div class="star">
+                        <div class="starRed"></div>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+                    <span class="scoreNum">4.8</span>
+                    <span class="scorePeo">(828人)</span>
+                    <span class="score grader">评分</span>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- 	          <div class="pj-txt"> -->
+            <!-- 	            <div class="pj-t-ul"> -->
+
+
+            <!-- 	            	<div class="clear"></div> -->
+
+
+            <!-- 	            </div> -->
+            <!-- 	          </div> -->
+
+        </div>
+        <!-- 章节 end -->
+
+        <div class="topicTit" id="pub" style="display: none;">
+
+            <h2 class="fl" style="margin-top: 6px;">评论</h2>
+        </div>
+        <div class="topicUlNew">
+            <!-- 话题列表 -->
+            <ul class="topicBox"></ul>
+            <div class="pullUp" id="showMore" style="display: none;">加载中...</div>
+        </div>
+
+
+    </div>
+</div>
+<!--2020.05.27 start-->
+
+<footer class="inputBox">
+    <div class="input_pos"></div>
+    <div class="inputHome">
+
+
+        <i class="add"></i>
+        <div class="textA addTopic"><input readonly="readonly" class="inp fl" placeholder="此专题禁止评论"
+                                           style="text-align: center;"/></div>
+
+
+        <!--  <a  class="pl topicCount"><b class="icons"></b><em></em></a> -->
+        <a status="" class="zanThis zan"><b class="icons"></b><em></em></a><!--已赞a标签加zanCur-->
+        <a class="zf transfer"><b class="icons"></b></a>
+    </div>
+</footer>
+
+<!--2020.05.27 end-->
+<script type="text/javascript" src="/res/js/common/share.js"></script>
+<script type="text/javascript">
+    var isChaoxingStudy = 'true';
+    var ua = navigator.userAgent.toLowerCase();
+    var appId = "" || 0;
+    if (isChaoxingStudy != 'true' && ua.indexOf("mobilelibrary") == -1 && ua.indexOf("aliapp") == -1) {
+        if (appId != -1) {
+            $(".onloadBox").show();
+        }
     }
 
-    function isNewVersionNew(appVersionNumber) {
-        var userAgent = navigator.userAgent;
-        var pattern = ".*ChaoXingStudy_(\\d+)_(\\d+[^_]*)_([^_]*)_([^_]*)_([^ ]*)?( \\([^)]*\\))?.*_.*([-]?\\d+).*";
-        var versionArray = userAgent.match(pattern);
-        if (versionArray && versionArray != "undefined" && versionArray.length > 6) {
-            var ApiVersion = versionArray[5].split("_")[1];
-            if (ApiVersion >= appVersionNumber) {
-                return true;
+    //是否显示返回按钮，根据参数确定
+    var referer = ToolsUtils.getUrlParam('referer') || '';
+    if ('miniprogram' == referer) {
+        $('.return').remove();
+    }
+    parent.postMessage({
+        'msgType': 'heightChanged',
+        'height': $(".topicList-box")[0].scrollHeight,
+        "id": "214228146"
+    }, '*');
+
+    //定时刷新 改为获取收藏状态
+    function reloadSpecial() {
+        var webDBId = "special_reload_214228146";
+        var reloadFlag = $.trim(getStorageVal(webDBId));
+        if (reloadFlag != "") {
+            delStorageVal(webDBId);
+            //reloadFlag=2表示收藏/已收藏
+            if (reloadFlag == "2") {
+                Subscribe.getSubStatus(function (object) {
+                    $('#head_sub').show();
+                    $('#btnhome_sub').show();
+                    if (undefined == object) return;
+                    var status = object.status;
+                    if (status == 1) {
+                        //取消订阅
+                        $("#head_sub").removeClass();
+                        $("#head_sub").text('取消收藏');
+                        $("#head_sub").addClass('cata_collect btn_public btn_public_cur');
+                        $("#head_sub").attr('onclick', 'Subscribe.cancelSub()');
+
+                        $("#btnhome_sub").removeClass();
+                        $("#head_sub").text('取消收藏');
+                        $("#btnhome_sub").addClass('cata_collect btn_public btn_public_cur fr');
+                        $("#btnhome_sub").attr('onclick', 'Subscribe.cancelSub()');
+                    } else {
+                        $('#head_sub').show();
+                        $('#btnhome_sub').show();
+                        //订阅
+                        $("#head_sub").text('收藏');
+                        $("#head_sub").removeClass();
+                        $("#head_sub").addClass('cata_collect btn_public');
+                        $("#head_sub").attr('onclick', 'Subscribe.sub()');
+
+                        $("#head_sub").text('收藏');
+                        $("#btnhome_sub").removeClass();
+                        $("#btnhome_sub").addClass('cata_collect btn_public fr');
+                        $("#btnhome_sub").attr('onclick', 'Subscribe.sub()');
+                    }
+                });
+            } else {
+                location.reload();
             }
         }
-        return false;
     }
 
-    var newVersion = isNewVersionNew(23);
-    if (needFace == "true" && newVersion) {
-        var url = location.protocol + "//" + location.host + "/knowledge/startface?clazzid=" + clazzId + "&courseid="
-            + courseid + "&knowledgeid=" + knowledgeid;
-        jsBridge.postNotification('CLIENT_OPEN_URL', {
-            title: "人脸信息采集",
-            "loadType": "1",
-            "webUrl": url
+    window.setInterval(reloadSpecial, 2000);
+
+
+    $(function () {
+        var coverWidth = parseInt('440') || 0;
+        var coverHeight = parseInt('329') || 0;
+        var coverUrl = 'https://p.ananas.chaoxing.com/star3/origin/21b50d656dec0b00220be62dfc7f7c36.png?rw=440&rh=329' || "";
+        var bg_coverUrl = coverUrl;
+        if (coverUrl != "") {
+            if (coverUrl.indexOf("origin") != -1) {
+                coverUrl = coverUrl.replace("origin", "200_200c");
+            } else {
+                coverUrl = coverUrl.replace(/\/\d+_\d+[cf]\//, "/" + 200 + "_" + 200 + "c" + "/");
+            }
+        }
+        $("#specialCover").attr('src', coverUrl);
+
+        if (bg_coverUrl != "" && bg_coverUrl.indexOf('p.ananas.chaoxing.com') != -1) {
+            bg_coverUrl = bg_coverUrl.replace(/\/\d+_\d+[cf]\//, "/origin/");
+            if (coverWidth != 0 && coverHeight != 0) {
+
+            } else if (bg_coverUrl.indexOf('rw=') != -1 && bg_coverUrl.indexOf('rh=') != -1) {
+                coverWidth = parseInt(bg_coverUrl.substring(bg_coverUrl.indexOf("rw=") + 3, bg_coverUrl.lastIndexOf("&")));
+                coverHeight = parseInt(bg_coverUrl.substring(bg_coverUrl.indexOf("rh=") + 3, bg_coverUrl.length));
+            }
+            if (coverWidth != 0 && coverHeight != 0) {
+                var winWidth = $(document).width() * 2;
+                if (bg_coverUrl.indexOf("origin") != -1) {
+                    var s = parseInt((winWidth / (coverWidth / coverHeight)));
+                    //压缩图片Q80 80%压缩
+// 	       			bg_coverUrl = bg_coverUrl.replace("origin",winWidth+"_"+s+'Q50');
+                    bg_coverUrl = bg_coverUrl.replace("origin", winWidth + "_" + Math.round($("div.fuzzyBg").height()) * 2 + 'c');
+                }
+            }
+        }
+        $(".bnr").css("background-image", "url(" + bg_coverUrl + ")");
+
+        var wid = 0;
+        var grade = '4.8';
+        if (grade != '') {
+            wid = grade * 20;
+        } else {
+            wid = 0;
+        }
+        $(".starRed").css("width", wid + "%");
+        if (wid != 0) {
+            var mm = parseInt(wid / 100 * 5);
+            $(".star i:lt(" + mm + ")").addClass("noBg")
+        }
+        //评分
+        var loading = true;
+        $(".star i").click(function () {
+            if (!loading) {
+                AppUtils.clientMessageDisplay('处理中，请稍候...');
+                return;
+            }
+            loading = false;
+
+            $(this).prevAll().addClass("noBg");
+            $(this).nextAll().removeClass("noBg");
+            var grade = $(this).index();
+            var width = grade * 20;
+            $(".scoreNum").text(grade + ".0")
+            $(".starRed").css("width", width + "%");
+
+            var url = "/special/course/grade?courseId=214228146&grade=" + grade;
+            $.getJSON(url, function (data) {
+                var status = data.status;
+                if (!status) {
+                    AppUtils.clientMessageDisplay('评分失败，请稍后重试...!');
+                    return;
+                }
+                AppUtils.clientMessageDisplay('评分成功啦!');
+
+                $.getJSON("/special/course/getGrade?courseId=214228146", function (grade_data) {
+                    var result = grade_data.result;
+                    if (result == 1) {
+                        setTimeout(function () {
+                            loading = true;
+                            var avgGrade = grade_data.msg.avgGrade || 0;//平均分
+                            var gradersCount = parseInt(grade_data.msg.gradersCount);//评分人数
+                            if (avgGrade != 0) {
+                                try {
+                                    if (avgGrade.toString().indexOf(".") < 0) {
+                                        avgGrade = avgGrade + ".0";
+                                    }
+                                } catch (e) {
+                                    avgGrade = grade_data.msg.avgGrade;
+                                }
+
+                            }
+                            $(".scoreNum").text(avgGrade);
+                            $(".scorePeo").html("(" + gradersCount + " 人)");
+
+                            if (avgGrade != 0) {
+                                var wid = parseFloat(avgGrade) * 20;
+                                $(".starRed").css("width", wid + "%");
+                                var mm = parseInt(avgGrade);
+                                for (k = mm; k <= 5; k++) {
+                                    $(".star i:lt(" + k + ")").removeClass("noBg");
+                                }
+                                $(".star i:lt(" + mm + ")").addClass("noBg");
+                            }
+                        }, 2000);
+                    }
+                });
+            });
         })
+
+        $(".close").click(function () {
+            $(".onloadBox").fadeOut(500);
+        });
+    })
+
+    function closeBox() {
+        $(".onload").fadeOut();
     }
 
-    var versionControl = isNewVersionNew(30);
-    if (!versionControl && writeNotes) {
-        writeNotes.style.display = "block";
-    }
-
-    function isNewVersion(versonControl_android, versonControl_ios) {
-        var versonControl = "";
-        var userAgent = navigator.userAgent;
-        var offset = userAgent.indexOf("ChaoXingStudy_");
-        var stop = 0;
-        if (userAgent.indexOf("_ios_phone") > -1) {
-            stop = userAgent.indexOf("_ios_phone");
-            versonControl = versonControl_ios;
-        } else if (userAgent.indexOf("_android_phone") > -1) {
-            stop = userAgent.indexOf("_android_phone");
-            versonControl = versonControl_android;
+    //刷新章节样式
+    function refreshChapterStyle() {
+        var chapterCookieName = "special_214228146";
+        var specialCookie = $.trim(getCookie(chapterCookieName));
+        if (specialCookie != "") {
+            var isView = isViewMode();
+            if (isView) {
+                $(".con li").find("a").css("color", "#acacac");
+                $("#chapter_" + specialCookie).css("color", "#0099ff");
+            } else {
+                $(".con li").find("a").css("color", "#333");
+                $("#chapter_" + specialCookie).css("color", "#0099ff");
+            }
         }
-        var versionStr = userAgent.substring(offset + 14, stop);
-        versionStr = versionStr.split('_')[1];
-        if (versionStr == undefined) {
-            return false;
-        }
-        versionStr = versionStr.replace(/_|\./g, "");
-        return versionStr + '' >= versonControl;
     }
 
-    var lastEditTime = 0;
-    Zepto(function ($) {
-        var isSupport = isNewVersion('3254', '3254');
-        if (isSupport) {
-            $('#tip').show();
+    var st = 'true';
+    if (st == 'true') {
+        window.setInterval(refreshChapterStyle, 2000);
+    }
+    var _name = '《中国共产党的九十年》 第一章';
+    var name = _name.replace(/\'/g, "“").replace(/\"/g, "“");
+    window.courseObj = {
+        id: "214228146",
+        bbsid: "300000000000000000000000000214228146",
+        name: name,
+        imgUrl: "https://p.ananas.chaoxing.com/star3/193_114c/21b50d656dec0b00220be62dfc7f7c36.png?rw=440&rh=329",
+        author: "超星思政案例",
+        teacherfactor: "超星思政案例" != '' ? "超星思政案例" : "超星思政案例",
+        isChaoxingStudy: 'true',
+        isCreateUser: 'false',
+        isEditUser: 'false',
+        shortUrl: 'https://special.zhexuezj.cn/mobile/mooc/tocourse/214228146',
+        level: '100',
+        isGradeUser: 'false',
+        downloadUrl: '' || "",
+        packageSize: '' || 0,
+        createrId: "67848709" || 0,
+        downAuthor: '超星思政案例' || "",
+        isPaySpecial: 'false',
+        payStatus: 'true',
+        description: '',
+        puid: $.trim("34876789"),
+        swichComment: "1" || 0,
+        clientType: "android",
+        isHideOperation: '0'
+    }
+    var getIOSVersion = function () {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/(iphone|ipod);?/i)) {
+            return ua.match(/iphone os ([0-9]+)_/)[1];
+        } else if (ua.match(/(ipad);?/i)) {
+            return (ua.match(/cpu os ([0-9]+)_/))[1];
+        }
+    }
+    $(".openApp").click(function () {
+        var appId = "";
+        if (appId == null || "" == appId || undefined == appId) {
+            appId = 1000;
+        }
+        var resourceUrl = location.host + '/mobile/mooc/tocourse/214228146'
+        var appScheme = "chaoxingshareback://url=" + resourceUrl + "&title=" + name + "&sharebacktype=1";
+        var tipUrl = "https://share1.chaoxing.com/share/" + appId + "/tips?apptag=&appScheme=" + encodeURIComponent(appScheme);
+        //如果是ios
+        var ua = navigator.userAgent.toLowerCase();
+        var isWeixin = ua.indexOf('micromessenger') != -1;
+        var is_qq = ua.indexOf('qq/') != -1;
+        var is_tim = ua.indexOf('tim/') != -1;
+        if (ua.match(/(iphone|ipod|ipad);?/i)) {
+            if (isWeixin || is_qq || is_tim) {
+                tipUrl = "https://share1.chaoxing.com/share/" + appId + "/tips?apptag=&sharebacktype=1&appScheme=" + encodeURIComponent(appScheme) + '&title=' + name + '&url=' + resourceUrl;
+            } else {
+                //如果版本大于等于IOS9
+                var iosVersion = getIOSVersion();
+                if (iosVersion >= 9) {
+                    tipUrl = 'http://share1.chaoxing.com/share/' + appId + '/mobile/mooc/tocourse/214228146?sharebacktype=1&appScheme=' + encodeURIComponent(appScheme) + '&title=' + name + '&apptag=&url=' + resourceUrl;
+                }
+            }
+        } else {
+            if (isWeixin) {
+                tipUrl = 'https://sharewh.chaoxing.com/share/androidTip?appId=&type=1&title=' + name + '&callback=' + encodeURIComponent('https://' + resourceUrl + "?appId=" + appId);
+            }
+        }
+        document.location.href = tipUrl;
+    });
+    window.epubObj = {
+        createrId: "67848709" || 0,
+        courseId: "214228146",
+        bookName: "" || "《中国共产党的九十年》 第一章",
+        bookSize: "" || -1,
+        coverUrl: "" || "https://p.ananas.chaoxing.com/star3/origin/21b50d656dec0b00220be62dfc7f7c36.png?rw=440&rh=329",
+        ssid: "" || "", //ssid
+        remoteUrl: "" || ""
+    };
+    window.wx_detailObj = {
+        wx_appId: "", // 必填，公众号的唯一标识
+        wx_timestamp: "", // 必填，生成签名的时间戳
+        wx_nonceStr: "", // 必填，生成签名的随机串
+        wx_signature: "",// 必填，签名
+
+        wx_title: window.courseObj.name,
+        wx_content: window.courseObj.teacherfactor,
+        wx_imgUrl: window.courseObj.imgUrl,
+
+        mini_puid: "",
+        mini_fid: ""
+    };
+
+
+    window.i18 = {
+        '刚刚': '刚刚',
+        '昨天': '昨天',
+        '分钟前': '分钟前',
+        '小时前': '小时前',
+        '收藏': '收藏',
+        '编辑': '编辑',
+        '发布': '发布',
+        '已发布': '已发布',
+        '专题取消发布成功': '专题取消发布成功',
+        '小组信息为空!': '小组信息为空!',
+        '专题发布失败': '专题发布失败',
+        "人收藏": '人收藏',
+        "详情": '详情',
+        "收藏成功": '收藏成功',
+        "取消收藏": '取消收藏',
+        "已收藏到云盘_收藏": '已收藏到云盘_收藏',
+        "取消收藏成功!": '取消收藏成功!',
+        "收藏失败,请稍后重试!": '收藏失败,请稍后重试!',
+        "取消收藏失败，请稍后重试!": '取消收藏失败，请稍后重试!',
+        "阅读": '阅读',
+        "阅读详情": '阅读详情',
+        "编辑": '编辑',
+        "正在加载...": '正在加载...',
+        "已经到底啦~": '已经到底啦~',
+        "回复失败，请稍后重试！": '回复失败，请稍后重试！',
+        "处理中，请稍候...": '处理中，请稍候...',
+        "评分": '评分',
+        "标签": '标签',
+        "专题详情": '专题详情',
+        "编辑专题": '编辑专题',
+        "epub阅读": 'epub阅读',
+        "继续下载": '继续下载',
+
+        "addPep": 'addPep'
+    }
+</script>
+<script type="text/javascript"
+        src="https://floweryd.chaoxing.com/res/plugin/flower/jquery.flower.js?t=20191025"></script>
+<script type="text/javascript" src="/res/js/special/course/subscribe.util.js?t=20200103"></script>
+<script type="text/javascript" src="/res/js/common/faces.js"></script>
+<script type="text/javascript" src="/res/js/common/iphone.js"></script>
+<script type="text/javascript" src="/res/js/special/course/course_v2.util.js?t=20200113"></script>
+<script type="text/javascript" src="/res/js/common/jweixin-1.3.2.js"></script>
+<script type="text/javascript" src="/res/js/common/wx_config.js?t=122"></script>
+<!--    <script src="/res/js/common/pomp.js" type="text/javascript"></script> -->
+<script type="text/javascript">
+    var type = '0';
+    var appUrl = location.protocol + "//" + location.host + '/mobile/mooc/tocourse/214228146';
+    if (undefined != type && type != '') {
+        type = parseInt(type);
+        if (type == 3) {
+            appUrl += '?btype=tushu';
+        }
+    }
+    var courseId = '214228146';
+    var puid = $.trim('34876789');
+    var createId = $.trim("67848709");
+    //检查是否支持打赏
+    try {
+        jsBridge.bind('CLIENT_CAN_PAY', function (obj) {
+            if (undefined != obj && obj != "") {
+                $(".payBox").show();
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
+
+    $(".ds").click(function () {
+        var js_isCreateUser = CourseDetail.isCreateUser;//从js中获取
+        var js_puid = CourseDetail.cur_login_puid;//从js中获取
+        if (js_isCreateUser == 'true') {
+            AppUtils.clientMessageDisplay("不能赞赏自己的专题");
+            return;
+        } else {
+            if (js_puid == "") {
+                AppUtils.getUserInfo('', function (fy) {
+                    if (fy) {
+                        js_puid = fy.puid;
+                        if (js_puid == "") {
+                            AppUtils.clientMessageDisplay('请登录');
+                            return;
+                        } else if (createId == "") {
+                            AppUtils.clientMessageDisplay('请重试');
+                            return;
+                        }
+                        //获取客户端版本号
+                        if (navigator.userAgent.indexOf("ChaoXingStudy") > -1) {
+                            var ua = navigator.userAgent;
+                            ua = ua.substring(ua.indexOf("ChaoXingStudy"));
+                            ua = ua.substring(ua.indexOf("_") + 1);
+                            ua = ua.substring(ua.indexOf("_") + 1);
+                            ua = ua.substring(0, ua.indexOf("_"));
+                            var version = ua;
+                            var url = "https://special.zhexuezj.cn/mobile/mooc/pay/" + courseId + "/selectMoney?flag=1";
+                            var param = "";
+                            if (version != 0 && version > '2.0.2.3') {
+                                url = "https://money.chaoxing.com/purse/api/ds/selectMoney";
+                                param = {puid: createId, category: 1, sid: courseId};
+                            }
+                            AppUtils.openUrl({
+                                title: '赞赏',
+                                webUrl: url,
+                                postData: param
+                            });
+                        }
+                    }
+                });
+            } else {
+                if (createId == "") {
+                    AppUtils.clientMessageDisplay('请重试');
+                    return;
+                }
+                //获取客户端版本号
+                if (navigator.userAgent.indexOf("ChaoXingStudy") > -1) {
+                    var ua = navigator.userAgent;
+                    ua = ua.substring(ua.indexOf("ChaoXingStudy"));
+                    ua = ua.substring(ua.indexOf("_") + 1);
+                    ua = ua.substring(ua.indexOf("_") + 1);
+                    ua = ua.substring(0, ua.indexOf("_"));
+                    var version = ua;
+                    var url = "https://special.zhexuezj.cn/mobile/mooc/pay/" + courseId + "/selectMoney?flag=1";
+                    var param = "";
+                    if (version != 0 && version > '2.0.2.3') {
+                        url = "https://money.chaoxing.com/purse/api/ds/selectMoney";
+                        param = {puid: createId, category: 1, sid: courseId};
+                    }
+                    AppUtils.openUrl({
+                        title: '赞赏',
+                        webUrl: url,
+                        postData: param
+                    });
+                }
+            }
+        }
+    });
+    //打赏人列表
+    $(".payUser").click(function () {
+        var url = "https://money.chaoxing.com/purse/api/ds/pay/" + courseId + "/users";
+        AppUtils.openUrl({
+            title: '人赞赏',
+            webUrl: url
+        });
+    });
+    var params = '' || '';
+    var paramsSign = '' || '';
+    var orderTitle = '' || '';
+    var category = '' || 0;
+    var d = /^([1-9][\d]{0,7}|0)(\.[\d]{1,2})?$/;
+
+    var toPay = function () {
+        var money = $.trim($(".ztPay").attr("data"));
+        if (money == '') {
+            AppUtils.clientMessageDisplay('无效的金额');
+            return;
+        } else if (!d.test(money) || money == 0) {
+            AppUtils.clientMessageDisplay('无效的金额');
+            return;
+        }
+        money = money * 100;
+        var chparams = encodeURIComponent(JSON.stringify({total_fee: money}));
+        AppUtils.doAppLogin('', function () {
+            AppUtils.pay(money, orderTitle, category, params, chparams, paramsSign, '', '', 1);
+        });
+    }
+
+
+    $(".ztPay").click(function () {
+        toPay();
+    });
+    $(".specialPay").click(function () {
+        toPay();
+    });
+
+    //专题付费成功后刷新回调
+    function reload() {
+        location.reload();
+    }
+
+    var delTag = function (courseId, tagId) {
+        if ($.trim(courseId) == "" || $.trim(tagId) == "") {
+            return;
+        }
+
+
+        var url = "https://special.zhexuezj.cn/special/course/tag/delete?courseId=" + courseId + "&tagId=" + tagId;
+        $.getJSON(url, function (data) {
+            var status = data.status;
+            if (!status) {
+                AppUtils.clientMessageDisplay('删除标签失败');
+                return;
+            }
+            $("#tag_" + tagId).remove();
+            var len = $(".pj-t-ul").find("a").length;
+            if ((len - 1) == 0) {
+                $("#appendTag").hide();
+                $("#addTag").show();
+            }
+        });
+    }
+
+    function selSurvey(THIS) {
+        var _this = $(THIS);
+        var index = _this.attr("id");
+
+        if (_this.hasClass("on")) {
+            for (i = index; i <= 5; i++) {
+                $("#" + i).removeClass("on");
+            }
+
+        } else {
+            for (i = 1; i <= index; i++) {
+                $("#" + i).addClass("on");
+            }
+        }
+        var count = 0;
+        $(".pj-s-cout").find("span").each(function () {
+            if ($(this).hasClass("on")) {
+                count++;
+            }
+        });
+        addGrade();
+    }
+
+    window.i18_course_pub_can = '专题取消发布成功';
+    window.i18_course_pub_group = '小组信息为空!';
+    window.i18_course_pub_fail = '专题发布失败';
+    window.i18_course_sub_subPeople = '人收藏';
+    window.i18_course_sub_detail = '详情';
+    window.i18_course_sub_subSuccess = '收藏成功';
+    window.i18_course_sub_subSucceed = '已收藏到云盘_收藏';
+    window.i18_course_sub_canSubSuccess = '取消收藏成功!';
+    window.i18_course_sub_subFail = '收藏失败,请稍后重试!';
+    window.i18_course_sub_canSubFail = '取消收藏失败，请稍后重试!';
+    window.i18_course_topic_read = '阅读';
+    window.i18_course_topic_readDetail = '阅读详情';
+    window.i18_course_topic_edit = '编辑';
+    window.i18_course_topic_loading = '正在加载...';
+    window.i18_course_topic_loadEnd = '已经到底啦~';
+    window.i18_course_topic_replyFail = '回复失败，请稍后重试！';
+    window.i18_course_common_tip = '处理中，请稍候...';
+    window.i18_course_score = '评分';
+    window.i18_course_label = '标签';
+    window.i18_course_detail = '专题详情';
+    window.i18_course_editSpecil = '编辑专题';
+
+    //动态构造参数值
+    function i18_course_dynamicParam(type, value) {
+        var result = '';
+        if (type == 1) {
+            result = '专题已发布至“' + value + '”小组';
+        }
+        return result;
+    }
+
+    $("#specialCover").click(function () {
+        var imgArr = new Array();
+        var imgObj = {"imageUrl": $(this).attr('origin_src')};
+        imgArr.push(imgObj);
+        AppUtils.clientPreviewImages(imgArr, 0);
+    });
+    var oHeight = $(".fuzzyLib").outerHeight() - 20;
+    var sTop = 0;
+
+    //2020.05.14
+    $(".content_height").scroll(function () {
+        sTop = $(".content_height").scrollTop();
+        if (sTop >= oHeight) {
+            $(".fuzzyHead").fadeIn(100);
+        } else if (sTop <= oHeight) {
+            $(".fuzzyHead").hide();
         }
     });
 
-    function postStudyLog(log, monitorEnc) {
-        $.ajax({
-            type: 'post',
-            dataType: 'json',
-            url: url,
-            data: {"log": JSON.stringify(log), "enc": monitorEnc},
-            success: function (data) {
-            }
-        });
+    // 	$(window).scroll(function(){
+    //   		sTop = $(this).scrollTop();
+    // 	  	if(sTop >= oHeight){
+    // 	  		$(".fuzzyHead").show();
+    // 	  	}else{
+    // 	  		$(".fuzzyHead").hide();
+    // 	  	}
+    // 	});
+
+    // 	$("body").height( $(window).height() );
+    // 	$(document.body).on('touchmove',function(e){
+    // 		sTop = $(this).scrollTop();
+    // 		if(sTop >= oHeight){
+    // 			$(".fuzzyHead").show();
+    // 		}else if(sTop <= oHeight){
+    // 			$(".fuzzyHead").hide();
+    // 		}
+    // 	});
+    //标题文字显示
+    function showH(obj) {
+        var objSize = obj.length;
+        var htmlWidth = $("html").css("font-size");
+        var htmlSize = parseFloat(htmlWidth, 10);
+        var wid = $(window).outerWidth() - 3.4 * htmlSize;
+        //var singleSize = htmlSize * 0.24;
+        var oddSize = htmlSize * 0.36;
+        var singleLen = parseInt(wid / oddSize);
+        if (objSize > singleLen) {
+            $(".fuzzyHead_tit").addClass("fuzzyHead_titM");
+        } else {
+            $(".fuzzyHead_tit").removeClass("fuzzyHead_titM");
+        }
     }
 
-    function _jsBridgeReady() {
-        //刷新任务点
-        jsBridge.bind('CLIENT_REFRESH_EVENT', function (object) {
-            var iframe = jQuery.find('iframe[jobstatus="refreshJob"]');
-            jQuery(iframe).each(function () {
-                $(this).removeAttr('jobstatus');
-                this.contentWindow.greenligth && this.contentWindow.greenligth();
-            });
-        });
-        jsBridge.bind('CLIENT_APP_CONFIG', function (object) {
-            var writeNotes = document.getElementById("writeNotes");
-            if (writeNotes) {
-                if (object.hiddenNote && object.hiddenNote == 1) {
-                    writeNotes.style.display = "none";
-                } else {
-                    writeNotes.style.display = "block";
-                }
-            }
-        });
-        jsBridge.bind('CLIENT_FACE_COLLECTION', function (object) {
-            if (!object) {
-                return;
-            }
-            var funconfig = JSON.parse(object.funconfig || object.funConfig);
-            var objectId = object.objectId;
-            if (!objectId) {
-                return;
-            }
-            try {
-                var url = '/keeper/api/receive-studylog';
-                var eventTime = new Date().getTime();
-                var courseId = funconfig.courseId;
-                var clazzId = funconfig.clazzId;
-                var personId = funconfig.cpi;
-                var data = {
-                    "relationId": "",
-                    "objectId": objectId
-                }
-                var log = {
-                    "courseId": courseId,
-                    "clazzId": clazzId,
-                    "personId": personId,
-                    "eventType": 2,
-                    "eventTime": eventTime,
-                    "data": data
-                };
-                var monitorEnc = funconfig.mtEnc;
-                postStudyLog(log, monitorEnc);
-            } catch (err) {
-            }
-        });
-        jsBridge.postNotification('CLIENT_APP_CONFIG', {});
-    }
-
-    var resourceScanParam = {"fid": "72413", "noterya": true, "looktime": 1602998034068, "courseid": 215091538};
-    var attachments = mArg.attachments;
+    showH($(".fuzzyHead_tit").text());
 </script>
-<script type="text/javascript"
-        src='https://tsjy.chaoxing.com/plaza/recommend?courseId=215091538&personId=139079653&classId=33359344&userId=34876789&nodeId=340728584'
-        charset="utf-8"></script>
-<script type="text/javascript" src="/js/resource_scan.js?v=2019-0729-1346" defer></script>
-
+<div style="display: none;" id="audioChapterList">[]</div>
 </body>
 </html>

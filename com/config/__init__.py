@@ -11,7 +11,9 @@ error_form_path = os.path.join(root_path, "config/error_form.json")
 error_pwd_path = os.path.join(root_path, "config/error_pwd.json")
 
 loger = utils.get_log()
-
+readFromLastChapter=True
+readFrom0read=False
+readTimelimit=0#单位second 0为无限制
 form = [{'compt': 'captiontext',
          'id': 2,
          'fields': [{'tip': {'imgs': [], 'text': '研究生新型冠状肺炎信息调查项目'},

@@ -79,7 +79,7 @@ class Shuake():
 
     def init_clazzList(self):
         """
-                :return 以课程id作为对班列表的key
+                :return 以course id作为对班列表的key
         """
         try:
             params = (
@@ -173,12 +173,12 @@ class Shuake():
             return False
 
     def shuake(self):
-        self.init_courseList()
         self.init_clazzList()
+        self.init_courseList()
         self.init_PageList()
         try:
             for pageInfo in self.pageList:
-                if self.clazzList[pageInfo['courseId']]['courseName'] != '四史学习': continue
+                if self.clazzList[pageInfo['courseId']]['courseName'].find('四史学习')<0: continue
                 for num in ["0","1"]:
                     cardsInfoList, reportInfo,success= self.get_cards_info(pageInfo,num)
                     if success==False:
@@ -187,7 +187,7 @@ class Shuake():
                     for cardInfo in cardsInfoList:
                         scoreInfo = self.get_scoreInfo(self.clazzList[pageInfo['courseId']]['clazzId'],
                                                        pageInfo['courseId'])
-                        if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
+                        if self.clazzList[pageInfo['courseId']]['courseName'].find('四史学习')>=0 and scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
                             print("\r",self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
                             return
                         if 'type' not in cardInfo:
@@ -238,15 +238,17 @@ class Shuake():
                                 time.sleep(45)
                         if cardInfo['type'] == "read":
                             readtime = self.get_read_time(pageInfo, cardInfo, reportInfo)
-                            if readtime >= 0:
+                            if config.readTimelimit!=0 and readtime >config.readTimelimit:
                                 continue
-                            chapters = self.get_chapters_info(pageInfo, cardInfo, reportInfo)
-                            for chapter in chapters:
+                            if config.readFrom0read and readtime>0:#从没开始过的章节开始阅读
+                                continue
+                            chapters,lastChapter = self.get_chapters_info(pageInfo, cardInfo, reportInfo)
+                            if not config.readFromLastChapter:
+                                lastChapter=0 #如果本句注释从上次记录的chapter开始阅读
+                            for chapter in chapters[lastChapter:]:
                                 print("\r{}\t当前：{}分\t正在阅读：".format(self.user_info["ps"],scoreInfo["dayScore"]),
                                       pageInfo["classifyName"],
                                       pageInfo["name"], cardInfo["property"]["title"], chapter["chaptername"], end="")
-                                if self.get_read_time(pageInfo, cardInfo, reportInfo) >= 180:
-                                    break
                                 response = self.session.get(chapter["url"], ).text
                                 params_info = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(chapter["url"]).query))
                                 try:
@@ -256,7 +258,7 @@ class Shuake():
                                     except:
                                         total_points=1
                                     current_point = 1
-                                    while (current_point < total_points):
+                                    while (current_point <= total_points):
                                         current_point = random.randint(current_point, total_points)
                                         params = (
                                             ('courseId', pageInfo['courseId']),
@@ -318,20 +320,23 @@ class Shuake():
             chapters_lxml = soup.find(attrs={"class": "topicList"})
             chapters_a = chapters_lxml.find_all(name="a")
             chapters = []
-            for chapter in chapters_a:
+            lastChapter=0
+            for i,chapter in enumerate(chapters_a):
                 try:
                     chapter_dict = {}
                     chapter_dict["url"] = chapter["attr"]
                     chapter_dict["chaptername"] = chapter["chaptername"]
                     chapter_dict["id"] = chapter["id"]
+                    if chapter["style"].find("color")>=0:
+                        lastChapter=i
                     chapters.append(chapter_dict)
                 except KeyError:
                     continue
-            return chapters
+            return chapters,lastChapter
         except:
             loger.info('', exc_info=True)
-            loger.info(self.user_info["uname"] + "\t" + "获取chapter_info 失败")
-            return []
+            loger.info(self.user_info["uname"] + "\t" + "获取chapter_info 失败"+"  可能是资源下线，不是程序错误")
+            return [],0
 
     def clear(self):
         self.session.close()
@@ -369,12 +374,12 @@ if __name__ == '__main__':
         users_info = JSON_INFO["users_info"]
         try:
             for user_uname in users_info:
-                mythread = myThread(users_info[user_uname])
-                mythread.start()
-                threadList.append(mythread)
-                time.sleep(5)
-                # if user_uname=="18845142702":
-                #     funShuake(users_info[user_uname])
+                # mythread = myThread(users_info[user_uname])
+                # mythread.start()
+                # threadList.append(mythread)
+                # time.sleep(5)
+                if user_uname=="18845142702":
+                    funShuake(users_info[user_uname])
             for thread in threadList:
                 thread.join()
         except Exception as e:
