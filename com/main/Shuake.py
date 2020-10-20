@@ -59,18 +59,32 @@ class Shuake():
             loger.info(self.user_info["uname"] + "登陆失败")
             return False
 
-    def init_courseList(self):
+    def init_jnodeList(self):
         """
         :return 以节id作为对课程列表的key
         """
+
         try:
-            response = self.session.get('https://tsjy.chaoxing.com/plaza/course/215091538/classify-list')
-            courseList = response.json()["data"]["list"]
-            self.courseList = {}
-            for course in courseList:
-                self.courseList[course["nodeId"]] = {"jname": course["name"], "coursename": course["pnodeName"],
-                                                     "courseId": course["courseId"]}
-            # print(self.courseList)
+            self.jnodeList = {}
+            for courseid in self.clazzList:
+                classid = self.clazzList[courseid]['clazzId']
+                params = (
+                    ('id', classid),
+                    ('personid', self.puid),
+                    ('fields',
+                     'id,bbsid,classscore,isstart,allowdownload,chatid,name,state,isthirdaq,isfiled,information,discuss,visiblescore,begindate,coursesetting.fields(id,courseid,hiddencoursecover,hiddenwrongset),course.fields(id,name,infocontent,objectid,app,bulletformat,mappingcourseid,imageurl,knowledge.fields(id,name,indexOrder,parentnodeid,status,layer,label,begintime,endtime,attachment.fields(id,type,objectid,extension).type(video)))'),
+                    ('view', 'json'),
+                )
+
+                response = self.session.get('https://mooc1-api.chaoxing.com/gas/clazz',params=params)
+                course = response.json()["data"][0]["course"]["data"][0]
+                jNodeList = course["knowledge"]["data"]
+
+                for jNode in jNodeList:
+                    #jname
+                    self.jnodeList[jNode["id"]] = {"jname": jNode["name"], "coursename": course["name"],
+                                                         "courseId": course["id"],"parentnodeid":1 if 'parentnodeid' not in course else course["parentnodeid"]}
+                # print(self.jnodeList)
             return True
         except Exception as e:
             loger.error('', exc_info=True)
@@ -107,24 +121,33 @@ class Shuake():
         # 返回本单元对应card列表 以cardid作为索引
         try:
             self.pageList = []
-            for jnodeid in self.courseList:
-                params = (
-                    ('page', '1'),
-                    ('classifyId', jnodeid),
-                    ('element', ''),
-                    ('status', ''),
-                    ('point', ''),
-                    ('name', ''),
-                )
-                response = self.session.get(
-                    'https://tsjy.chaoxing.com/plaza/course/{}/node-list'.format(self.courseList[jnodeid]["courseId"]),
-                    params=params)
-                _PageList = response.json()
-                for page in _PageList["data"]["list"]:
-                    _page = {"pageId": page['nodeId'], "jnodeid": page['classifyId'],
-                             'courseId': int(page['courseId']), 'classifyName': page['classifyName'],
-                             'name': page['name'], 'finishStatus': page['finishStatus'], 'read': page['read']}
+            for jnodeid in self.jnodeList:
+                if self.jnodeList[jnodeid]['coursename'] == "四史学习":
+                    params = (
+                        ('page', '1'),
+                        ('classifyId', jnodeid),
+                        ('element', ''),
+                        ('status', ''),
+                        ('point', ''),
+                        ('name', ''),
+                    )
+                    response = self.session.get(
+                        'https://tsjy.chaoxing.com/plaza/course/{}/node-list'.format(self.jnodeList[jnodeid]["courseId"]),
+                        params=params)
+                    _PageList = response.json()
+                    for page in _PageList["data"]["list"]:
+                        _page = {"pageId": page['nodeId'], "jnodeid": page['classifyId'],
+                                 'courseId': int(page['courseId']), 'classifyName': page['classifyName'],
+                                 'name': page['name'], 'finishStatus': page['finishStatus'], 'read': page['read']}
+                        self.pageList.append(_page)
+                else:
+                    if self.jnodeList[jnodeid]["parentnodeid"]==0:
+                        continue
+                    _page = {"pageId": jnodeid, "jnodeid": jnodeid,
+                             'courseId': int(self.jnodeList[jnodeid]["courseId"]), 'classifyName': self.jnodeList[jnodeid]["coursename"],
+                             'name': self.jnodeList[jnodeid]["jname"], 'finishStatus': None, 'read': None}
                     self.pageList.append(_page)
+                    pass
             # print(self.pageList)
             return True
         except Exception as e:
@@ -174,22 +197,29 @@ class Shuake():
 
     def shuake(self):
         self.init_clazzList()
-        self.init_courseList()
+        self.init_jnodeList()
         self.init_PageList()
         try:
             for pageInfo in self.pageList:
-                if self.clazzList[pageInfo['courseId']]['courseName'].find('四史学习')<0: continue
+                if self.clazzList[pageInfo['courseId']]['courseName'].find('学术规范') < 0:
+                    continue
                 for num in ["0","1"]:
                     cardsInfoList, reportInfo,success= self.get_cards_info(pageInfo,num)
                     if success==False:
                         continue
                     # print(cardsInfoList)
                     for cardInfo in cardsInfoList:
-                        scoreInfo = self.get_scoreInfo(self.clazzList[pageInfo['courseId']]['clazzId'],
-                                                       pageInfo['courseId'])
+                        scoreInfo = {}
                         if self.clazzList[pageInfo['courseId']]['courseName'].find('四史学习')>=0 and scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
+
+                            scoreInfo = self.get_scoreInfo(self.clazzList[pageInfo['courseId']]['clazzId'],
+                                                       pageInfo['courseId'])
+
                             print("\r",self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
-                            return
+                            break
+                        else:
+
+                            scoreInfo["dayScore"] = 100
                         if 'type' not in cardInfo:
                         #cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
                             continue
@@ -378,7 +408,7 @@ if __name__ == '__main__':
                 # mythread.start()
                 # threadList.append(mythread)
                 # time.sleep(5)
-                if user_uname=="18845142702":
+                if user_uname=="18925468581":
                     funShuake(users_info[user_uname])
             for thread in threadList:
                 thread.join()
