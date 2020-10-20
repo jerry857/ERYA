@@ -190,6 +190,9 @@ class Shuake():
                         if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
                             print("\r",self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
                             return
+                        if 'type' not in cardInfo:
+                        #cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
+                            continue
                         if cardInfo['type'] == "video":
                             if 'isPassed' in cardInfo and cardInfo['isPassed']:
                                 continue
@@ -235,7 +238,7 @@ class Shuake():
                                 time.sleep(45)
                         if cardInfo['type'] == "read":
                             readtime = self.get_read_time(pageInfo, cardInfo, reportInfo)
-                            if readtime >= 180:
+                            if readtime >= 0:
                                 continue
                             chapters = self.get_chapters_info(pageInfo, cardInfo, reportInfo)
                             for chapter in chapters:
@@ -370,7 +373,7 @@ if __name__ == '__main__':
                 mythread.start()
                 threadList.append(mythread)
                 time.sleep(5)
-                # if user_uname=="15829380839":
+                # if user_uname=="18845142702":
                 #     funShuake(users_info[user_uname])
             for thread in threadList:
                 thread.join()
