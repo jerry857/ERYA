@@ -264,7 +264,7 @@ class Shuake():
                                 response = self.session.get(reportInfo["reportUrl"] + '/{}'.format(cardInfo2["dtoken"]),
                                                             params=params)
                                 if response.json()["isPassed"]:
-                                    pass
+                                    continue
                                 time.sleep(45)
                         if cardInfo['type'] == "read":
                             readtime = self.get_read_time(pageInfo, cardInfo, reportInfo)
