@@ -58,39 +58,6 @@ class Shuake():
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "登陆失败")
             return False
-
-    def init_jnodeList(self):
-        """
-        :return 以节id作为对课程列表的key
-        """
-
-        try:
-            self.jnodeList = {}
-            for courseid in self.clazzList:
-                classid = self.clazzList[courseid]['clazzId']
-                params = (
-                    ('id', classid),
-                    ('personid', self.puid),
-                    ('fields',
-                     'id,bbsid,classscore,isstart,allowdownload,chatid,name,state,isthirdaq,isfiled,information,discuss,visiblescore,begindate,coursesetting.fields(id,courseid,hiddencoursecover,hiddenwrongset),course.fields(id,name,infocontent,objectid,app,bulletformat,mappingcourseid,imageurl,knowledge.fields(id,name,indexOrder,parentnodeid,status,layer,label,begintime,endtime,attachment.fields(id,type,objectid,extension).type(video)))'),
-                    ('view', 'json'),
-                )
-
-                response = self.session.get('https://mooc1-api.chaoxing.com/gas/clazz',params=params)
-                course = response.json()["data"][0]["course"]["data"][0]
-                jNodeList = course["knowledge"]["data"]
-
-                for jNode in jNodeList:
-                    #jname
-                    self.jnodeList[jNode["id"]] = {"jname": jNode["name"], "coursename": course["name"],
-                                                         "courseId": course["id"],"parentnodeid":1 if 'parentnodeid' not in course else course["parentnodeid"]}
-                # print(self.jnodeList)
-            return True
-        except Exception as e:
-            loger.error('', exc_info=True)
-            loger.info(self.user_info["uname"] + "\t" + "获取课程列表失败")
-            return False
-
     def init_clazzList(self):
         """
                 :return 以course id作为对班列表的key
@@ -108,63 +75,62 @@ class Shuake():
                     self.clazzList[clazz["content"]["course"]["data"][i]["id"]] = {
                         "courseTeacher": clazz["content"]["course"]["data"][i]["teacherfactor"],
                         "clazzId": clazz["content"]["id"], "courseName": clazz["content"]["course"]["data"][i]["name"]}
-            # print(self.clazzList)
             return True
         except Exception as e:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取班级列表失败")
             return False
-
-    def init_PageList(self):
-        # courseid为大课的id 每个大课又包含许多单元（也可以叫做节）
-        # jnodeid为单元id（节id）
-        # 返回本单元对应card列表 以cardid作为索引
+    def init_knowledegList(self):
+        """
+        :return courseId作为对knowledge列表的key
+        """
         try:
-            self.pageList = []
-            for jnodeid in self.jnodeList:
-                if self.jnodeList[jnodeid]['coursename'] == "四史学习":
-                    params = (
-                        ('page', '1'),
-                        ('classifyId', jnodeid),
-                        ('element', ''),
-                        ('status', ''),
-                        ('point', ''),
-                        ('name', ''),
-                    )
-                    response = self.session.get(
-                        'https://tsjy.chaoxing.com/plaza/course/{}/node-list'.format(self.jnodeList[jnodeid]["courseId"]),
-                        params=params)
-                    _PageList = response.json()
-                    for page in _PageList["data"]["list"]:
-                        _page = {"pageId": page['nodeId'], "jnodeid": page['classifyId'],
-                                 'courseId': int(page['courseId']), 'classifyName': page['classifyName'],
-                                 'name': page['name'], 'finishStatus': page['finishStatus'], 'read': page['read']}
-                        self.pageList.append(_page)
-                else:
-                    if self.jnodeList[jnodeid]["parentnodeid"]==0:
-                        continue
-                    _page = {"pageId": jnodeid, "jnodeid": jnodeid,
-                             'courseId': int(self.jnodeList[jnodeid]["courseId"]), 'classifyName': self.jnodeList[jnodeid]["coursename"],
-                             'name': self.jnodeList[jnodeid]["jname"], 'finishStatus': None, 'read': None}
-                    self.pageList.append(_page)
-                    pass
-            # print(self.pageList)
+            self.knowlegeList = {}
+            for courseid in self.clazzList:
+                clazzId = self.clazzList[courseid]['clazzId']
+                params = (
+                    ('id', clazzId),
+                    ('personid', self.puid),
+                    ('fields',
+                     'id,bbsid,classscore,isstart,allowdownload,chatid,name,state,isthirdaq,isfiled,information,discuss,visiblescore,begindate,coursesetting.fields(id,courseid,hiddencoursecover,hiddenwrongset),course.fields(id,name,infocontent,objectid,app,bulletformat,mappingcourseid,imageurl,knowledge.fields(id,name,indexOrder,parentnodeid,status,layer,label,begintime,endtime,attachment.fields(id,type,objectid,extension).type(video)))'),
+                    ('view', 'json'),
+                )
+
+                response = self.session.get('https://mooc1-api.chaoxing.com/gas/clazz', params=params)
+                course = response.json()["data"][0]["course"]["data"][0]
+                knowledegList = course["knowledge"]["data"]
+                if course["id"] not in self.knowlegeList:
+                    self.knowlegeList[course["id"]]=[]
+                jDict={}
+                def knowledeg_sort(knowlege):
+                    return knowlege["knowlegeId"]+jDict[knowlege["parentnodeid"]]["index"]*1000000000
+                index=0
+                for knowlege in knowledegList:
+                    # knowlegeName
+                    if knowlege["parentnodeid"]==0:
+                        jDict[knowlege["id"]]=knowlege
+                        jDict[knowlege["id"]]["index"]=index
+                        index+=1
+                        continue# 分隔栏信息
+                    self.knowlegeList[course["id"]].append({"knowlegeName": knowlege["name"], "courseName": course["name"],"knowlegeId": knowlege["id"],
+                                           "courseId": course["id"],"clazzId":clazzId,"parentnodeid":knowlege["parentnodeid"],#章id
+                                            "parentnodeNmae":jDict[knowlege["parentnodeid"]]["name"],
+                                           "status":knowlege["status"]})
+                    self.knowlegeList[course["id"]].sort(key=knowledeg_sort)
+                # print(self.knowlegeList)
             return True
         except Exception as e:
             loger.error('', exc_info=True)
-            loger.info(self.user_info["uname"] + "\t" + "获取视频列表失败")
+            loger.info(self.user_info["uname"] + "\t" + "获取课程列表失败")
             return False
-
-    def get_cards_info(self, pageInfo,num):
+    def get_cards_info(self, knowledge, num):
         # video 为videoList的字典
-        pageid = pageInfo["pageId"]
-        courseid = pageInfo["courseId"]
-        clazzid = self.clazzList[courseid]['clazzId']
+        clazzid = knowledge['clazzId']
         try:
             params = (
                 ('clazzid', clazzid),
-                ('courseid', courseid),
-                ('knowledgeid', pageid),
+                ('courseid', knowledge["courseId"]),
+                ('knowledgeid', knowledge["knowlegeId"]),
                 ('num', num),
                 ('isPhone', '1'),
                 ('control', 'true'),
@@ -174,13 +140,11 @@ class Shuake():
             cardsInfo = json.loads(cardsInfo)
             cardsInfoList = cardsInfo["attachments"]
             reportInfo = cardsInfo["defaults"]
-            return cardsInfoList, reportInfo,True
+            return cardsInfoList, reportInfo, True
         except:
             loger.info('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取视cards息失败")
-            return None,None,False
-
-
+            return None, None, False
     def get_scoreInfo(self, classId, courseId):
         try:
             params = (
@@ -194,128 +158,142 @@ class Shuake():
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取分数信息失败")
             return False
-
     def shuake(self):
         self.init_clazzList()
-        self.init_jnodeList()
-        self.init_PageList()
+        self.init_knowledegList()
         try:
-            for pageInfo in self.pageList:
+            for courseId in self.knowlegeList:
                 flag = 0
-                for course in self.user_info['courseName']:
-                    if self.clazzList[pageInfo['courseId']]['courseName'].find(course) >= 0 :
-                        flag =1
+                if "courseName" in self.user_info:
+                    for course in self.user_info['courseName']:
+                        if self.clazzList[courseId]['courseName'].find(course) >= 0:
+                            flag = 1
+                            break
+                else:
+                    for course in self.GLOBAL['courseName']:
+                        if self.clazzList[courseId]['courseName'].find(course) >= 0:
+                            flag = 1
+                            break
                 if flag != 1:
                     continue
-                for num in ["0","1"]:
-                    cardsInfoList, reportInfo,success= self.get_cards_info(pageInfo,num)
-                    if success==False:
-                        continue
-                    # print(cardsInfoList)
-                    for cardInfo in cardsInfoList:
-                        scoreInfo = {}
-                        if self.clazzList[pageInfo['courseId']]['courseName'].find('四史学习')>=0:
-                            scoreInfo = self.get_scoreInfo(self.clazzList[pageInfo['courseId']]['clazzId'],
-                                                           pageInfo['courseId'])
-                            if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
-                                print("\r",self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
-                                break
-                        else:
-
-                            scoreInfo["dayScore"] = 100
-                        if 'type' not in cardInfo:
-                        #cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
+                for knowledge in self.knowlegeList[courseId]:
+                    if knowledge["status"]!="open":continue
+                    for num in ["0", "1"]:
+                        cardsInfoList, reportInfo, success = self.get_cards_info(knowledge, num)
+                        if success == False:
                             continue
-                        if cardInfo['type'] == "video":
-                            if cardInfo['isPassed']:
-                                continue
-                            params = (
-                                ('k', '123845'),
-                                ('flag', 'normal'),
-                                ('_dc', '1602816161570'),
-                            )
-                            cardInfo2 = self.session.get(
-                                'https://mooc1-api.chaoxing.com/ananas/status/{}'.format(cardInfo["objectId"]),
-                                params=params).json()
-                            for i in range(math.ceil(cardInfo2['duration'] / 60)):
-                                playingTime = i * 60 if i * 60 <= cardInfo2['duration'] else cardInfo2['duration']
-                                print("\r{}\t当前：{}分\t正在刷课：".format(self.user_info["ps"],scoreInfo["dayScore"]), "playingTime:{}".format(playingTime),
-                                      pageInfo["classifyName"],
-                                      pageInfo["name"],cardInfo["property"]['name'], end="")
-                                # [clazzId][userid][jobid][objectId][currentTimeSec * 1000][d_yHJ!$pdA~5][duration * 1000][clipTime]
-                                enc = "[{}][{}][{}][{}][{}][d_yHJ!$pdA~5][{}][{}]".format(reportInfo["clazzId"],
-                                                                                          self.puid, cardInfo["jobid"],
-                                                                                          cardInfo["objectId"],
-                                                                                          playingTime * 1000,
-                                                                                          cardInfo2['duration'] * 1000,
-                                                                                          '0_' + str(cardInfo2['duration']))
-                                md5enc = hashlib.md5(enc.encode()).hexdigest()
-                                params = (
-                                    ('clazzId', reportInfo["clazzId"]),
-                                    ('playingTime', playingTime),
-                                    ('duration', cardInfo2['duration']),
-                                    ('clipTime', '0_' + str(cardInfo2['duration'])),
-                                    ('objectId', cardInfo["objectId"]),
-                                    ('otherInfo', cardInfo["otherInfo"]),
-                                    ('jobid', cardInfo["jobid"]),
-                                    ('userid', self.puid),
-                                    ('isdrag', '3'),
-                                    ('enc', md5enc),
-                                    ('dtype', 'video'),
-                                    ('view', 'json'),
-                                )
-                                response = self.session.get(reportInfo["reportUrl"] + '/{}'.format(cardInfo2["dtoken"]),
-                                                            params=params)
-                                if response.json()["isPassed"]:
-                                    continue
-                                time.sleep(45)
-                        if cardInfo['type'] == "read":
-                            readtime = self.get_read_time(pageInfo, cardInfo, reportInfo)
-                            if config.readTimelimit!=0 and readtime >config.readTimelimit:
-                                continue
-                            if config.readFrom0read and readtime>0:#从没开始过的章节开始阅读
-                                continue
-                            chapters,lastChapter = self.get_chapters_info(pageInfo, cardInfo, reportInfo)
-                            if not config.readFromLastChapter:
-                                lastChapter=0 #如果本句注释从上次记录的chapter开始阅读
-                            for chapter in chapters[lastChapter:]:
-                                print("\r{}\t当前：{}分\t正在阅读：".format(self.user_info["ps"],scoreInfo["dayScore"]),
-                                      pageInfo["classifyName"],
-                                      pageInfo["name"], cardInfo["property"]["title"], chapter["chaptername"], end="")
-                                response = self.session.get(chapter["url"], ).text
-                                params_info = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(chapter["url"]).query))
-                                try:
-                                    try:
-                                        ponits = eval(re.search(r"points:'(.*?)'", response).group(1))
-                                        total_points = len(ponits)
-                                    except:
-                                        total_points=1
-                                    current_point = 1
-                                    while (current_point <= total_points):
-                                        current_point = random.randint(current_point, total_points)
-                                        params = (
-                                            ('courseId', pageInfo['courseId']),
-                                            ('chapterId', chapter["id"][8:]),
-                                            ('point', current_point),
-                                            ('_from_', params_info['_from_']),
-                                            ('rtag', params_info['rtag']),
-                                        )
-                                        response = self.session.get(
-                                            'https://special.zhexuezj.cn/special/course/addUserPoint', params=params)
-                                        resp = response.json()
-                                        time.sleep(5)
-
-                                except AttributeError:
-                                    continue
+                        # print(cardsInfoList)
+                        for cardInfo in cardsInfoList:
+                            scoreInfo = {}
+                            if knowledge["courseName"].find('1111四史学习') >= 0:
+                                scoreInfo = self.get_scoreInfo(self.clazzList[knowledge['courseId']]['clazzId'],
+                                                               knowledge['courseId'])
+                                if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
+                                    print("\r", self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
+                                    break
+                            else:
+                                scoreInfo["dayScore"] = 100
+                            if 'type' not in cardInfo:
+                                continue# cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
+                            if cardInfo['type'] == "video":
+                                self.watch_video(cardInfo,reportInfo, knowledge,  scoreInfo)
+                            if cardInfo['type'] == "read":
+                                self.read_book(cardInfo,reportInfo,  knowledge, scoreInfo)
         except:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "刷课意外")
             return False
 
-    def get_read_time(self, pageInfo, cardInfo, reportInfo):
+    def watch_video(self,cardInfo,reportInfo, knowledge,  scoreInfo):
+        if 'isPassed' in cardInfo and cardInfo['isPassed']:
+            return
+        params = (
+            ('k', '123845'),
+            ('flag', 'normal'),
+            ('_dc', '1602816161570'),
+        )
+        cardInfo2 = self.session.get(
+            'https://mooc1-api.chaoxing.com/ananas/status/{}'.format(cardInfo["objectId"]),
+            params=params).json()
+        for i in range(math.ceil(cardInfo2['duration'] / 60)):
+            playingTime = i * 60 if i * 60 <= cardInfo2['duration'] else cardInfo2['duration']
+            print("\r{}\t当前：{}分\t正在刷课：".format(self.user_info["ps"], scoreInfo["dayScore"]),
+                  "playingTime:{}".format(playingTime),
+                  knowledge["courseName"],
+                  knowledge["parentnodeNmae"],
+                  knowledge["knowlegeName"], cardInfo["property"]['name'], end="")
+            # [clazzId][userid][jobid][objectId][currentTimeSec * 1000][d_yHJ!$pdA~5][duration * 1000][clipTime]
+            enc = "[{}][{}][{}][{}][{}][d_yHJ!$pdA~5][{}][{}]".format(reportInfo["clazzId"],
+                                                                      self.puid, cardInfo["jobid"],
+                                                                      cardInfo["objectId"],
+                                                                      playingTime * 1000,
+                                                                      cardInfo2['duration'] * 1000,
+                                                                      '0_' + str(cardInfo2['duration']))
+            md5enc = hashlib.md5(enc.encode()).hexdigest()
+            params = (
+                ('clazzId', reportInfo["clazzId"]),
+                ('playingTime', playingTime),
+                ('duration', cardInfo2['duration']),
+                ('clipTime', '0_' + str(cardInfo2['duration'])),
+                ('objectId', cardInfo["objectId"]),
+                ('otherInfo', cardInfo["otherInfo"]),
+                ('jobid', cardInfo["jobid"]),
+                ('userid', self.puid),
+                ('isdrag', '3'),
+                ('enc', md5enc),
+                ('dtype', 'video'),
+                ('view', 'json'),
+            )
+            response = self.session.get(reportInfo["reportUrl"] + '/{}'.format(cardInfo2["dtoken"]),
+                                        params=params)
+            if response.json()["isPassed"]:
+                continue
+            time.sleep(45)
+
+    def read_book(self,cardInfo,reportInfo, knowledge,  scoreInfo):
+        readtime = self.get_read_time(knowledge, cardInfo, reportInfo)
+        if config.readTimelimit != 0 and readtime > config.readTimelimit:
+            return
+        if config.readFrom0read and readtime > 0:  # 从没开始过的章节开始阅读
+            return
+        chapters, lastChapter = self.get_chapters_info(knowledge, cardInfo, reportInfo)
+        if not config.readFromLastChapter:
+            lastChapter = 0  # 如果本句注释从上次记录的chapter开始阅读
+        for chapter in chapters[lastChapter:]:
+            print("\r{}\t当前：{}分\t正在阅读：".format(self.user_info["ps"], scoreInfo["dayScore"]),
+                  knowledge["courseName"],
+                  knowledge["parentnodeNmae"],
+                  knowledge["knowlegeName"], cardInfo["property"]["title"], chapter["chaptername"], end="")
+            response = self.session.get(chapter["url"], ).text
+            params_info = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(chapter["url"]).query))
+            try:
+                try:
+                    ponits = eval(re.search(r"points:'(.*?)'", response).group(1))
+                    total_points = len(ponits)
+                except:
+                    total_points = 1
+                current_point = 1
+                while (current_point < total_points):
+                    current_point = random.randint(current_point, total_points)
+                    params = (
+                        ('courseId', knowledge['courseId']),
+                        ('chapterId', chapter["id"][8:]),
+                        ('point', current_point),
+                        ('_from_', params_info['_from_']),
+                        ('rtag', params_info['rtag']),
+                    )
+                    response = self.session.get(
+                        'https://special.zhexuezj.cn/special/course/addUserPoint', params=params)
+                    resp = response.json()
+                    time.sleep(5)
+
+            except AttributeError:
+                continue
+
+    def get_read_time(self, knowledge, cardInfo, reportInfo):
         try:
             params = (
-                ('courseid', pageInfo['courseId']),
+                ('courseid', knowledge['courseId']),
                 ('knowledgeid', reportInfo["knowledgeid"]),
                 ('userid', 'null'),
                 ('ut', 's'),
@@ -334,7 +312,7 @@ class Shuake():
             loger.info(self.user_info["uname"] + "\t" + "获取分数信息失败")
             return False
 
-    def get_chapters_info(self, pageInfo, cardInfo, reportInfo):
+    def get_chapters_info(self, knowledge, cardInfo, reportInfo):
         try:
             params = (
                 ('classId', '33359344'),
@@ -343,8 +321,8 @@ class Shuake():
             enc = self.session.get('https://tsjy.chaoxing.com/plaza/user/215091538/340728584/modify-node',
                                    params=params).json()["data"]["enc"]
             params = (
-                ('_from_', '{}_{}_{}_{}'.format(pageInfo['courseId'], reportInfo['clazzId'], self.puid, enc.lower())),
-                ('rtag', '{}_{}_{}'.format(pageInfo['pageId'], reportInfo["cpi"], cardInfo["jobid"])),
+                ('_from_', '{}_{}_{}_{}'.format(knowledge['courseId'], reportInfo['clazzId'], self.puid, enc.lower())),
+                ('rtag', '{}_{}_{}'.format(knowledge['knowlegeId'], reportInfo["cpi"], cardInfo["jobid"])),
             )
             response = self.session.get(
                 'https://special.zhexuezj.cn/mobile/mooc/tocourse/{}.html'.format(cardInfo["property"]["id"]),
@@ -353,23 +331,23 @@ class Shuake():
             chapters_lxml = soup.find(attrs={"class": "topicList"})
             chapters_a = chapters_lxml.find_all(name="a")
             chapters = []
-            lastChapter=0
-            for i,chapter in enumerate(chapters_a):
+            lastChapter = 0
+            for i, chapter in enumerate(chapters_a):
                 try:
                     chapter_dict = {}
                     chapter_dict["url"] = chapter["attr"]
                     chapter_dict["chaptername"] = chapter["chaptername"]
                     chapter_dict["id"] = chapter["id"]
-                    if chapter["style"].find("color")>=0:
-                        lastChapter=i
+                    if chapter["style"].find("color") >= 0:
+                        lastChapter = i
                     chapters.append(chapter_dict)
                 except KeyError:
                     continue
-            return chapters,lastChapter
+            return chapters, lastChapter
         except:
             loger.info('', exc_info=True)
-            loger.info(self.user_info["uname"] + "\t" + "获取chapter_info 失败"+"  可能是资源下线，不是程序错误")
-            return [],0
+            loger.info(self.user_info["uname"] + "\t" + "获取chapter_info 失败" + "  可能是资源下线，不是程序错误")
+            return [], 0
 
     def clear(self):
         self.session.close()
@@ -403,7 +381,7 @@ if __name__ == '__main__':
     threadList = []
     try:
         JSON_INFO = utils.users_info_load(config.users_path)
-        GLOBAL = JSON_INFO["GLOBAL"]
+        GLOBAL = JSON_INFO["GLOBAL"]  ######
         users_info = JSON_INFO["users_info"]
         try:
             for user_uname in users_info:
@@ -411,7 +389,7 @@ if __name__ == '__main__':
                 # mythread.start()
                 # threadList.append(mythread)
                 # time.sleep(5)
-                if user_uname=="18925468581":
+                if user_uname == "18845142702":
                     funShuake(users_info[user_uname])
             for thread in threadList:
                 thread.join()
