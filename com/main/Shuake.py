@@ -103,7 +103,7 @@ class Shuake():
                     self.knowlegeList[course["id"]]=[]
                 jDict={}
                 def knowledeg_sort(knowlege):
-                    return knowlege["knowlegeId"]+jDict[knowlege["parentnodeid"]]["index"]*1000000000
+                    return knowlege["knowlegeId"]#+jDict[knowlege["parentnodeid"]]["index"]*1000000000
                 index=0
                 for knowlege in knowledegList:
                     # knowlegeName
@@ -111,10 +111,12 @@ class Shuake():
                         jDict[knowlege["id"]]=knowlege
                         jDict[knowlege["id"]]["index"]=index
                         index+=1
-                        continue# 分隔栏信息
+                for knowlege in knowledegList:
+                    if knowlege["parentnodeid"] == 0:
+                        continue
                     self.knowlegeList[course["id"]].append({"knowlegeName": knowlege["name"], "courseName": course["name"],"knowlegeId": knowlege["id"],
                                            "courseId": course["id"],"clazzId":clazzId,"parentnodeid":knowlege["parentnodeid"],#章id
-                                            "parentnodeNmae":jDict[knowlege["parentnodeid"]]["name"],
+                                            "parentnodeNmae":knowlege["parentnodeid"] if knowlege["parentnodeid"] not in jDict else jDict[knowlege["parentnodeid"]]["name"],
                                            "status":knowlege["status"]})
                     self.knowlegeList[course["id"]].sort(key=knowledeg_sort)
                 # print(self.knowlegeList)
@@ -185,7 +187,7 @@ class Shuake():
                         # print(cardsInfoList)
                         for cardInfo in cardsInfoList:
                             scoreInfo = {}
-                            if knowledge["courseName"].find('1111四史学习') >= 0:
+                            if knowledge["courseName"].find('四史学习') >= 0:
                                 scoreInfo = self.get_scoreInfo(self.clazzList[knowledge['courseId']]['clazzId'],
                                                                knowledge['courseId'])
                                 if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
@@ -389,7 +391,7 @@ if __name__ == '__main__':
                 # mythread.start()
                 # threadList.append(mythread)
                 # time.sleep(5)
-                if user_uname == "18845142702":
+                if user_uname == "18925468581":
                     funShuake(users_info[user_uname])
             for thread in threadList:
                 thread.join()
