@@ -1,0 +1,1223 @@
+2020-10-22 09:08:18,967 - Shuake.py[line:386] - INFO: 运行
+2020-10-22 09:40:42,640 - Shuake.py[line:389] - INFO: 运行
+2020-10-22 09:40:49,655 - Shuake.py[line:129] - ERROR: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 114, in init_knowledegList
+    indexorder+=(jDict[parentnodeid]["indexorder"]*(10**k))
+KeyError: 0
+2020-10-22 09:40:49,657 - Shuake.py[line:130] - INFO: 18319658179	获取课程列表失败
+2020-10-22 09:42:19,015 - Shuake.py[line:390] - INFO: 运行
+2020-10-22 11:10:03,638 - Shuake.py[line:405] - INFO: 运行
+2020-10-22 11:10:46,111 - Shuake.py[line:404] - INFO: 运行
+2020-10-22 13:05:23,774 - Shuake.py[line:497] - INFO: 运行
+2020-10-22 13:05:24,504 - Shuake.py[line:235] - ERROR: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 208, in shuake
+    if self.knowledgeIsFinish(knowledge)["unfinishcount"] <= 0:
+KeyError: 'unfinishcount'
+2020-10-22 13:05:24,507 - Shuake.py[line:236] - INFO: 18319658179	刷课意外
+2020-10-22 13:05:58,998 - Shuake.py[line:497] - INFO: 运行
+2020-10-22 13:06:51,393 - Shuake.py[line:497] - INFO: 运行
+2020-10-22 13:07:09,555 - Shuake.py[line:235] - ERROR: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 208, in shuake
+    if self.knowledgeIsFinish(knowledge)["unfinishcount"] <= 0:
+KeyError: 'unfinishcount'
+2020-10-22 13:09:15,165 - Shuake.py[line:497] - INFO: 运行
+2020-10-22 13:09:20,285 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:09:20,287 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:09:20,369 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:09:20,369 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:09:25,957 - Shuake.py[line:235] - ERROR: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 208, in shuake
+    if self.knowledgeIsFinish(knowledge)["unfinishcount"] <= 0:
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 150, in knowledgeIsFinish
+    return response.json()[str(knowledge["knowlegeId"])]
+KeyError: '361863253'
+2020-10-22 13:10:53,467 - Shuake.py[line:497] - INFO: 运行
+2020-10-22 13:12:14,652 - Shuake.py[line:497] - INFO: 运行
+2020-10-22 13:12:20,022 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:12:20,024 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:12:20,104 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:12:20,104 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:12:24,616 - Shuake.py[line:235] - ERROR: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 208, in shuake
+    if self.knowledgeIsFinish(knowledge)[str(knowledge["knowlegeId"])]["unfinishcount"] <= 0:
+KeyError: '361863253'
+2020-10-22 13:15:26,899 - Shuake.py[line:497] - INFO: 运行
+2020-10-22 13:15:32,792 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:32,794 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:32,871 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:32,871 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:32,949 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:32,950 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,029 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,030 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,109 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,110 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,188 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,189 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,272 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,273 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,351 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,352 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,429 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,429 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,506 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,506 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,586 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,587 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,665 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,665 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,744 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,745 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,823 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,824 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,901 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,902 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:33,981 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:33,982 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,060 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,061 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,140 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,140 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,220 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,221 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,298 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,299 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,378 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,378 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,456 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,457 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,535 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,536 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,614 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,614 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,693 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,693 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,772 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,772 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,850 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,851 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:34,929 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:34,930 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,008 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,009 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,088 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,089 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,167 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,168 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,246 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,247 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,324 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,325 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,406 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,407 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,485 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,485 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,564 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,565 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,644 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,644 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,722 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,723 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,801 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,802 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,879 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,880 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:35,958 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:35,959 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,038 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,039 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,116 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,117 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,215 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,216 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,296 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,297 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,409 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,410 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,487 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,488 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,567 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,567 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,647 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,647 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,727 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,727 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,805 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,806 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,883 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,884 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:36,963 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:36,964 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,041 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,042 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,119 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,120 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,197 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,198 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,276 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,276 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,353 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,354 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,433 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,434 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,512 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,513 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,592 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,593 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,672 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,673 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:15:37,752 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:15:37,753 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:18:36,591 - Shuake.py[line:497] - INFO: 运行
+2020-10-22 13:41:43,641 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:43,643 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:43,720 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:43,721 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:43,802 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:43,803 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:43,881 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:43,881 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:43,958 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:43,959 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,036 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,037 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,113 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,114 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,192 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,192 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,269 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,270 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,347 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,348 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,425 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,426 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,503 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,503 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,583 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,583 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,660 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,661 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,738 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,739 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,815 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,816 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,893 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,894 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:44,971 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:44,971 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,048 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,048 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,126 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,126 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,203 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,204 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,282 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,282 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,358 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,359 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,436 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,436 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,514 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,514 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,590 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,591 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,668 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,669 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,745 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,746 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,822 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,822 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,899 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,900 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:45,976 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:45,977 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,054 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,054 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,131 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,131 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,207 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,208 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,286 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,286 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,363 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,364 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,440 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,441 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,517 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,518 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,595 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,596 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,672 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,673 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,748 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,749 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,826 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,826 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,904 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,905 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:46,988 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:46,989 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,065 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,065 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,143 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,143 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,220 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,221 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,298 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,299 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,375 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,376 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,453 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,453 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,529 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,530 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,607 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,608 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,685 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,686 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,764 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,765 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,841 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,842 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,918 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,918 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:47,994 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:47,995 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:48,071 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:48,072 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:48,149 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:48,150 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:48,226 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:48,227 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:48,303 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:48,304 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:48,380 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:48,381 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:48,461 - Shuake.py[line:171] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 165, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:48,461 - Shuake.py[line:172] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:53,279 - Shuake.py[line:507] - INFO: 运行
+2020-10-22 13:41:56,648 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:56,650 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:56,729 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:56,730 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:56,806 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:56,807 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:56,885 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:56,885 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:56,962 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:56,963 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:57,040 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:57,041 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:57,117 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:57,117 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:57,558 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:57,558 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:57,636 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:57,636 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:57,713 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:57,713 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:57,801 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:57,802 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:57,895 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:57,896 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:57,972 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:57,973 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,049 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,050 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,128 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,128 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,204 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,205 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,282 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,283 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,359 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,360 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,436 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,437 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,513 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,513 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,592 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,593 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,671 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,672 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,751 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,752 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,829 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,829 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,906 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,907 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:58,983 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:58,984 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,062 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,062 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,139 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,139 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,217 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,218 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,294 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,295 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,371 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,372 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,449 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,450 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,527 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,528 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,604 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,605 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,682 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,683 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,761 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,762 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,839 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,839 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,915 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,916 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:41:59,993 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:41:59,994 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,070 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,070 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,148 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,149 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,225 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,226 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,302 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,303 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,380 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,380 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,457 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,458 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,535 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,535 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,612 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,612 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,689 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,689 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,765 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,766 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,843 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,844 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,920 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,921 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:00,998 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:00,999 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,076 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,077 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,154 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,155 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,232 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,233 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,309 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,310 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,388 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,389 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,465 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,466 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,542 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,543 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,620 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,621 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,699 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,700 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,776 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,776 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:01,853 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 174, in get_cards_info
+    cardsInfo = re.search(r"window.AttachmentSetting =(.*?);\n", response).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2020-10-22 13:42:01,854 - Shuake.py[line:181] - INFO: 18319658179	获取视cards息失败
+2020-10-22 13:42:25,660 - Shuake.py[line:507] - INFO: 运行
+2020-10-22 13:44:08,962 - Shuake.py[line:507] - INFO: 运行
+2020-10-22 13:44:39,942 - Shuake.py[line:245] - ERROR: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 216, in shuake
+    start,id=self.knowledgeStart(self.knowlegeList[courseId])
+TypeError: cannot unpack non-iterable NoneType object
+2020-10-22 13:45:27,380 - Shuake.py[line:508] - INFO: 运行
+2020-10-22 13:45:58,958 - Shuake.py[line:508] - INFO: 运行
+2020-10-22 13:47:13,627 - Shuake.py[line:508] - INFO: 运行
+2020-10-22 13:51:38,577 - Shuake.py[line:507] - INFO: 运行
+2020-10-22 13:55:15,189 - Shuake.py[line:507] - INFO: 运行
+2020-10-22 14:01:13,597 - Shuake.py[line:507] - INFO: 运行
+2020-10-22 14:01:14,886 - Shuake.py[line:246] - ERROR: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 244, in shuake
+    self.dati(cardInfo, reportInfo, knowledge, scoreInfo)
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 310, in dati
+    ('knowledgeId', knowledge["knowledgeId"]),
+KeyError: 'knowledgeId'
+2020-10-22 14:03:04,461 - Shuake.py[line:247] - INFO: 18319658179	刷课意外
+2020-10-22 14:03:11,834 - Shuake.py[line:507] - INFO: 运行
