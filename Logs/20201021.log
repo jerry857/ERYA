@@ -190,3 +190,11 @@ Traceback (most recent call last):
     chapters_a = chapters_lxml.find_all(name="a")
 AttributeError: 'NoneType' object has no attribute 'find_all'
 2020-10-21 21:53:48,820 - Shuake.py[line:349] - INFO: 18845142702	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-21 22:11:42,183 - Shuake.py[line:380] - INFO: 运行
+2020-10-21 22:27:40,693 - Shuake.py[line:380] - INFO: 运行
+2020-10-21 22:31:52,174 - Shuake.py[line:380] - INFO: 运行
+2020-10-21 22:32:38,220 - Shuake.py[line:380] - INFO: 运行
+2020-10-21 22:52:16,499 - Shuake.py[line:380] - INFO: 运行
+2020-10-21 22:55:41,030 - Shuake.py[line:382] - INFO: 运行
+2020-10-21 22:56:03,910 - Shuake.py[line:382] - INFO: 运行
+2020-10-21 22:56:20,289 - Shuake.py[line:383] - INFO: 运行

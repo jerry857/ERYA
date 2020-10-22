@@ -58,6 +58,7 @@ class Shuake():
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "登陆失败")
             return False
+
     def init_clazzList(self):
         """
                 :return 以course id作为对班列表的key
@@ -80,6 +81,7 @@ class Shuake():
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取班级列表失败")
             return False
+
     def init_knowledegList(self):
         """
         :return courseId作为对knowledge列表的key
@@ -92,7 +94,7 @@ class Shuake():
                     ('id', clazzId),
                     ('personid', self.puid),
                     ('fields',
-                     'id,bbsid,classscore,isstart,allowdownload,chatid,name,state,isthirdaq,isfiled,information,discuss,visiblescore,begindate,coursesetting.fields(id,courseid,hiddencoursecover,hiddenwrongset),course.fields(id,name,infocontent,objectid,app,bulletformat,mappingcourseid,imageurl,knowledge.fields(id,name,indexOrder,parentnodeid,status,layer,label,begintime,endtime,attachment.fields(id,type,objectid,extension).type(video)))'),
+                     'id,bbsid,classscore,isstart,allowdownload,chatid,information,discuss,name,state,isfiled,isthirdaq,visiblescore,begindate,course.fields(id,name,infocontent,objectid,app,mappingcourseid,coursesetting.fields(id,courseid,hiddencoursecover,hiddenwrongset),imageurl,bulletformat,knowledge.fields(id,lastmodifytime,createtime,begintime,name,indexOrder,parentnodeid,status,layer,label,card.fields(id,title),attachment.fields(id,objectid,type,extension).type(video)))'),
                     ('view', 'json'),
                 )
 
@@ -100,22 +102,33 @@ class Shuake():
                 course = response.json()["data"][0]["course"]["data"][0]
                 knowledegList = course["knowledge"]["data"]
                 if course["id"] not in self.knowlegeList:
-                    self.knowlegeList[course["id"]]=[]
-                jDict={}
+                    self.knowlegeList[course["id"]] = []
+                jDict = {}
+
                 def knowledeg_sort(knowlege):
-                    return knowlege["knowlegeId"]+jDict[knowlege["parentnodeid"]]["index"]*1000000000
-                index=0
+                    return knowlege["indexorder"]
+
                 for knowlege in knowledegList:
-                    # knowlegeName
-                    if knowlege["parentnodeid"]==0:
-                        jDict[knowlege["id"]]=knowlege
-                        jDict[knowlege["id"]]["index"]=index
-                        index+=1
-                        continue# 分隔栏信息
-                    self.knowlegeList[course["id"]].append({"knowlegeName": knowlege["name"], "courseName": course["name"],"knowlegeId": knowlege["id"],
-                                           "courseId": course["id"],"clazzId":clazzId,"parentnodeid":knowlege["parentnodeid"],#章id
-                                            "parentnodeNmae":jDict[knowlege["parentnodeid"]]["name"],
-                                           "status":knowlege["status"]})
+                    jDict[knowlege["id"]] = knowlege
+                for knowlege in knowledegList:
+                    if knowlege["parentnodeid"] == 0: continue  # 章标题
+                    parentnodeid = knowlege["parentnodeid"]
+                    indexorder = knowlege["indexorder"]
+                    k = 2
+                    while (True):
+                        if jDict[parentnodeid]["parentnodeid"] == 0:
+                            indexorder += (jDict[parentnodeid]["indexorder"] * (10 ** k))
+                            break
+                        else:
+                            parentnodeid = jDict[parentnodeid]["parentnodeid"]
+                    self.knowlegeList[course["id"]].append(
+                        {"knowlegeName": knowlege["name"], "courseName": course["name"], "knowledgeId": knowlege["id"],
+                         "courseId": course["id"], "clazzId": clazzId, "parentnodeid": parentnodeid,
+                         # 章id
+                         "parentnodeNmae": jDict[parentnodeid]["name"],
+                         "indexorder": indexorder,
+                         "card": knowlege["card"]["data"],
+                         "status": knowlege["status"]})
                     self.knowlegeList[course["id"]].sort(key=knowledeg_sort)
                 # print(self.knowlegeList)
             return True
@@ -123,6 +136,29 @@ class Shuake():
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取课程列表失败")
             return False
+
+    def knowledgeStart(self, knowledegList):
+        knowledge = knowledegList[0]
+        nodes = str(knowledge["knowledgeId"])
+        for node in knowledegList:
+            nodes += "," + str(node["knowledgeId"])
+        data = {
+            'clazzid': knowledge["clazzId"],
+            'userid': self.puid,
+            'view': 'json',
+            'nodes': nodes,
+            'courseid': knowledge["courseId"]
+        }
+        response = self.session.post('https://mooc1-api.chaoxing.com/job/myjobsnodesmap', data=data).json()
+        start = None
+        id = None
+        for i, knowledge in enumerate(knowledegList):
+            knowledgeId = str(knowledge["knowledgeId"])
+            if response[knowledgeId]["unfinishcount"] > 0:
+                start = i
+                break
+        return start
+
     def get_cards_info(self, knowledge, num):
         # video 为videoList的字典
         clazzid = knowledge['clazzId']
@@ -130,7 +166,7 @@ class Shuake():
             params = (
                 ('clazzid', clazzid),
                 ('courseid', knowledge["courseId"]),
-                ('knowledgeid', knowledge["knowlegeId"]),
+                ('knowledgeid', knowledge["knowledgeId"]),
                 ('num', num),
                 ('isPhone', '1'),
                 ('control', 'true'),
@@ -145,6 +181,7 @@ class Shuake():
             loger.info('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取视cards息失败")
             return None, None, False
+
     def get_scoreInfo(self, classId, courseId):
         try:
             params = (
@@ -158,6 +195,7 @@ class Shuake():
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取分数信息失败")
             return False
+
     def shuake(self):
         self.init_clazzList()
         self.init_knowledegList()
@@ -176,35 +214,40 @@ class Shuake():
                             break
                 if flag != 1:
                     continue
-                for knowledge in self.knowlegeList[courseId]:
-                    if knowledge["status"]!="open":continue
-                    for num in ["0", "1"]:
+                start = self.knowledgeStart(self.knowlegeList[courseId])
+                if start is None: raise Exception("获取起始点出错")
+                for knowledge in self.knowlegeList[courseId][start:]:
+                    for num in range(len(knowledge["card"])):
+                        num = 1
                         cardsInfoList, reportInfo, success = self.get_cards_info(knowledge, num)
                         if success == False:
-                            continue
+                            return
                         # print(cardsInfoList)
                         for cardInfo in cardsInfoList:
-                            scoreInfo = {}
-                            if knowledge["courseName"].find('1111四史学习') >= 0:
-                                scoreInfo = self.get_scoreInfo(self.clazzList[knowledge['courseId']]['clazzId'],
-                                                               knowledge['courseId'])
-                                if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
-                                    print("\r", self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
-                                    break
-                            else:
-                                scoreInfo["dayScore"] = 100
-                            if 'type' not in cardInfo:
-                                continue# cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
-                            if cardInfo['type'] == "video":
-                                self.watch_video(cardInfo,reportInfo, knowledge,  scoreInfo)
-                            if cardInfo['type'] == "read":
-                                self.read_book(cardInfo,reportInfo,  knowledge, scoreInfo)
+                            if "job" in cardInfo and cardInfo["job"]:
+                                scoreInfo = {}
+                                if knowledge["courseName"].find('四史学习') >= 0:
+                                    scoreInfo = self.get_scoreInfo(self.clazzList[knowledge['courseId']]['clazzId'],
+                                                                   knowledge['courseId'])
+                                    if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
+                                        print("\r", self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
+                                        break
+                                else:
+                                    scoreInfo["dayScore"] = 100
+                                if 'type' not in cardInfo:
+                                    continue  # cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
+                                elif cardInfo['type'] == "video":
+                                    self.watch_video(cardInfo, reportInfo, knowledge, scoreInfo)
+                                elif cardInfo['type'] == "read":
+                                    self.read_book(cardInfo, reportInfo, knowledge, scoreInfo)
+                                elif cardInfo['type'] == "workid":
+                                    self.dati(cardInfo, reportInfo, knowledge, scoreInfo)
         except:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "刷课意外")
             return False
 
-    def watch_video(self,cardInfo,reportInfo, knowledge,  scoreInfo):
+    def watch_video(self, cardInfo, reportInfo, knowledge, scoreInfo):
         if 'isPassed' in cardInfo and cardInfo['isPassed']:
             return
         params = (
@@ -250,7 +293,83 @@ class Shuake():
                 continue
             time.sleep(45)
 
-    def read_book(self,cardInfo,reportInfo, knowledge,  scoreInfo):
+    def dati(self, cardInfo, reportInfo, knowledge, scoreInfo):
+        def answer(question):
+            url = "http://c.ykhulian.com/chati/0/"
+            try:
+                response = self.session.get(url).json()
+                return response
+            except:
+                return None
+
+        params = (
+            ('workId', cardInfo["property"]["workid"]),
+            ('courseId', knowledge["courseId"]),
+            ('clazzId', knowledge["clazzId"]),
+            ('knowledgeId', knowledge["knowledgeId"]),
+            ('jobId', cardInfo["jobid"]),
+            ('enc', cardInfo["enc"]),
+            ('cpi', reportInfo['cpi']),
+        )
+        response = self.session.get('https://mooc1-api.chaoxing.com/work/phone/work', params=params)
+        paramsurl = response.url
+        params_info = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(paramsurl).query))
+        soup = BeautifulSoup(response.text, "lxml")
+        title = soup.find(name="title")
+        if title.text == "已批阅":
+            return
+        else:
+            form = soup.find(attrs={"id": "form1"})
+            def get_method(form):
+                try:
+                    return form["method"]
+                except:
+                    return "post2"
+            params = (
+                ('keyboardDisplayRequiresUserAction', 1),
+                ('_classId', knowledge["clazzId"]),
+                ('courseid', params_info["courseId"]),
+                ('token', form.find(attrs={"id":"enc_work"})["value"]),
+                ('workAnswerId', params_info["workAnswerId"]),
+                ('ua', 'app'),
+                ('formType2', get_method(form)),
+                ('saveStatus', '1'),
+                ('pos', '3eb5f6d72defe899876900d30965'),
+                ('rd', '0.21383050115430624'),
+                ('value', '(249|1137)'),
+                ('wid', '10328393'),
+                ('_edt', '1603339915181283'),
+                ('version', '1'),
+            )
+            data = {'pyFlag': '',
+                    'courseId': '214935070',
+                    'classId': '32906528',
+                    'api': '1',
+                    'mooc': '0',
+                    'workAnswerId': '21526819',
+                    'totalQuestionNum': '5ffc362e5f3f5fdfefbd89a98c33560a',
+                    'fullScore': '100.0',
+                    'knowledgeid': '361863222',
+                    'oldSchoolId': '',
+                    'oldWorkId': '7cfc7acd776b4e0b8371b66e4cbd7bf7',
+                    'jobid': 'work-7cfc7acd776b4e0b8371b66e4cbd7bf7',
+                    'workRelationId': '10328393',
+                    'enc_work': 'f948a7ede85430a716f636712b2417a9',
+                    'isphone': 'true',
+                    'userId': '117056330',
+                    'answer210046793': 'B',
+                    'answertype210046793': '0',
+                    'answer210046792': 'C',
+                    'answertype210046792': '0',
+                    'answer210046794': 'D',
+                    'answertype210046794': '0',
+                    'answer210046796': 'true',
+                    'answertype210046796': '3',
+                    'answerwqbid': '210046793,210046792,210046794,210046796'}
+            response = requests.post('https://mooc1-api.chaoxing.com/work/addStudentWorkNew', params=params,
+                                     data=urlencode(data))
+
+    def read_book(self, cardInfo, reportInfo, knowledge, scoreInfo):
         readtime = self.get_read_time(knowledge, cardInfo, reportInfo)
         if config.readTimelimit != 0 and readtime > config.readTimelimit:
             return
@@ -322,7 +441,7 @@ class Shuake():
                                    params=params).json()["data"]["enc"]
             params = (
                 ('_from_', '{}_{}_{}_{}'.format(knowledge['courseId'], reportInfo['clazzId'], self.puid, enc.lower())),
-                ('rtag', '{}_{}_{}'.format(knowledge['knowlegeId'], reportInfo["cpi"], cardInfo["jobid"])),
+                ('rtag', '{}_{}_{}'.format(knowledge['knowledgeId'], reportInfo["cpi"], cardInfo["jobid"])),
             )
             response = self.session.get(
                 'https://special.zhexuezj.cn/mobile/mooc/tocourse/{}.html'.format(cardInfo["property"]["id"]),
@@ -389,7 +508,7 @@ if __name__ == '__main__':
                 # mythread.start()
                 # threadList.append(mythread)
                 # time.sleep(5)
-                if user_uname == "18845142702":
+                if user_uname == "18319658179":
                     funShuake(users_info[user_uname])
             for thread in threadList:
                 thread.join()
