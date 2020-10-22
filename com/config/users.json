@@ -112,6 +112,16 @@
             "industry": "computer",
             "ps": "梗慧",
             "today": 1601422426.8048673
+        },
+        "17261125670": {
+            "uname": "17261125670",
+            "code": "lym970017tg",
+            "industry": "computer",
+            "ps": "梁一鸣",
+            "courseName": [
+                "学术规范"
+            ],
+            "today": 1601422426.8048673
         }
     }
 }

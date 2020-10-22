@@ -151,7 +151,6 @@ class Shuake():
         }
         response = self.session.post('https://mooc1-api.chaoxing.com/job/myjobsnodesmap', data=data).json()
         start = None
-        id = None
         for i, knowledge in enumerate(knowledegList):
             knowledgeId = str(knowledge["knowledgeId"])
             if response[knowledgeId]["unfinishcount"] > 0:
@@ -218,13 +217,12 @@ class Shuake():
                 if start is None: raise Exception("获取起始点出错")
                 for knowledge in self.knowlegeList[courseId][start:]:
                     for num in range(len(knowledge["card"])):
-                        num = 1
                         cardsInfoList, reportInfo, success = self.get_cards_info(knowledge, num)
                         if success == False:
                             return
                         # print(cardsInfoList)
                         for cardInfo in cardsInfoList:
-                            if "job" in cardInfo and cardInfo["job"]:
+                            if "job" not in cardInfo or ("job" in cardInfo and cardInfo["job"]):
                                 scoreInfo = {}
                                 if knowledge["courseName"].find('四史学习') >= 0:
                                     scoreInfo = self.get_scoreInfo(self.clazzList[knowledge['courseId']]['clazzId'],
@@ -241,7 +239,8 @@ class Shuake():
                                 elif cardInfo['type'] == "read":
                                     self.read_book(cardInfo, reportInfo, knowledge, scoreInfo)
                                 elif cardInfo['type'] == "workid":
-                                    self.dati(cardInfo, reportInfo, knowledge, scoreInfo)
+                                    continue
+                                    self.dati(cardInfo, reportInfo, knowledge)
         except:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "刷课意外")
@@ -291,83 +290,138 @@ class Shuake():
                                         params=params)
             if response.json()["isPassed"]:
                 continue
-            time.sleep(45)
+            time.sleep(30)
 
-    def dati(self, cardInfo, reportInfo, knowledge, scoreInfo):
+    def dati(self, cardInfo, reportInfo, knowledge):
+        print("\r{}\t正在答题：".format(self.user_info["ps"],),
+              knowledge["courseName"],
+              knowledge["parentnodeNmae"],
+              knowledge["knowlegeName"], cardInfo["property"]['title'], end="")
         def answer(question):
-            url = "http://c.ykhulian.com/chati/0/"
+            url = "http://c.ykhulian.com/chati/0/"+question
             try:
                 response = self.session.get(url).json()
-                return response
+                if response["success"]==200:
+                    ans=response["answer"].replace("\n\n","\n \n").split("\n \n")
+                    while(''in ans):
+                        ans.remove('')
+                    return ans
+                else:
+                    return None
             except:
                 return None
-
-        params = (
-            ('workId', cardInfo["property"]["workid"]),
-            ('courseId', knowledge["courseId"]),
-            ('clazzId', knowledge["clazzId"]),
-            ('knowledgeId', knowledge["knowledgeId"]),
-            ('jobId', cardInfo["jobid"]),
-            ('enc', cardInfo["enc"]),
-            ('cpi', reportInfo['cpi']),
-        )
-        response = self.session.get('https://mooc1-api.chaoxing.com/work/phone/work', params=params)
-        paramsurl = response.url
-        params_info = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(paramsurl).query))
-        soup = BeautifulSoup(response.text, "lxml")
-        title = soup.find(name="title")
-        if title.text == "已批阅":
-            return
-        else:
-            form = soup.find(attrs={"id": "form1"})
-            def get_method(form):
-                try:
-                    return form["method"]
-                except:
-                    return "post2"
+        try:
             params = (
-                ('keyboardDisplayRequiresUserAction', 1),
-                ('_classId', knowledge["clazzId"]),
-                ('courseid', params_info["courseId"]),
-                ('token', form.find(attrs={"id":"enc_work"})["value"]),
-                ('workAnswerId', params_info["workAnswerId"]),
-                ('ua', 'app'),
-                ('formType2', get_method(form)),
-                ('saveStatus', '1'),
-                ('pos', '3eb5f6d72defe899876900d30965'),
-                ('rd', '0.21383050115430624'),
-                ('value', '(249|1137)'),
-                ('wid', '10328393'),
-                ('_edt', '1603339915181283'),
-                ('version', '1'),
+                ('workId', cardInfo["property"]["workid"]),
+                ('courseId', knowledge["courseId"]),
+                ('clazzId', knowledge["clazzId"]),
+                ('knowledgeId', knowledge["knowledgeId"]),
+                ('jobId', cardInfo["jobid"]),
+                ('enc', cardInfo["enc"]),
+                ('cpi', reportInfo['cpi']),
             )
-            data = {'pyFlag': '',
-                    'courseId': '214935070',
-                    'classId': '32906528',
-                    'api': '1',
-                    'mooc': '0',
-                    'workAnswerId': '21526819',
-                    'totalQuestionNum': '5ffc362e5f3f5fdfefbd89a98c33560a',
-                    'fullScore': '100.0',
-                    'knowledgeid': '361863222',
-                    'oldSchoolId': '',
-                    'oldWorkId': '7cfc7acd776b4e0b8371b66e4cbd7bf7',
-                    'jobid': 'work-7cfc7acd776b4e0b8371b66e4cbd7bf7',
-                    'workRelationId': '10328393',
-                    'enc_work': 'f948a7ede85430a716f636712b2417a9',
-                    'isphone': 'true',
-                    'userId': '117056330',
-                    'answer210046793': 'B',
-                    'answertype210046793': '0',
-                    'answer210046792': 'C',
-                    'answertype210046792': '0',
-                    'answer210046794': 'D',
-                    'answertype210046794': '0',
-                    'answer210046796': 'true',
-                    'answertype210046796': '3',
-                    'answerwqbid': '210046793,210046792,210046794,210046796'}
-            response = requests.post('https://mooc1-api.chaoxing.com/work/addStudentWorkNew', params=params,
-                                     data=urlencode(data))
+            response = self.session.get('https://mooc1-api.chaoxing.com/work/phone/work', params=params)
+            paramsurl = response.url
+            params_info = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(paramsurl).query))
+            soup = BeautifulSoup(response.text, "lxml")
+            title = soup.find(name="title")
+            if title.text.find("已批阅")>=0:
+                return
+            else:
+                form = soup.find(attrs={"id": "form1"})
+                def get_method(form):
+                    try:
+                        return form["method"]
+                    except:
+                        return "post2"
+                params = (
+                    ('keyboardDisplayRequiresUserAction', 1),
+                    ('_classId', knowledge["clazzId"]),
+                    ('courseid', params_info["courseId"]),
+                    ('token', form.find(attrs={"id":"enc_work"})["value"]),
+                    ('workAnswerId', params_info["workAnswerId"]),
+                    ('ua', 'app'),
+                    ('formType2', get_method(form)),
+                    ('saveStatus', '1'),
+                    ('pos', '3eb5f6d72defe899876900d30965'),
+                    ('rd', '0.21383050115430624'),
+                    ('value', '(249|1137)'),
+                    ('wid', '10328393'),
+                    ('_edt', '1603339915181283'),
+                    ('version', '1'),
+                )
+                data = {'pyFlag': '',
+                        'courseId': form.find(attrs={"id":"courseId"})["value"],
+                        'classId': form.find(attrs={"id":"classId"})["value"],
+                        'api': form.find(attrs={"id":"api"})["value"],
+                        'mooc': form.find(attrs={"id":"mooc"})["value"],
+                        'workAnswerId': form.find(attrs={"id":"workAnswerId"})["value"],
+                        'totalQuestionNum': form.find(attrs={"id":"totalQuestionNum"})["value"],
+                        'fullScore': form.find(attrs={"id":"fullScore"})["value"],
+                        'knowledgeid': form.find(attrs={"id":"knowledgeid"})["value"],
+                        'oldSchoolId': form.find(attrs={"id":"oldSchoolId"})["value"],
+                        'oldWorkId': form.find(attrs={"id":"oldWorkId"})["value"],
+                        'jobid': form.find(attrs={"id":"jobid"})["value"],
+                        'workRelationId': form.find(attrs={"id":"workRelationId"})["value"],
+                        'enc_work': form.find(attrs={"id":"enc_work"})["value"],
+                        'isphone': 'true',
+                        'userId': self.puid
+                        }
+                questionList=form.find_all(attrs={"class":"Py-mian1"})
+                answerwqbid=""
+                for question in questionList:
+                    questionName=question.find(attrs={"class":"Py-m1-title fs16"}).text.split("\n")[2].lstrip()
+                    questionAnswer=answer(questionName)
+                    assert questionAnswer is not None
+                    submits = question.find_all("input")
+                    for submit in submits:
+                        if submit["id"].find("type")<0:
+                            flag = 0
+                            if question.find(attrs={"class":"quesType"}).text=='[单选题]':
+                                formAnswers=question.find_all("li")
+                                answerwqbid+=","
+                                answerwqbid+=formAnswers[0]["id-param"]
+                                for formAns in formAnswers:
+                                    if formAns.text.find(questionAnswer[0])>=0:
+                                        data[submit["id"]]=formAns.text.split("\n")[1]
+                                        flag=1
+                                        break
+                            elif question.find(attrs={"class":"quesType"}).text=='[多选题]':
+                                formAnswers = question.find_all("li")
+                                answerwqbid+=","
+                                answerwqbid+=formAnswers[0]["id-param"]
+                                ans=''
+                                for quesAns in questionAnswer:
+                                    flag = 0
+                                    for formAns in formAnswers:
+                                        if formAns.text.find(quesAns) >= 0:
+                                            ans+=','
+                                            ans+= formAns.text.split("\n")[1]
+                                            flag = 1
+                                            break
+                                data[submit["id"]] = ans[1:]
+                            elif question.find(attrs={"class":"quesType"}).text=="[判断题]":
+                                formAnswers = question.find_all("li")
+                                answerwqbid+=","
+                                answerwqbid+=formAnswers[0]["id-param"]
+                                if questionAnswer[0].find("对")>=0 or questionAnswer[0].find("正确")>=0:
+                                    data[submit["id"]] = "true"
+                                    flag=1
+                                else:
+                                    data[submit["id"]] = "false"
+                                    flag = 1
+                            else:
+                                raise Exception("题型："+question.find(attrs={"class":"quesType"}).text+"  需补充")
+                            assert flag == 1  # 若发生异常  答案没找到
+                        else:data[submit["id"]]=submit["value"]
+                data["answerwqbid"]=answerwqbid[1:]
+                response = requests.post('https://mooc1-api.chaoxing.com/work/addStudentWorkNew', params=params,
+                                         data=urlencode(data))
+                assert response.json()["msg"]=="success"
+        except:
+            loger.error(knowledge["courseName"]+"\t"+knowledge["parentnodeNmae"]+"\t"+knowledge["knowlegeName"]+"\t"+cardInfo["property"]['title'])
+            loger.error('答题出错', exc_info=True)
+            raise
 
     def read_book(self, cardInfo, reportInfo, knowledge, scoreInfo):
         readtime = self.get_read_time(knowledge, cardInfo, reportInfo)
@@ -508,7 +562,7 @@ if __name__ == '__main__':
                 # mythread.start()
                 # threadList.append(mythread)
                 # time.sleep(5)
-                if user_uname == "18319658179":
+                if user_uname == "17261125670":
                     funShuake(users_info[user_uname])
             for thread in threadList:
                 thread.join()
