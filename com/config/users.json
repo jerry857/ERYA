@@ -6,7 +6,8 @@
         "clockinLngLat": "108.891172,34.153633",
         "courseName": [
             "四史学习"
-        ]
+        ],
+        "speed": 1
     },
     "users_info": {
         "18740455867": {
@@ -14,7 +15,22 @@
             "code": "zhangtong187",
             "industry": "computer",
             "ps": "张同",
-            "today": 1601508902.3829463
+            "today": 1601508902.3829463,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
+        },
+        "15081150997": {
+            "uname":"15081150997",
+            "code": "lilisw",
+            "industry": "computer",
+            "ps": "李泽华",
+            "today": 1603409505.0037482
         },
         "18319658179": {
             "uname": "18319658179",
@@ -22,58 +38,119 @@
             "industry": "computer",
             "ps": "谭尊仁",
             "courseName": [
-                "欧洲文明的现代历程"
+                "11111欧洲文明的现代历程"
             ],
-            "today": 1601508902.3829463
+            "today": 1601508902.3829463,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "speed": 1
         },
         "15829380839": {
             "uname": "15829380839",
             "code": "121716",
             "industry": "chyology",
             "ps": "赵园",
-            "today": 1602891319.4910066
+            "today": 1602891319.4910066,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "18845142702": {
             "uname": "18845142702",
             "code": "wang6260649",
             "industry": "computer",
             "ps": "王文安",
-            "today": 1601508902.3829463
+            "today": 1601508902.3829463,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "17561925661": {
             "uname": "17561925661",
             "code": "1q2w3e4r",
             "industry": "computer",
             "ps": "李梦阳",
-            "today": 1602977554.7618716
+            "today": 1602977554.7618716,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "15970198033": {
             "uname": "15970198033",
             "code": "pxj123456",
             "industry": "computer",
             "ps": "彭学俊",
-            "today": 1602977554.7618716
+            "today": 1602977554.7618716,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "18182699011": {
             "uname": "18182699011",
             "code": "zhaoguodong123",
             "industry": "computer",
             "ps": "赵国栋",
-            "today": 1602977547.862118
+            "today": 1602977547.862118,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "13619506250": {
             "uname": "13619506250",
             "code": "fff123123",
             "industry": "computer",
             "ps": "范理涛",
-            "today": 1602977547.862118
+            "today": 1602977547.862118,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "15037671931": {
             "uname": "15037671931",
             "code": "19970605jxl",
             "industry": "computer",
             "ps": "贾鑫磊",
-            "today": 1602977547.862118
+            "today": 1602977547.862118,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "18925468581": {
             "uname": "18925468581",
@@ -83,35 +160,102 @@
             "courseName": [
                 "学术规范"
             ],
-            "today": 1602977547.862118
+            "today": 1602977547.862118,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "speed": 1
         },
         "17691183327": {
             "uname": "17691183327",
             "code": "141817liqi",
             "industry": "computer",
             "ps": "李琦",
-            "today": 1602977547.862118
+            "today": 1602977547.862118,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "15638127287": {
             "uname": "15638127287",
             "code": "zwb970118",
             "industry": "computer",
             "ps": "张文博",
-            "today": 1602977547.862118
+            "today": 1602977547.862118,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "18700182108": {
             "uname": "18700182108",
             "code": "258258258tss",
             "industry": "computer",
             "ps": "陶姗姗",
-            "today": 1602977547.862118
+            "today": 1602977547.862118,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "13098880838": {
             "uname": "13098880838",
             "code": "13098880838gh",
             "industry": "computer",
             "ps": "梗慧",
-            "today": 1601422426.8048673
+            "today": 1601422426.8048673,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
+        },
+        "17809297831": {
+            "uname": "17809297831",
+            "code": "caoqinghua123",
+            "industry": "computer",
+            "ps": "cqh",
+            "today": 1601422426.8048673,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
+        },
+        "15702959565": {
+            "uname": "15702959565",
+            "code": "19980228sy",
+            "industry": "computer",
+            "ps": "sy",
+            "today": 1601422426.8048673,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "courseName": [
+                "四史学习"
+            ],
+            "speed": 1
         },
         "17261125670": {
             "uname": "17261125670",
@@ -119,9 +263,14 @@
             "industry": "computer",
             "ps": "梁一鸣",
             "courseName": [
-                "学术规范"
+                "11111学术规范"
             ],
-            "today": 1601422426.8048673
+            "today": 1601422426.8048673,
+            "loginType": "1",
+            "roleSelect": "true",
+            "clockinAddress": "陕西省西安市长安区郭杜街道陕西师范大学长安校区文津楼",
+            "clockinLngLat": "108.891172,34.153633",
+            "speed": 1
         }
     }
 }

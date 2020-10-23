@@ -20,13 +20,20 @@ import math
 import threading
 from bs4 import BeautifulSoup
 import random
+class Session(requests.Session):
+    def __init__(self,timeOut=5):
+        super(Session,self).__init__()
+        self.timeOut=timeOut
+    def get(self,*args,**kwargs):
+        return super(Session,self).get(*args,**kwargs,timeout=self.timeOut)
+    def post(self,*args,**kwargs):
+        return super(Session,self).post(*args,**kwargs,timeout=self.timeOut)
 
 
 class Shuake():
-    def __init__(self, GLOBAL):
-        self.GLOBAL = GLOBAL
+    def __init__(self):
         self.user_info = None
-        self.session = requests.session()
+        self.session = Session(20)
         self.session.headers = {
             'Upgrade-Insecure-Requests': '1',
             'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0.1; MuMu Build/V417IR; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.100 Mobile Safari/537.36 com.chaoxing.mobile/ChaoXingStudy_3_4.3.4_android_phone_494_27 (@Kalimdor)_78e053215bce434394c43c30bb3e7a8a',
@@ -206,11 +213,6 @@ class Shuake():
                         if self.clazzList[courseId]['courseName'].find(course) >= 0:
                             flag = 1
                             break
-                else:
-                    for course in self.GLOBAL['courseName']:
-                        if self.clazzList[courseId]['courseName'].find(course) >= 0:
-                            flag = 1
-                            break
                 if flag != 1:
                     continue
                 start = self.knowledgeStart(self.knowlegeList[courseId])
@@ -229,7 +231,7 @@ class Shuake():
                                                                    knowledge['courseId'])
                                     if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
                                         print("\r", self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
-                                        break
+                                        return
                                 else:
                                     scoreInfo["dayScore"] = 100
                                 if 'type' not in cardInfo:
@@ -257,8 +259,13 @@ class Shuake():
         cardInfo2 = self.session.get(
             'https://mooc1-api.chaoxing.com/ananas/status/{}'.format(cardInfo["objectId"]),
             params=params).json()
-        for i in range(math.ceil(cardInfo2['duration'] / 60)):
-            playingTime = i * 60 if i * 60 <= cardInfo2['duration'] else cardInfo2['duration']
+        for i in range(math.ceil(cardInfo2['duration'] / 60)+1):
+            if i * 60 <= cardInfo2['duration']:#3个if为了让视频看完
+                playingTime = i * 60
+            elif (i-1) * 60 <= cardInfo2['duration']:
+                playingTime=cardInfo2['duration']-30
+            else:
+                playingTime = cardInfo2['duration']
             print("\r{}\t当前：{}分\t正在刷课：".format(self.user_info["ps"], scoreInfo["dayScore"]),
                   "playingTime:{}".format(playingTime),
                   knowledge["courseName"],
@@ -290,7 +297,7 @@ class Shuake():
                                         params=params)
             if response.json()["isPassed"]:
                 continue
-            time.sleep(30)
+            time.sleep(60/self.user_info["speed"])
 
     def dati(self, cardInfo, reportInfo, knowledge):
         print("\r{}\t正在答题：".format(self.user_info["ps"],),
@@ -379,7 +386,7 @@ class Shuake():
                             flag = 0
                             if question.find(attrs={"class":"quesType"}).text=='[单选题]':
                                 formAnswers=question.find_all("li")
-                                answerwqbid+=","
+                                answerwqbid+="%"
                                 answerwqbid+=formAnswers[0]["id-param"]
                                 for formAns in formAnswers:
                                     if formAns.text.find(questionAnswer[0])>=0:
@@ -388,23 +395,23 @@ class Shuake():
                                         break
                             elif question.find(attrs={"class":"quesType"}).text=='[多选题]':
                                 formAnswers = question.find_all("li")
-                                answerwqbid+=","
+                                answerwqbid+="%"
                                 answerwqbid+=formAnswers[0]["id-param"]
                                 ans=''
                                 for quesAns in questionAnswer:
                                     flag = 0
                                     for formAns in formAnswers:
                                         if formAns.text.find(quesAns) >= 0:
-                                            ans+=','
+                                            ans+='%'
                                             ans+= formAns.text.split("\n")[1]
                                             flag = 1
                                             break
                                 data[submit["id"]] = ans[1:]
                             elif question.find(attrs={"class":"quesType"}).text=="[判断题]":
                                 formAnswers = question.find_all("li")
-                                answerwqbid+=","
+                                answerwqbid+="%"
                                 answerwqbid+=formAnswers[0]["id-param"]
-                                if questionAnswer[0].find("对")>=0 or questionAnswer[0].find("正确")>=0:
+                                if questionAnswer[0].find("对")>=0 or questionAnswer[0].find("正确")>=0 or questionAnswer[0].find("√")>=0:
                                     data[submit["id"]] = "true"
                                     flag=1
                                 else:
@@ -425,6 +432,7 @@ class Shuake():
 
     def read_book(self, cardInfo, reportInfo, knowledge, scoreInfo):
         readtime = self.get_read_time(knowledge, cardInfo, reportInfo)
+        if readtime is None: return
         if config.readTimelimit != 0 and readtime > config.readTimelimit:
             return
         if config.readFrom0read and readtime > 0:  # 从没开始过的章节开始阅读
@@ -459,6 +467,8 @@ class Shuake():
                         'https://special.zhexuezj.cn/special/course/addUserPoint', params=params)
                     resp = response.json()
                     time.sleep(5)
+                    if config.readTimelimit != 0 and readtime > config.readTimelimit:
+                        return
 
             except AttributeError:
                 continue
@@ -481,9 +491,9 @@ class Shuake():
             read_time = int(re.search(r"secondReadTime = \"(.*?)\"", response.text).group(1))
             return read_time
         except:
-            loger.error('', exc_info=True)
-            loger.info(self.user_info["uname"] + "\t" + "获取分数信息失败")
-            return False
+            loger.info('', exc_info=True)
+            loger.info(self.user_info["uname"] + "\t" + "获取分数信息失败")#正常的课没有阅读时长统计
+            return None
 
     def get_chapters_info(self, knowledge, cardInfo, reportInfo):
         try:
@@ -530,7 +540,10 @@ class Shuake():
 def funShuake(user_info):
     JSON_INFO = utils.users_info_load(config.users_path)
     GLOBAL = JSON_INFO["GLOBAL"]
-    shuake = Shuake(GLOBAL)
+    for glo in GLOBAL:
+        if glo not in user_info:
+            user_info[glo]=GLOBAL[glo]
+    shuake = Shuake()
     if shuake.login(user_info):
         try:
             shuake.shuake()
@@ -558,17 +571,17 @@ if __name__ == '__main__':
         users_info = JSON_INFO["users_info"]
         try:
             for user_uname in users_info:
-                # mythread = myThread(users_info[user_uname])
-                # mythread.start()
-                # threadList.append(mythread)
-                # time.sleep(5)
-                if user_uname == "17261125670":
-                    funShuake(users_info[user_uname])
+                mythread = myThread(users_info[user_uname])
+                mythread.start()
+                threadList.append(mythread)
+                time.sleep(5)
+                # if user_uname == "17261125670":
+                #     funShuake(users_info[user_uname])
             for thread in threadList:
                 thread.join()
         except Exception as e:
             loger.error('', exc_info=True)
-        finally:
-            utils.users_info_dump(config.users_path, JSON_INFO)
+        # finally:
+        #     utils.users_info_dump(config.users_path, JSON_INFO)
     except Exception:
         loger.error('', exc_info=True)

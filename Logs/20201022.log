@@ -1221,3 +1221,490 @@ Traceback (most recent call last):
 KeyError: 'knowledgeId'
 2020-10-22 14:03:04,461 - Shuake.py[line:247] - INFO: 18319658179	刷课意外
 2020-10-22 14:03:11,834 - Shuake.py[line:507] - INFO: 运行
+2020-10-22 17:14:26,244 - Shuake.py[line:527] - INFO: 运行
+2020-10-22 17:14:33,216 - Shuake.py[line:246] - ERROR: 
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\contrib\pyopenssl.py", line 290, in recv_into
+    raise SocketError(str(e))
+OSError: (10054, 'WSAECONNRESET')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 445, in send
+    timeout=timeout
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\util\retry.py", line 367, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\contrib\pyopenssl.py", line 290, in recv_into
+    raise SocketError(str(e))
+urllib3.exceptions.ProtocolError: ('Connection aborted.', OSError("(10054, 'WSAECONNRESET')"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 244, in shuake
+    self.dati(cardInfo, reportInfo, knowledge, scoreInfo)
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 398, in dati
+    data=urlencode(data))
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 495, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', OSError("(10054, 'WSAECONNRESET')"))
+2020-10-22 17:14:33,293 - Shuake.py[line:247] - INFO: 18319658179	刷课意外
+2020-10-22 17:15:12,549 - Shuake.py[line:527] - INFO: 运行
+2020-10-22 17:15:17,424 - Shuake.py[line:246] - ERROR: 
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 445, in send
+    timeout=timeout
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\util\retry.py", line 367, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 244, in shuake
+    self.dati(cardInfo, reportInfo, knowledge, scoreInfo)
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 398, in dati
+    data=urlencode(data))
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 495, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2020-10-22 17:15:17,438 - Shuake.py[line:247] - INFO: 18319658179	刷课意外
+2020-10-22 17:16:00,718 - Shuake.py[line:527] - INFO: 运行
+2020-10-22 17:21:44,495 - Shuake.py[line:527] - INFO: 运行
+2020-10-22 17:23:29,372 - Shuake.py[line:527] - INFO: 运行
+2020-10-22 17:57:34,626 - Shuake.py[line:547] - INFO: 运行
+2020-10-22 18:10:59,273 - Shuake.py[line:547] - INFO: 运行
+2020-10-22 18:17:27,791 - Shuake.py[line:548] - INFO: 运行
+2020-10-22 18:21:07,471 - Shuake.py[line:551] - INFO: 运行
+2020-10-22 18:24:35,219 - Shuake.py[line:551] - INFO: 运行
+2020-10-22 18:25:43,691 - Shuake.py[line:245] - ERROR: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 243, in shuake
+    self.dati(cardInfo, reportInfo, knowledge, scoreInfo)
+TypeError: dati() takes 4 positional arguments but 5 were given
+2020-10-22 18:25:57,523 - Shuake.py[line:551] - INFO: 运行
+2020-10-22 18:26:19,811 - Shuake.py[line:245] - ERROR: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 243, in shuake
+    self.dati(cardInfo, reportInfo, knowledge)
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 299, in dati
+    knowledge["knowlegeName"], cardInfo["property"]['name'], end="")
+KeyError: 'name'
+2020-10-22 18:27:26,627 - Shuake.py[line:551] - INFO: 运行
+2020-10-22 18:32:06,125 - Shuake.py[line:551] - INFO: 运行
+2020-10-22 18:33:59,493 - Shuake.py[line:551] - INFO: 运行
+2020-10-22 18:43:41,798 - Shuake.py[line:245] - ERROR: 
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 445, in send
+    timeout=timeout
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\util\retry.py", line 367, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 417, in dati
+    data=urlencode(data)).json()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 495, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 243, in shuake
+    self.dati(cardInfo, reportInfo, knowledge)
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 420, in dati
+    loger.error(knowledge["courseName"]+"\t"+knowledge["parentnodeNmae"]+"\t"+knowledge["knowlegeName"]+"\t"+cardInfo["property"]['name'])
+KeyError: 'name'
+2020-10-22 18:44:46,240 - Shuake.py[line:553] - INFO: 运行
+2020-10-22 18:46:42,100 - Shuake.py[line:422] - ERROR: 欧洲文明的现代历程	启蒙运动	理解启蒙运动的两种方式——思想史与新文化史	3.6
+2020-10-22 18:46:42,101 - Shuake.py[line:423] - ERROR: 答题出错
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 445, in send
+    timeout=timeout
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\util\retry.py", line 367, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 419, in dati
+    data=urlencode(data))
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 495, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2020-10-22 18:46:42,106 - Shuake.py[line:245] - ERROR: 
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 445, in send
+    timeout=timeout
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\util\retry.py", line 367, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 243, in shuake
+    self.dati(cardInfo, reportInfo, knowledge)
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 419, in dati
+    data=urlencode(data))
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 495, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2020-10-22 18:46:42,111 - Shuake.py[line:246] - INFO: 18319658179	刷课意外
+2020-10-22 18:52:25,941 - Shuake.py[line:553] - INFO: 运行
+2020-10-22 18:52:28,582 - Shuake.py[line:422] - ERROR: 欧洲文明的现代历程	启蒙运动	理解启蒙运动的两种方式——思想史与新文化史	3.6
+2020-10-22 18:52:28,582 - Shuake.py[line:423] - ERROR: 答题出错
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 445, in send
+    timeout=timeout
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\util\retry.py", line 367, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 419, in dati
+    data=urlencode(data))
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 495, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2020-10-22 18:52:28,597 - Shuake.py[line:245] - ERROR: 
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 445, in send
+    timeout=timeout
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\util\retry.py", line 367, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\urllib3\connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\http\client.py", line 265, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 243, in shuake
+    self.dati(cardInfo, reportInfo, knowledge)
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 419, in dati
+    data=urlencode(data))
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\site-packages\requests\adapters.py", line 495, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2020-10-22 18:52:28,601 - Shuake.py[line:246] - INFO: 18319658179	刷课意外
+2020-10-22 20:55:08,124 - Shuake.py[line:554] - INFO: 运行
+2020-10-22 20:55:08,689 - Shuake.py[line:180] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 175, in get_cards_info
+    cardsInfo = json.loads(cardsInfo)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\ProgramData\Anaconda3\envs\spy\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-10-22 20:55:08,694 - Shuake.py[line:181] - INFO: 17261125670	获取视cards息失败
+2020-10-22 20:55:20,558 - Shuake.py[line:553] - INFO: 运行
+2020-10-22 20:58:11,684 - Shuake.py[line:553] - INFO: 运行
