@@ -68,9 +68,11 @@ class Shuake():
                 resp = response.text.encode("utf-8", "ignore").decode("utf-8")
                 self.puid = re.search(r"puid\":(.*?),", resp).group(1)
                 self.login_flag=True
+                self.sessionDump()
                 return self.login_flag
             else:
                 self.login_flag=True
+                self.sessionDump()
                 return self.login_flag
         except Exception as e:
             loger.error('', exc_info=True)
@@ -583,7 +585,7 @@ class Shuake():
                     self.session.timeOut=config.timeOut
                     resp=self.session.get('https://mooc1-1.chaoxing.com/work/validate')
                     if resp.text.find("请重新登录")>=0:
-                        print(self.user_info["ps"], "正在重新登录")
+                        print("\r",self.user_info["ps"], "正在重新登录")
                         time.sleep(2)
                         return False
                     params = (
@@ -592,22 +594,22 @@ class Shuake():
                     )
                     resp = self.session.get('http://mooc1-api.chaoxing.com/mycourse/backclazzdata', params=params)
                     if resp.text.find("验证码")>=0:
-                        print(self.user_info["ps"], "正在重新登录")
+                        print("\r",self.user_info["ps"], "正在重新登录")
                         time.sleep(2)
                         return False
-                    print(self.user_info["ps"],"加载Session成功")
+                    print("\r",self.user_info["ps"],"加载Session成功")
                     return False
             except:
-                print(self.user_info["ps"], "正在重新登录")
+                print("\r",self.user_info["ps"], "正在重新登录")
                 time.sleep(2)
                 return False
         else:
-            print(self.user_info["ps"], "正在重新登录")
+            print("\r",self.user_info["ps"], "正在重新登录")
             time.sleep(2)
             return False
     def __del__(self):
         self.sessionDump()
-        print(self.user_info["ps"],"登录信息已保存")
+        print("\r",self.user_info["ps"],"登录信息已保存")
 
 def funShuake(user_info):
     JSON_INFO = utils.users_info_load(config.users_path)
@@ -643,12 +645,12 @@ if __name__ == '__main__':
     users_info = JSON_INFO["users_info"]
     try:
         for user_uname in users_info:
-            # mythread = myThread(users_info[user_uname])
-            # mythread.start()
-            # threadList.append(mythread)
-            # time.sleep(5)
-            if user_uname == "18925468581":
-                funShuake(users_info[user_uname])
+            mythread = myThread(users_info[user_uname])
+            mythread.start()
+            threadList.append(mythread)
+            time.sleep(5)
+            # if user_uname == "18925468581":
+            #     funShuake(users_info[user_uname])
         for thread in threadList:
             thread.join()
     except Exception as e:
