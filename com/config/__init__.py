@@ -6,6 +6,8 @@ root_path = os.path.split(curPath)[0]
 from utils import utils
 
 users_path = os.path.join(root_path, "config/users.json")
+loginInfo_path = os.path.join(root_path, "config/loginInfo")
+timeOut=20
 loger = utils.get_log()
 readFromLastChapter=True
 readFrom0read=True

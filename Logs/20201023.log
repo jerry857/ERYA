@@ -1,0 +1,67 @@
+2020-10-23 22:28:33,432 - Shuake.py[line:564] - INFO: 运行
+2020-10-23 22:30:47,965 - Shuake.py[line:564] - INFO: 运行
+2020-10-23 22:31:11,470 - Shuake.py[line:427] - ERROR: 女生穿搭技巧	 如何着装才得体和谐	衣服的保养方法	2.2.2章节测验
+2020-10-23 22:31:11,470 - Shuake.py[line:428] - ERROR: 答题出错
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_Shuake/com/main/Shuake.py", line 380, in dati
+    assert questionAnswer is not None
+AssertionError
+2020-10-23 22:31:11,471 - Shuake.py[line:249] - ERROR: 
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_Shuake/com/main/Shuake.py", line 247, in shuake
+    self.dati(cardInfo, reportInfo, knowledge)
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_Shuake/com/main/Shuake.py", line 380, in dati
+    assert questionAnswer is not None
+AssertionError
+2020-10-23 22:31:11,472 - Shuake.py[line:250] - INFO: 18925468581	刷课意外
+2020-10-23 22:31:33,756 - Shuake.py[line:564] - INFO: 运行
+2020-10-23 22:33:51,497 - Shuake.py[line:565] - INFO: 运行
+2020-10-23 22:59:49,195 - Shuake.py[line:566] - INFO: 运行
+2020-10-23 22:59:49,312 - Shuake.py[line:65] - ERROR: 
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connectionpool.py", line 662, in urlopen
+    self._prepare_proxy(conn)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connectionpool.py", line 948, in _prepare_proxy
+    conn.connect()
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connection.py", line 360, in connect
+    ssl_context=context,
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\util\ssl_.py", line 370, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "D:\Anaconda3\envs\DeepLearning\lib\ssl.py", line 412, in wrap_socket
+    session=session
+  File "D:\Anaconda3\envs\DeepLearning\lib\ssl.py", line 853, in _create
+    self.do_handshake()
+  File "D:\Anaconda3\envs\DeepLearning\lib\ssl.py", line 1117, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\connectionpool.py", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\urllib3\util\retry.py", line 436, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='passport2-api.chaoxing.com', port=443): Max retries exceeded with url: /v11/loginregister?cx_xxt_passport=json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_Shuake/com/main/Shuake.py", line 59, in login
+    data=login_info)
+  File "C:/Users/wangwen/Desktop/chaoxing_auto_Shuake/com/main/Shuake.py", line 30, in post
+    return super(Session,self).post(*args,**kwargs,timeout=self.timeOut)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\sessions.py", line 578, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Anaconda3\envs\DeepLearning\lib\site-packages\requests\adapters.py", line 514, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='passport2-api.chaoxing.com', port=443): Max retries exceeded with url: /v11/loginregister?cx_xxt_passport=json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056)')))
+2020-10-23 22:59:49,370 - Shuake.py[line:66] - INFO: 18925468581登陆失败
+2020-10-23 22:59:49,371 - Shuake.py[line:553] - INFO: 陈科全	： 密码错误
+2020-10-23 23:00:00,598 - Shuake.py[line:566] - INFO: 运行

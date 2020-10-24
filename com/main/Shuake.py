@@ -2,7 +2,7 @@
 
 import sys
 import os
-
+import pickle
 curPath = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(os.path.split(curPath)[0])
 import config
@@ -20,8 +20,10 @@ import math
 import threading
 from bs4 import BeautifulSoup
 import random
+import socket
+socket.timeout=20
 class Session(requests.Session):
-    def __init__(self,timeOut=5):
+    def __init__(self,timeOut=20):
         super(Session,self).__init__()
         self.timeOut=timeOut
     def get(self,*args,**kwargs):
@@ -33,14 +35,9 @@ class Session(requests.Session):
 class Shuake():
     def __init__(self):
         self.user_info = None
-        self.session = Session(20)
-        self.session.headers = {
-            'Upgrade-Insecure-Requests': '1',
-            'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0.1; MuMu Build/V417IR; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.100 Mobile Safari/537.36 com.chaoxing.mobile/ChaoXingStudy_3_4.3.4_android_phone_494_27 (@Kalimdor)_78e053215bce434394c43c30bb3e7a8a',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'zh-CN,en-US;q=0.8',
-            'X-Requested-With': 'com.chaoxing.mobile',
-        }
+        self.session=None
+        self.puid=None
+        self.login_flag=False
         pass
 
     def login(self, user_info):
@@ -52,19 +49,33 @@ class Shuake():
             "roleSelect": GLOBAL["roleSelect"],
         }
         try:
-            params = (
-                ('cx_xxt_passport', 'json'),
-            )
-            response = self.session.post('https://passport2-api.chaoxing.com/v11/loginregister', params=params,
-                                         data=login_info)
-            response = self.session.get('https://sso.chaoxing.com/apis/login/userLogin4Uname.do')
-            resp = response.text.encode("utf-8", "ignore").decode("utf-8")
-            self.puid = re.search(r"puid\":(.*?),", resp).group(1)
-            return True
+            if not self.sessionload():
+                self.session = Session(config.timeOut)
+                # self.session.keep_alive = False
+                self.session.headers = {
+                    'Upgrade-Insecure-Requests': '1',
+                    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 ChaoXingStudy/ChaoXingStudy_3_4.3.2_ios_phone_201911291130_27 (@Kalimdor)_2092948143612148043',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                    'Accept-Language': 'zh-CN,en-US;q=0.8',
+                    'X-Requested-With': 'com.chaoxing.mobile',
+                }
+                params = (
+                    ('cx_xxt_passport', 'json'),
+                )
+                response = self.session.post('https://passport2-api.chaoxing.com/v11/loginregister', params=params,
+                                             data=login_info)
+                response = self.session.get('https://sso.chaoxing.com/apis/login/userLogin4Uname.do')
+                resp = response.text.encode("utf-8", "ignore").decode("utf-8")
+                self.puid = re.search(r"puid\":(.*?),", resp).group(1)
+                self.login_flag=True
+                return self.login_flag
+            else:
+                self.login_flag=True
+                return self.login_flag
         except Exception as e:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "登陆失败")
-            return False
+            return self.login_flag
 
     def init_clazzList(self):
         """
@@ -241,7 +252,6 @@ class Shuake():
                                 elif cardInfo['type'] == "read":
                                     self.read_book(cardInfo, reportInfo, knowledge, scoreInfo)
                                 elif cardInfo['type'] == "workid":
-                                    continue
                                     self.dati(cardInfo, reportInfo, knowledge)
         except:
             loger.error('', exc_info=True)
@@ -305,18 +315,35 @@ class Shuake():
               knowledge["parentnodeNmae"],
               knowledge["knowlegeName"], cardInfo["property"]['title'], end="")
         def answer(question):
-            url = "http://c.ykhulian.com/chati/0/"+question
-            try:
-                response = self.session.get(url).json()
-                if response["success"]==200:
-                    ans=response["answer"].replace("\n\n","\n \n").split("\n \n")
-                    while(''in ans):
-                        ans.remove('')
-                    return ans
-                else:
+            for i in range(10):
+                try:
+                    url = "http://c.ykhulian.com/chati/0/" + question
+                    response = self.session.get(url).json()
+                    if response["success"]==200 and response["msg"].find("维护")<0:
+                        ans=response["answer"].replace("\n\n","\n \n").split("\n \n")
+                        while(''in ans):
+                            ans.remove('')
+                        return ans
+                    url2 = "http://api.gochati.cn/jsapi.php?token=test123&q=" + question
+                    url2 = url2.replace("（    ）", "（）")
+                    url2 = url2.replace("（   ）", "（）")
+                    url2 = url2.replace("（  ）", "（）")
+                    url2 = url2.replace("（ ）", "（）")
+                    response = self.session.get(url2).json()
+                    ans=response["da"]
+                    if ans !="":
+                        ans=ans.split("\u0001")
+                        return ans
                     return None
-            except:
-                return None
+                except:
+                    if i<9:
+                        time.sleep(2)
+                        continue
+                    loger.error('题目：'+question, exc_info=True)
+                    loger.error('搜索答案出错', exc_info=True)
+                    return None
+
+
         try:
             params = (
                 ('workId', cardInfo["property"]["workid"]),
@@ -331,9 +358,10 @@ class Shuake():
             paramsurl = response.url
             params_info = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(paramsurl).query))
             soup = BeautifulSoup(response.text, "lxml")
-            title = soup.find(name="title")
-            if title.text.find("已批阅")>=0:
-                return
+            titleList = soup.find_all(name="title")
+            for title in titleList:
+                if title.text.find("已批阅")>=0:
+                    return
             else:
                 form = soup.find(attrs={"id": "form1"})
                 def get_method(form):
@@ -347,14 +375,11 @@ class Shuake():
                     ('courseid', params_info["courseId"]),
                     ('token', form.find(attrs={"id":"enc_work"})["value"]),
                     ('workAnswerId', params_info["workAnswerId"]),
+                    ('totalQuestionNum', form.find(attrs={"id":"totalQuestionNum"})["value"]),
                     ('ua', 'app'),
                     ('formType2', get_method(form)),
                     ('saveStatus', '1'),
-                    ('pos', '3eb5f6d72defe899876900d30965'),
-                    ('rd', '0.21383050115430624'),
-                    ('value', '(249|1137)'),
-                    ('wid', '10328393'),
-                    ('_edt', '1603339915181283'),
+                    # ('pos', ''),
                     ('version', '1'),
                 )
                 data = {'pyFlag': '',
@@ -384,10 +409,11 @@ class Shuake():
                     for submit in submits:
                         if submit["id"].find("type")<0:
                             flag = 0
+                            data[submit["id"]] = ""
                             if question.find(attrs={"class":"quesType"}).text=='[单选题]':
                                 formAnswers=question.find_all("li")
-                                answerwqbid+="%"
                                 answerwqbid+=formAnswers[0]["id-param"]
+                                answerwqbid += ","
                                 for formAns in formAnswers:
                                     if formAns.text.find(questionAnswer[0])>=0:
                                         data[submit["id"]]=formAns.text.split("\n")[1]
@@ -395,22 +421,23 @@ class Shuake():
                                         break
                             elif question.find(attrs={"class":"quesType"}).text=='[多选题]':
                                 formAnswers = question.find_all("li")
-                                answerwqbid+="%"
                                 answerwqbid+=formAnswers[0]["id-param"]
-                                ans=''
+                                answerwqbid += ","
+                                dataAns=[]
                                 for quesAns in questionAnswer:
                                     flag = 0
                                     for formAns in formAnswers:
                                         if formAns.text.find(quesAns) >= 0:
-                                            ans+='%'
-                                            ans+= formAns.text.split("\n")[1]
+                                            dataAns.append(formAns.text.split("\n")[1])
                                             flag = 1
                                             break
-                                data[submit["id"]] = ans[1:]
+                                dataAns.sort()
+                                for dataAn in dataAns:
+                                    data[submit["id"]] += dataAn
                             elif question.find(attrs={"class":"quesType"}).text=="[判断题]":
                                 formAnswers = question.find_all("li")
-                                answerwqbid+="%"
                                 answerwqbid+=formAnswers[0]["id-param"]
+                                answerwqbid += ","
                                 if questionAnswer[0].find("对")>=0 or questionAnswer[0].find("正确")>=0 or questionAnswer[0].find("√")>=0:
                                     data[submit["id"]] = "true"
                                     flag=1
@@ -421,14 +448,18 @@ class Shuake():
                                 raise Exception("题型："+question.find(attrs={"class":"quesType"}).text+"  需补充")
                             assert flag == 1  # 若发生异常  答案没找到
                         else:data[submit["id"]]=submit["value"]
-                data["answerwqbid"]=answerwqbid[1:]
-                response = requests.post('https://mooc1-api.chaoxing.com/work/addStudentWorkNew', params=params,
-                                         data=urlencode(data))
-                assert response.json()["msg"]=="success"
+                data["answerwqbid"]=answerwqbid
+
+                self.session.headers['Content-Type']='application/x-www-form-urlencoded; charset=UTF-8'
+                response = self.session.post('https://mooc1-api.chaoxing.com/work/addStudentWorkNew', params=params,
+                                         data=urlencode(data),allow_redirects=False)
+                del self.session.headers['Content-Type']
+                a=5
+                assert response.json()["msg"]=='success!'
         except:
             loger.error(knowledge["courseName"]+"\t"+knowledge["parentnodeNmae"]+"\t"+knowledge["knowlegeName"]+"\t"+cardInfo["property"]['title'])
-            loger.error('答题出错', exc_info=True)
-            raise
+            loger.error('答题出错',exc_info=True)
+            # raise
 
     def read_book(self, cardInfo, reportInfo, knowledge, scoreInfo):
         readtime = self.get_read_time(knowledge, cardInfo, reportInfo)
@@ -534,8 +565,49 @@ class Shuake():
 
     def clear(self):
         self.session.close()
-        self.session = requests.session()
-
+        self.session = Session(20)
+    def sessionDump(self):
+        if self.login_flag:
+            Spath = os.path.join(config.loginInfo_path, self.user_info["uname"])
+            with open(Spath,"wb") as f:
+                session_Info = {"session": self.session, "puid": self.puid}
+                pickle.dump(session_Info, f)
+    def sessionload(self):
+        Spath=os.path.join(config.loginInfo_path,self.user_info["uname"])
+        if os.path.exists(Spath):
+            try:
+                with open(Spath,"rb") as f:
+                    seria=pickle.load(f)
+                    self.session=seria["session"]
+                    self.puid=seria["puid"]
+                    self.session.timeOut=config.timeOut
+                    resp=self.session.get('https://mooc1-1.chaoxing.com/work/validate')
+                    if resp.text.find("请重新登录")>=0:
+                        print(self.user_info["ps"], "正在重新登录")
+                        time.sleep(2)
+                        return False
+                    params = (
+                        ('view', 'json'),
+                        ('rss', '1'),
+                    )
+                    resp = self.session.get('http://mooc1-api.chaoxing.com/mycourse/backclazzdata', params=params)
+                    if resp.text.find("验证码")>=0:
+                        print(self.user_info["ps"], "正在重新登录")
+                        time.sleep(2)
+                        return False
+                    print(self.user_info["ps"],"加载Session成功")
+                    return False
+            except:
+                print(self.user_info["ps"], "正在重新登录")
+                time.sleep(2)
+                return False
+        else:
+            print(self.user_info["ps"], "正在重新登录")
+            time.sleep(2)
+            return False
+    def __del__(self):
+        self.sessionDump()
+        print(self.user_info["ps"],"登录信息已保存")
 
 def funShuake(user_info):
     JSON_INFO = utils.users_info_load(config.users_path)
@@ -546,6 +618,7 @@ def funShuake(user_info):
     shuake = Shuake()
     if shuake.login(user_info):
         try:
+            # pass
             shuake.shuake()
         except Exception:
             loger.error('', exc_info=True)
@@ -565,23 +638,19 @@ class myThread(threading.Thread):
 if __name__ == '__main__':
     loger.info("运行")
     threadList = []
+    JSON_INFO = utils.users_info_load(config.users_path)
+    GLOBAL = JSON_INFO["GLOBAL"]  ######
+    users_info = JSON_INFO["users_info"]
     try:
-        JSON_INFO = utils.users_info_load(config.users_path)
-        GLOBAL = JSON_INFO["GLOBAL"]  ######
-        users_info = JSON_INFO["users_info"]
-        try:
-            for user_uname in users_info:
-                mythread = myThread(users_info[user_uname])
-                mythread.start()
-                threadList.append(mythread)
-                time.sleep(5)
-                # if user_uname == "17261125670":
-                #     funShuake(users_info[user_uname])
-            for thread in threadList:
-                thread.join()
-        except Exception as e:
-            loger.error('', exc_info=True)
-        # finally:
-        #     utils.users_info_dump(config.users_path, JSON_INFO)
-    except Exception:
+        for user_uname in users_info:
+            # mythread = myThread(users_info[user_uname])
+            # mythread.start()
+            # threadList.append(mythread)
+            # time.sleep(5)
+            if user_uname == "18925468581":
+                funShuake(users_info[user_uname])
+        for thread in threadList:
+            thread.join()
+    except Exception as e:
         loger.error('', exc_info=True)
+
