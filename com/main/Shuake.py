@@ -27,9 +27,23 @@ class Session(requests.Session):
         super(Session,self).__init__()
         self.timeOut=timeOut
     def get(self,*args,**kwargs):
-        return super(Session,self).get(*args,**kwargs,timeout=self.timeOut)
+        for i in range(10):
+            try:
+                return super(Session,self).get(*args,**kwargs,timeout=self.timeOut)
+            except:
+                if i<9:
+                    time.sleep(5)
+                else:raise
+
     def post(self,*args,**kwargs):
-        return super(Session,self).post(*args,**kwargs,timeout=self.timeOut)
+        for i in range(10):
+            try:
+                return super(Session,self).post(*args,**kwargs,timeout=self.timeOut)
+            except:
+                if i < 9:
+                    time.sleep(5)
+                else:
+                    raise
 
 
 class Shuake():
@@ -242,9 +256,9 @@ class Shuake():
                                 if knowledge["courseName"].find('四史学习') >= 0:
                                     scoreInfo = self.get_scoreInfo(self.clazzList[knowledge['courseId']]['clazzId'],
                                                                    knowledge['courseId'])
-                                    if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
-                                        print("\r", self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
-                                        return
+                                    # if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
+                                    #     print("\r", self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
+                                    #     return
                                 else:
                                     scoreInfo["dayScore"] = 100
                                 if 'type' not in cardInfo:
@@ -317,33 +331,29 @@ class Shuake():
               knowledge["parentnodeNmae"],
               knowledge["knowlegeName"], cardInfo["property"]['title'], end="")
         def answer(question):
-            for i in range(10):
-                try:
-                    url = "http://c.ykhulian.com/chati/0/" + question
-                    response = self.session.get(url).json()
-                    if response["success"]==200 and response["msg"].find("维护")<0:
-                        ans=response["answer"].replace("\n\n","\n \n").split("\n \n")
-                        while(''in ans):
-                            ans.remove('')
-                        return ans
-                    url2 = "http://api.gochati.cn/jsapi.php?token=test123&q=" + question
-                    url2 = url2.replace("（    ）", "（）")
-                    url2 = url2.replace("（   ）", "（）")
-                    url2 = url2.replace("（  ）", "（）")
-                    url2 = url2.replace("（ ）", "（）")
-                    response = self.session.get(url2).json()
-                    ans=response["da"]
-                    if ans !="":
-                        ans=ans.split("\u0001")
-                        return ans
-                    return None
-                except:
-                    if i<9:
-                        time.sleep(2)
-                        continue
-                    loger.error('题目：'+question, exc_info=True)
-                    loger.error('搜索答案出错', exc_info=True)
-                    return None
+            try:
+                url = "http://c.ykhulian.com/chati/0/" + question
+                response = self.session.get(url).json()
+                if response["success"]==200 and response["msg"].find("维护")<0:
+                    ans=response["answer"].replace("\n\n","\n \n").split("\n \n")
+                    while(''in ans):
+                        ans.remove('')
+                    return ans
+                url2 = "http://api.gochati.cn/jsapi.php?token=test123&q=" + question
+                url2 = url2.replace("（    ）", "（）")
+                url2 = url2.replace("（   ）", "（）")
+                url2 = url2.replace("（  ）", "（）")
+                url2 = url2.replace("（ ）", "（）")
+                response = self.session.get(url2).json()
+                ans=response["da"]
+                if ans !="":
+                    ans=ans.split("\u0001")
+                    return ans
+                return None
+            except:
+                loger.error('题目：'+question, exc_info=True)
+                loger.error('搜索答案出错', exc_info=True)
+                return None
 
 
         try:
@@ -465,14 +475,24 @@ class Shuake():
 
     def read_book(self, cardInfo, reportInfo, knowledge, scoreInfo):
         readtime = self.get_read_time(knowledge, cardInfo, reportInfo)
-        if readtime is None: return
-        if config.readTimelimit != 0 and readtime > config.readTimelimit:
-            return
-        if config.readFrom0read and readtime > 0:  # 从没开始过的章节开始阅读
-            return
+        if readtime is not None:
+            if  config.readTimelimit != 0 and readtime > config.readTimelimit:
+                return
+            if   config.readFrom0read and readtime > 0:  # 从没开始过的章节开始阅读
+                return
+        params = (
+            ('jobid', cardInfo["jobid"]),
+            ('knowledgeid', knowledge["knowledgeId"]),
+            ('courseid', knowledge["courseId"]),
+            ('clazzid', knowledge["clazzId"]),
+            ('jtoken', cardInfo["jtoken"]),
+            ('_dc', int(time.time()*1000)),
+        )
+
+        response = self.session.get('https://mooc1-api.chaoxing.com/ananas/job/readv2', params=params,)#添加考核点
         chapters, lastChapter = self.get_chapters_info(knowledge, cardInfo, reportInfo)
         if not config.readFromLastChapter:
-            lastChapter = 0  # 如果本句注释从上次记录的chapter开始阅读
+            lastChapter = 0  # 从第一章开始读chapter开始阅读
         for chapter in chapters[lastChapter:]:
             print("\r{}\t当前：{}分\t正在阅读：".format(self.user_info["ps"], scoreInfo["dayScore"]),
                   knowledge["courseName"],
@@ -487,6 +507,7 @@ class Shuake():
                 except:
                     total_points = 1
                 current_point = 1
+                starttime=time.time()
                 while (current_point < total_points):
                     current_point = random.randint(current_point, total_points)
                     params = (
@@ -500,7 +521,11 @@ class Shuake():
                         'https://special.zhexuezj.cn/special/course/addUserPoint', params=params)
                     resp = response.json()
                     time.sleep(5)
-                    if config.readTimelimit != 0 and readtime > config.readTimelimit:
+                    readtime = self.get_read_time(knowledge, cardInfo, reportInfo)
+                    if readtime is not None:
+                        if config.readTimelimit != 0 and readtime > config.readTimelimit:
+                            return
+                    if (time.time()-starttime)>=(config.readTimelimit*2):
                         return
 
             except AttributeError:
@@ -645,6 +670,8 @@ if __name__ == '__main__':
     users_info = JSON_INFO["users_info"]
     try:
         for user_uname in users_info:
+            # if user_uname == "18845142702":
+            #     continue
             mythread = myThread(users_info[user_uname])
             mythread.start()
             threadList.append(mythread)

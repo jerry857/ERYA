@@ -10,5 +10,5 @@ loginInfo_path = os.path.join(root_path, "config/loginInfo")
 timeOut=20
 loger = utils.get_log()
 readFromLastChapter=True
-readFrom0read=True
-readTimelimit=180#单位second 0为无限制
+readFrom0read=False
+readTimelimit=60#单位second 0为无限制
