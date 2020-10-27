@@ -140,30 +140,39 @@ class Shuake():
                 jDict = {}
 
                 def knowledeg_sort(knowlege):
-                    return knowlege["indexorder"]
+                    labels=knowlege["label"]
+                    labels=labels.split(".")
+                    label=labels[0]
+                    ff=""
+                    for f in labels[0:]:
+                        ff+=f
+                    label+="."
+                    label+=ff
+                    return float(label)
 
                 for knowlege in knowledegList:
                     jDict[knowlege["id"]] = knowlege
                 for knowlege in knowledegList:
                     if knowlege["parentnodeid"] == 0: continue  # 章标题
+                    if knowlege["parentnodeid"] not in jDict:continue#问题节点
                     parentnodeid = knowlege["parentnodeid"]
-                    indexorder = knowlege["indexorder"]
-                    k = 2
+                    # indexorder = knowlege["indexorder"]
+                    # k = 2
                     while (True):
                         if jDict[parentnodeid]["parentnodeid"] == 0:
-                            indexorder += (jDict[parentnodeid]["indexorder"] * (10 ** k))
                             break
                         else:
                             parentnodeid = jDict[parentnodeid]["parentnodeid"]
+
                     self.knowlegeList[course["id"]].append(
                         {"knowlegeName": knowlege["name"], "courseName": course["name"], "knowledgeId": knowlege["id"],
                          "courseId": course["id"], "clazzId": clazzId, "parentnodeid": parentnodeid,
                          # 章id
                          "parentnodeNmae": jDict[parentnodeid]["name"],
-                         "indexorder": indexorder,
+                         "label": knowlege["label"],
                          "card": knowlege["card"]["data"],
                          "status": knowlege["status"]})
-                    self.knowlegeList[course["id"]].sort(key=knowledeg_sort)
+                self.knowlegeList[course["id"]].sort(key=knowledeg_sort)
                 # print(self.knowlegeList)
             return True
         except Exception as e:
@@ -228,7 +237,15 @@ class Shuake():
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取分数信息失败")
             return False
-
+    def submit_study(self,knowledge):#提交任务点，模拟点击章标题
+        params = (
+            ('node', knowledge["knowledgeId"]),
+            ('userid', self.puid),
+            ('clazzid', knowledge["clazzId"]),
+            ('courseid', knowledge["courseId"]),
+            ('view', 'json'),
+        )
+        response = self.session.get('https://mooc1-api.chaoxing.com/job/submitstudy', params=params)
     def shuake(self):
         self.init_clazzList()
         self.init_knowledegList()
@@ -243,8 +260,18 @@ class Shuake():
                 if flag != 1:
                     continue
                 start = self.knowledgeStart(self.knowlegeList[courseId])
-                if start is None: raise Exception("获取起始点出错")
+                if start is None: continue# 本课已刷完
                 for knowledge in self.knowlegeList[courseId][start:]:
+                    scoreInfo = {}
+                    if knowledge["courseName"].find('四史学习') >= 0:
+                        scoreInfo = self.get_scoreInfo(self.clazzList[knowledge['courseId']]['clazzId'],
+                                                       knowledge['courseId'])
+                        if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
+                            print("\r", self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
+                            break
+                    else:
+                        scoreInfo["dayScore"] = 100
+                    self.submit_study(knowledge)
                     for num in range(len(knowledge["card"])):
                         cardsInfoList, reportInfo, success = self.get_cards_info(knowledge, num)
                         if success == False:
@@ -252,15 +279,6 @@ class Shuake():
                         # print(cardsInfoList)
                         for cardInfo in cardsInfoList:
                             if "job" not in cardInfo or ("job" in cardInfo and cardInfo["job"]):
-                                scoreInfo = {}
-                                if knowledge["courseName"].find('四史学习') >= 0:
-                                    scoreInfo = self.get_scoreInfo(self.clazzList[knowledge['courseId']]['clazzId'],
-                                                                   knowledge['courseId'])
-                                    # if scoreInfo["dayScore"] >= scoreInfo["dailyMaxScore"]:
-                                    #     print("\r", self.user_info["ps"], "今天已刷够", scoreInfo["dailyMaxScore"], "分")
-                                    #     return
-                                else:
-                                    scoreInfo["dayScore"] = 100
                                 if 'type' not in cardInfo:
                                     continue  # cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
                                 elif cardInfo['type'] == "video":
@@ -295,7 +313,7 @@ class Shuake():
             print("\r{}\t当前：{}分\t正在刷课：".format(self.user_info["ps"], scoreInfo["dayScore"]),
                   "playingTime:{}".format(playingTime),
                   knowledge["courseName"],
-                  knowledge["parentnodeNmae"],
+                  knowledge["parentnodeNmae"],"label："+knowledge["label"],
                   knowledge["knowlegeName"], cardInfo["property"]['name'], end="")
             # [clazzId][userid][jobid][objectId][currentTimeSec * 1000][d_yHJ!$pdA~5][duration * 1000][clipTime]
             enc = "[{}][{}][{}][{}][{}][d_yHJ!$pdA~5][{}][{}]".format(reportInfo["clazzId"],
@@ -328,17 +346,10 @@ class Shuake():
     def dati(self, cardInfo, reportInfo, knowledge):
         print("\r{}\t正在答题：".format(self.user_info["ps"],),
               knowledge["courseName"],
-              knowledge["parentnodeNmae"],
+              knowledge["parentnodeNmae"],"label："+knowledge["label"],
               knowledge["knowlegeName"], cardInfo["property"]['title'], end="")
         def answer(question):
             try:
-                url = "http://c.ykhulian.com/chati/0/" + question
-                response = self.session.get(url).json()
-                if response["success"]==200 and response["msg"].find("维护")<0:
-                    ans=response["answer"].replace("\n\n","\n \n").split("\n \n")
-                    while(''in ans):
-                        ans.remove('')
-                    return ans
                 url2 = "http://api.gochati.cn/jsapi.php?token=test123&q=" + question
                 url2 = url2.replace("（    ）", "（）")
                 url2 = url2.replace("（   ）", "（）")
@@ -347,7 +358,29 @@ class Shuake():
                 response = self.session.get(url2).json()
                 ans=response["da"]
                 if ans !="":
-                    ans=ans.split("\u0001")
+                    ans = ans.replace("\n\n", "\n \n")
+                    ans = ans.replace("#", "\n \n")  # '资本主义道路#民主社会主义道路'
+                    ans = ans.replace("\u0001", "\n \n")  # '资本主义道路#民主社会主义道路'
+                    ans = ans.replace(" --- ", "\n \n")
+                    ans = ans.replace("===", "\n \n")#'以宗法、家庭伦理为最高的考量===宗法伦理被视为法的一个渊源===伦理和法律之间没有明确的界限'
+                    ans = ans.split("\n \n")
+                    while(''in ans):
+                        ans.remove('')
+                    return ans
+            except:
+                loger.info(url2 + "出错")
+            try:
+                url = "http://c.ykhulian.com/chati/0/" + question
+                response = self.session.get(url).json()
+                if response["success"] == 200 and response["question"].find("维护") < 0:
+                    ans = response["answer"].replace("\n\n", "\n \n")
+                    ans = ans.replace("#", "\n \n")  # '资本主义道路#民主社会主义道路'
+                    ans = ans.replace("\u0001", "\n \n")  # '资本主义道路#民主社会主义道路'
+                    ans = ans.replace(" --- ", "\n \n")  # '资本主义道路#民主社会主义道路''效度 --- 信度'
+                    ans = ans.replace("===", "\n \n")  # '资本主义道路#民主社会主义道路''效度 --- 信度'
+                    ans = ans.split("\n \n")
+                    while ('' in ans):
+                        ans.remove('')
                     return ans
                 return None
             except:
@@ -386,7 +419,7 @@ class Shuake():
                     ('_classId', knowledge["clazzId"]),
                     ('courseid', params_info["courseId"]),
                     ('token', form.find(attrs={"id":"enc_work"})["value"]),
-                    ('workAnswerId', params_info["workAnswerId"]),
+                    # ('workAnswerId', params_info["workAnswerId"]),
                     ('totalQuestionNum', form.find(attrs={"id":"totalQuestionNum"})["value"]),
                     ('ua', 'app'),
                     ('formType2', get_method(form)),
@@ -421,36 +454,39 @@ class Shuake():
                     for submit in submits:
                         if submit["id"].find("type")<0:
                             flag = 0
-                            data[submit["id"]] = ""
+                            data[submit["id"].replace("answers","answer")] = ""
                             if question.find(attrs={"class":"quesType"}).text=='[单选题]':
                                 formAnswers=question.find_all("li")
                                 answerwqbid+=formAnswers[0]["id-param"]
                                 answerwqbid += ","
                                 for formAns in formAnswers:
-                                    if formAns.text.find(questionAnswer[0])>=0:
+                                    if formAns.text.find(questionAnswer[0])>=0: #or questionAnswer[0].find(re.search(r"\n\n(.*?)\n\n",formAns.text).group(1))>=0:
                                         data[submit["id"]]=formAns.text.split("\n")[1]
                                         flag=1
                                         break
                             elif question.find(attrs={"class":"quesType"}).text=='[多选题]':
                                 formAnswers = question.find_all("li")
+                                if questionName.find("以下说法正确的")>=0 and questionName.find("以下说法正确的")<=5:
+                                    questionAnswer = answer(formAnswers[0].text.split("\n")[3])
                                 answerwqbid+=formAnswers[0]["id-param"]
                                 answerwqbid += ","
+                                assert len(questionAnswer) > 1
                                 dataAns=[]
                                 for quesAns in questionAnswer:
                                     flag = 0
                                     for formAns in formAnswers:
-                                        if formAns.text.find(quesAns) >= 0:
+                                        if formAns.text.find(quesAns) >= 0: #or quesAns.find(re.search(r"\n\n(.*?)\n\n",formAns.text).group(1))>=0:
                                             dataAns.append(formAns.text.split("\n")[1])
                                             flag = 1
                                             break
                                 dataAns.sort()
                                 for dataAn in dataAns:
-                                    data[submit["id"]] += dataAn
+                                    data[submit["id"].replace("answers","answer")] += dataAn
                             elif question.find(attrs={"class":"quesType"}).text=="[判断题]":
                                 formAnswers = question.find_all("li")
                                 answerwqbid+=formAnswers[0]["id-param"]
                                 answerwqbid += ","
-                                if questionAnswer[0].find("对")>=0 or questionAnswer[0].find("正确")>=0 or questionAnswer[0].find("√")>=0:
+                                if questionAnswer[0].find("对")>=0 or questionAnswer[0].find("正确")>=0 or questionAnswer[0].find("√")>=0 or questionAnswer[0].find("是")>=0:
                                     data[submit["id"]] = "true"
                                     flag=1
                                 else:
@@ -466,7 +502,6 @@ class Shuake():
                 response = self.session.post('https://mooc1-api.chaoxing.com/work/addStudentWorkNew', params=params,
                                          data=urlencode(data),allow_redirects=False)
                 del self.session.headers['Content-Type']
-                a=5
                 assert response.json()["msg"]=='success!'
         except:
             loger.error(knowledge["courseName"]+"\t"+knowledge["parentnodeNmae"]+"\t"+knowledge["knowlegeName"]+"\t"+cardInfo["property"]['title'])
@@ -480,8 +515,12 @@ class Shuake():
                 return
             if   config.readFrom0read and readtime > 0:  # 从没开始过的章节开始阅读
                 return
+        if "jobid" not in cardInfo:
+            jobid=cardInfo["property"]["_jobid"]
+        else:
+            jobid=cardInfo["jobid"]
         params = (
-            ('jobid', cardInfo["jobid"]),
+            ('jobid', jobid),
             ('knowledgeid', knowledge["knowledgeId"]),
             ('courseid', knowledge["courseId"]),
             ('clazzid', knowledge["clazzId"]),
@@ -496,7 +535,7 @@ class Shuake():
         for chapter in chapters[lastChapter:]:
             print("\r{}\t当前：{}分\t正在阅读：".format(self.user_info["ps"], scoreInfo["dayScore"]),
                   knowledge["courseName"],
-                  knowledge["parentnodeNmae"],
+                  knowledge["parentnodeNmae"],"label："+knowledge["label"],
                   knowledge["knowlegeName"], cardInfo["property"]["title"], chapter["chaptername"], end="")
             response = self.session.get(chapter["url"], ).text
             params_info = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(chapter["url"]).query))
@@ -670,14 +709,14 @@ if __name__ == '__main__':
     users_info = JSON_INFO["users_info"]
     try:
         for user_uname in users_info:
-            # if user_uname == "18845142702":
-            #     continue
+            #if user_uname == "18110329539":
+                 #continue
             mythread = myThread(users_info[user_uname])
             mythread.start()
             threadList.append(mythread)
             time.sleep(5)
-            # if user_uname == "18925468581":
-            #     funShuake(users_info[user_uname])
+            #if user_uname == "18110329539":
+                #funShuake(users_info[user_uname])
         for thread in threadList:
             thread.join()
     except Exception as e:
