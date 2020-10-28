@@ -1,21 +1,10 @@
-# 脚本
-data = {'pyFlag': '', 'courseId': '214553024', 'classId': '31907027', 'api': '1', 'mooc': '0',
-        'workAnswerId': '22256830', 'totalQuestionNum': '6151a9b7a2ba374e43de4a8ee13b605e', 'fullScore': '100.0',
-        'knowledgeid': '349156582', 'oldSchoolId': '', 'oldWorkId': '630b4b2e5e6242de898ec6d1a98a2fad',
-        'jobid': 'work-630b4b2e5e6242de898ec6d1a98a2fad', 'workRelationId': '10046372',
-        'enc_work': '5d7b90f89fc5c72902d6fa21fc4e1877', 'isphone': 'true', 'userId': '146189992',
-        'answer400797894': 'A', 'answertype400797894': '0', 'answer400797895': 'B', 'answertype400797895': '0',
-        'answerwqbid': '400797894%400797895'}
-url = 'https://mooc1-api.chaoxing.com/work/addStudentWorkNew?keyboardDisplayRequiresUserAction=1&_classId=31907027&courseid=214553024&token=5d7b90f89fc5c72902d6fa21fc4e1877&workAnswerId=22256830&ua=app&formType2=post&saveStatus=1&pos=&version=1'
-tul=  "https://mooc1-api.chaoxing.com/work/addStudentWorkNew?keyboardDisplayRequiresUserAction=1&_classId=31907027&courseid=214553024&token=5d7b90f89fc5c72902d6fa21fc4e1877&workAnswerId=22256830&ua=app&formType2=post&saveStatus=1&pos=6c22c2fb3889f5cea401331fc0&rd=0.3201276802706601&value=(258|545)&wid=10046372&_edt=1603510803217247&version=1"
-
-
-
-
-udate="pyFlag=&courseId=214553024&classId=31907027&api=1&mooc=0&workAnswerId=22256830&totalQuestionNum=6151a9b7a2ba374e43de4a8ee13b605e&fullScore=100.0&knowledgeid=349156582&oldSchoolId=&oldWorkId=630b4b2e5e6242de898ec6d1a98a2fad&jobid=work-630b4b2e5e6242de898ec6d1a98a2fad&workRelationId=10046372&enc_work=5d7b90f89fc5c72902d6fa21fc4e1877&isphone=true&userId=146189992&answer400797894=A&answertype400797894=0&answer400797895=B&answertype400797895=0&answerwqbid=400797894%25400797895"
-#answerwqbid
-
-
-#Tel
-url="https://mooc1-api.chaoxing.com/work/addStudentWorkNew?keyboardDisplayRequiresUserAction=1&_classId=31907027&courseid=214553024&token=5d7b90f89fc5c72902d6fa21fc4e1877&workAnswerId=22256830&ua=app&formType2=post&saveStatus=1&pos=6c22c2fb3889f5cea401331fc0&rd=0.3201276802706601&value=(258|545)&wid=10046372&_edt=1603510803217247&version=1"
-tdate='pyFlag=&courseId=214553024&classId=31907027&api=1&mooc=0&workAnswerId=22256830&totalQuestionNum=6151a9b7a2ba374e43de4a8ee13b605e&fullScore=100.0&knowledgeid=349156582&oldSchoolId=&oldWorkId=630b4b2e5e6242de898ec6d1a98a2fad&jobid=work-630b4b2e5e6242de898ec6d1a98a2fad&workRelationId=10046372&enc_work=5d7b90f89fc5c72902d6fa21fc4e1877&isphone=true&userId=146189992&answer400797894=A&answertype400797894=0&answer400797895=B&answertype400797895=0&answerwqbid=400797894%2C400797895'
+data={'pyFlag': '', 'courseId': '214553027', 'classId': '31907030', 'api': '1', 'mooc': '0', 'workAnswerId': '21761598',
+ 'totalQuestionNum': 'fa7b891349fa608eae0b751926d519c9', 'fullScore': '100.0', 'knowledgeid': '155687224',
+ 'oldSchoolId': '', 'oldWorkId': 'd1bc9f88239e40228d80b459b4cd9b2a', 'jobid': 'work-d1bc9f88239e40228d80b459b4cd9b2a',
+ 'workRelationId': '10081964', 'enc_work': 'c3ea712795b1f1e14d80a47c35e4776e', 'isphone': 'true', 'userId': '146189992',
+ 'answer131308397': 'A', 'answertype131308397': '0', 'answer131308398': 'D', 'answertype131308398': '0',
+ 'answers131308400': 'AC', 'answertype131308400': '1', 'answer131308401': 'true', 'answertype131308401': '3',
+ 'answer131308402': 'false', 'answertype131308402': '3',
+ 'answerwqbid': '131308397,131308398,131308400,131308401,131308402,'}
+jdata="pyFlag=&courseId=214553027&classId=31907030&api=1&mooc=0&workAnswerId=21761598&totalQuestionNum=fa7b891349fa608eae0b751926d519c9&fullScore=100.0&knowledgeid=155687224&oldSchoolId=&oldWorkId=d1bc9f88239e40228d80b459b4cd9b2a&jobid=work-d1bc9f88239e40228d80b459b4cd9b2a&workRelationId=10081964&enc_work=c3ea712795b1f1e14d80a47c35e4776e&isphone=true&userId=146189992&answer131308397=A&answertype131308397=0&answer131308398=D&answertype131308398=0&answers131308400=AC&answertype131308400=1&answer131308401=true&answertype131308401=3&answer131308402=false&answertype131308402=3&answerwqbid=131308397%2C131308398%2C131308400%2C131308401%2C131308402%2C"
+data ='pyFlag=&courseId=214553027&classId=31907030&api=1&mooc=0&workAnswerId=21761598&totalQuestionNum=fa7b891349fa608eae0b751926d519c9&fullScore=100.0&knowledgeid=155687224&oldSchoolId=&oldWorkId=d1bc9f88239e40228d80b459b4cd9b2a&jobid=work-d1bc9f88239e40228d80b459b4cd9b2a&workRelationId=10081964&enc_work=c3ea712795b1f1e14d80a47c35e4776e&isphone=true&userId=146189992&answer131308397=A&answertype131308397=0&answer131308398=D&answertype131308398=0&answer131308400=AC&answertype131308400=1&answer131308401=true&answertype131308401=3&answer131308402=false&answertype131308402=3&answerwqbid=131308397%2C131308398%2C131308400%2C131308401%2C131308402'

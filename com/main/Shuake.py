@@ -22,28 +22,42 @@ from bs4 import BeautifulSoup
 import random
 import socket
 socket.timeout=20
+class YZM(Exception):
+    pass
 class Session(requests.Session):
     def __init__(self,timeOut=20):
         super(Session,self).__init__()
         self.timeOut=timeOut
-    def get(self,*args,**kwargs):
+    def get(self,*args,islogin=False,**kwargs):
         for i in range(10):
             try:
-                return super(Session,self).get(*args,**kwargs,timeout=self.timeOut)
-            except:
+                response=super(Session, self).get(*args, **kwargs, timeout=self.timeOut)
+                if response.text.find("请输入验证码")>=0:
+                    loger.error("发现验证码"+"Url:"+args[0])
+                    raise YZM
+                return response
+            except Exception as e:
                 if i<9:
+                    if type(e) == YZM and not islogin:exit(1)
+                    elif type(e) == YZM :raise e
                     time.sleep(5)
-                else:raise
+                else:raise e
 
-    def post(self,*args,**kwargs):
+    def post(self,*args,islogin=False,**kwargs):
         for i in range(10):
             try:
-                return super(Session,self).post(*args,**kwargs,timeout=self.timeOut)
-            except:
+                response= super(Session,self).post(*args,**kwargs,timeout=self.timeOut)
+                if response.text.find("请输入验证码")>=0:
+                    loger.error("发现验证码" + "Url:" + args[0])
+                    raise YZM
+                return response
+            except Exception as e:
                 if i < 9:
+                    if type(e) == YZM and not islogin:exit(1)
+                    elif type(e) == YZM:raise e
                     time.sleep(5)
                 else:
-                    raise
+                    raise e
 
 
 class Shuake():
@@ -91,8 +105,7 @@ class Shuake():
         except Exception as e:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "登陆失败")
-            return self.login_flag
-
+            exit(1)
     def init_clazzList(self):
         """
                 :return 以course id作为对班列表的key
@@ -114,7 +127,7 @@ class Shuake():
         except Exception as e:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取班级列表失败")
-            return False
+            exit(1)
 
     def init_knowledegList(self):
         """
@@ -154,10 +167,8 @@ class Shuake():
                     jDict[knowlege["id"]] = knowlege
                 for knowlege in knowledegList:
                     if knowlege["parentnodeid"] == 0: continue  # 章标题
-                    if knowlege["parentnodeid"] not in jDict:continue#问题节点
+                    #if knowlege["parentnodeid"] not in jDict:continue#问题节点
                     parentnodeid = knowlege["parentnodeid"]
-                    # indexorder = knowlege["indexorder"]
-                    # k = 2
                     while (True):
                         if jDict[parentnodeid]["parentnodeid"] == 0:
                             break
@@ -178,33 +189,35 @@ class Shuake():
         except Exception as e:
             loger.error('', exc_info=True)
             loger.info(self.user_info["uname"] + "\t" + "获取课程列表失败")
-            return False
+            exit(1)
 
     def knowledgeStart(self, knowledegList):
-        knowledge = knowledegList[0]
-        nodes = str(knowledge["knowledgeId"])
-        for node in knowledegList:
-            nodes += "," + str(node["knowledgeId"])
-        data = {
-            'clazzid': knowledge["clazzId"],
-            'userid': self.puid,
-            'view': 'json',
-            'nodes': nodes,
-            'courseid': knowledge["courseId"]
-        }
-        response = self.session.post('https://mooc1-api.chaoxing.com/job/myjobsnodesmap', data=data).json()
-        start = None
-        for i, knowledge in enumerate(knowledegList):
-            knowledgeId = str(knowledge["knowledgeId"])
-            if response[knowledgeId]["unfinishcount"] > 0:
-                start = i
-                break
-        return start
+        try:
+            knowledge = knowledegList[0]
+            nodes = str(knowledge["knowledgeId"])
+            for node in knowledegList:
+                nodes += "," + str(node["knowledgeId"])
+            data = {
+                'clazzid': knowledge["clazzId"],
+                'userid': self.puid,
+                'view': 'json',
+                'nodes': nodes,
+                'courseid': knowledge["courseId"]
+            }
+            response = self.session.post('https://mooc1-api.chaoxing.com/job/myjobsnodesmap', data=data).json()
+            unfinish_knowledgeList=[]
+            for knowledge in knowledegList:
+                knowledgeId = str(knowledge["knowledgeId"])
+                if response[knowledgeId]["unfinishcount"] > 0:
+                    unfinish_knowledgeList.append(knowledge)
+            return unfinish_knowledgeList
+        except:
+            loger.error("获取课程起始点失败",exc_info=True)
+            return None
 
     def get_cards_info(self, knowledge, num):
-        # video 为videoList的字典
-        clazzid = knowledge['clazzId']
         try:
+            clazzid = knowledge['clazzId']
             params = (
                 ('clazzid', clazzid),
                 ('courseid', knowledge["courseId"]),
@@ -238,30 +251,33 @@ class Shuake():
             loger.info(self.user_info["uname"] + "\t" + "获取分数信息失败")
             return False
     def submit_study(self,knowledge):#提交任务点，模拟点击章标题
-        params = (
-            ('node', knowledge["knowledgeId"]),
-            ('userid', self.puid),
-            ('clazzid', knowledge["clazzId"]),
-            ('courseid', knowledge["courseId"]),
-            ('view', 'json'),
-        )
-        response = self.session.get('https://mooc1-api.chaoxing.com/job/submitstudy', params=params)
+        try:
+            params = (
+                ('node', knowledge["knowledgeId"]),
+                ('userid', self.puid),
+                ('clazzid', knowledge["clazzId"]),
+                ('courseid', knowledge["courseId"]),
+                ('view', 'json'),
+            )
+            response = self.session.get('https://mooc1-api.chaoxing.com/job/submitstudy', params=params)
+        except:
+            loger.info("submit_study error")
     def shuake(self):
         self.init_clazzList()
         self.init_knowledegList()
-        try:
-            for courseId in self.knowlegeList:
-                flag = 0
-                if "courseName" in self.user_info:
-                    for course in self.user_info['courseName']:
-                        if self.clazzList[courseId]['courseName'].find(course) >= 0:
-                            flag = 1
-                            break
-                if flag != 1:
-                    continue
-                start = self.knowledgeStart(self.knowlegeList[courseId])
-                if start is None: continue# 本课已刷完
-                for knowledge in self.knowlegeList[courseId][start:]:
+        for courseId in self.knowlegeList:
+            flag = 0
+            if "courseName" in self.user_info:
+                for course in self.user_info['courseName']:
+                    if self.clazzList[courseId]['courseName'].find(course) >= 0:
+                        flag = 1
+                        break
+            if flag != 1:
+                continue
+            knowlegeList = self.knowledgeStart(self.knowlegeList[courseId])
+            if knowlegeList is None: continue# 获取起始点出错
+            for knowledge in knowlegeList:
+                try:
                     scoreInfo = {}
                     if knowledge["courseName"].find('四史学习') >= 0:
                         scoreInfo = self.get_scoreInfo(self.clazzList[knowledge['courseId']]['clazzId'],
@@ -273,24 +289,24 @@ class Shuake():
                         scoreInfo["dayScore"] = 100
                     self.submit_study(knowledge)
                     for num in range(len(knowledge["card"])):
+                        time.sleep(3)
                         cardsInfoList, reportInfo, success = self.get_cards_info(knowledge, num)
                         if success == False:
-                            return
+                            continue
                         # print(cardsInfoList)
                         for cardInfo in cardsInfoList:
-                            if "job" not in cardInfo or ("job" in cardInfo and cardInfo["job"]):
-                                if 'type' not in cardInfo:
-                                    continue  # cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
-                                elif cardInfo['type'] == "video":
-                                    self.watch_video(cardInfo, reportInfo, knowledge, scoreInfo)
-                                elif cardInfo['type'] == "read":
-                                    self.read_book(cardInfo, reportInfo, knowledge, scoreInfo)
-                                elif cardInfo['type'] == "workid":
-                                    self.dati(cardInfo, reportInfo, knowledge)
-        except:
-            loger.error('', exc_info=True)
-            loger.info(self.user_info["uname"] + "\t" + "刷课意外")
-            return False
+                            if 'type' not in cardInfo:
+                                continue  # cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
+                            elif cardInfo['type'] == "video":
+                                self.watch_video(cardInfo, reportInfo, knowledge, scoreInfo)
+                            elif cardInfo['type'] == "read":
+                                self.read_book(cardInfo, reportInfo, knowledge, scoreInfo)
+                            elif cardInfo['type'] == "workid":
+                                self.dati(cardInfo, reportInfo, knowledge)
+                except:
+                    loger.error("刷课异常",exc_info=True)
+
+
 
     def watch_video(self, cardInfo, reportInfo, knowledge, scoreInfo):
         if 'isPassed' in cardInfo and cardInfo['isPassed']:
@@ -344,50 +360,50 @@ class Shuake():
             time.sleep(60/self.user_info["speed"])
 
     def dati(self, cardInfo, reportInfo, knowledge):
+        def get_method(form):
+            try:
+                return form["method"]
+            except:
+                return "post2"
+        def answer(question):
+            url=None
+            ans=None
+            try:
+                question=question.replace(" ","")
+                url = "http://api.gochati.cn/jsapi.php?token=test123&q=" + question
+                response = self.session.get(url).json()
+                ans=response["da"]
+            except:
+                loger.error(url + "出错")
+                loger.error('题目：' + question)
+                loger.error('答案：' + ans)
+            if ans is None or ans=="":
+                try:
+                    url = "http://c.ykhulian.com/chati/0/" + question
+                    response = self.session.get(url).json()
+                    ans = response["answer"]
+                    if response["success"] != 200 or response["question"].find("维护") >= 0 or ans=="":
+                        return None
+                except Exception as e:
+                    loger.error(url + "出错")
+                    loger.error('题目：'+question)
+                    loger.error('答案：' + ans)
+                    loger.error('搜索答案出错', exc_info=True)
+                    raise e#若发生异常 答案没找到
+            ans=ans.replace("\n\n", "\n \n")
+            ans = ans.replace("#", "\n \n")  # '资本主义道路#民主社会主义道路'
+            ans = ans.replace("\u0001", "\n \n")  # '资本主义道路#民主社会主义道路'
+            ans = ans.replace(" --- ", "\n \n")  # '资本主义道路#民主社会主义道路''效度 --- 信度'
+            ans = ans.replace("===", "\n \n")  # '资本主义道路#民主社会主义道路''效度 --- 信度'
+            ans = ans.split("\n \n")
+            while ('' in ans):
+                ans.remove('')
+            return ans
+
         print("\r{}\t正在答题：".format(self.user_info["ps"],),
               knowledge["courseName"],
               knowledge["parentnodeNmae"],"label："+knowledge["label"],
               knowledge["knowlegeName"], cardInfo["property"]['title'], end="")
-        def answer(question):
-            try:
-                url2 = "http://api.gochati.cn/jsapi.php?token=test123&q=" + question
-                url2 = url2.replace("（    ）", "（）")
-                url2 = url2.replace("（   ）", "（）")
-                url2 = url2.replace("（  ）", "（）")
-                url2 = url2.replace("（ ）", "（）")
-                response = self.session.get(url2).json()
-                ans=response["da"]
-                if ans !="":
-                    ans = ans.replace("\n\n", "\n \n")
-                    ans = ans.replace("#", "\n \n")  # '资本主义道路#民主社会主义道路'
-                    ans = ans.replace("\u0001", "\n \n")  # '资本主义道路#民主社会主义道路'
-                    ans = ans.replace(" --- ", "\n \n")
-                    ans = ans.replace("===", "\n \n")#'以宗法、家庭伦理为最高的考量===宗法伦理被视为法的一个渊源===伦理和法律之间没有明确的界限'
-                    ans = ans.split("\n \n")
-                    while(''in ans):
-                        ans.remove('')
-                    return ans
-            except:
-                loger.info(url2 + "出错")
-            try:
-                url = "http://c.ykhulian.com/chati/0/" + question
-                response = self.session.get(url).json()
-                if response["success"] == 200 and response["question"].find("维护") < 0:
-                    ans = response["answer"].replace("\n\n", "\n \n")
-                    ans = ans.replace("#", "\n \n")  # '资本主义道路#民主社会主义道路'
-                    ans = ans.replace("\u0001", "\n \n")  # '资本主义道路#民主社会主义道路'
-                    ans = ans.replace(" --- ", "\n \n")  # '资本主义道路#民主社会主义道路''效度 --- 信度'
-                    ans = ans.replace("===", "\n \n")  # '资本主义道路#民主社会主义道路''效度 --- 信度'
-                    ans = ans.split("\n \n")
-                    while ('' in ans):
-                        ans.remove('')
-                    return ans
-                return None
-            except:
-                loger.error('题目：'+question, exc_info=True)
-                loger.error('搜索答案出错', exc_info=True)
-                return None
-
 
         try:
             params = (
@@ -409,11 +425,6 @@ class Shuake():
                     return
             else:
                 form = soup.find(attrs={"id": "form1"})
-                def get_method(form):
-                    try:
-                        return form["method"]
-                    except:
-                        return "post2"
                 params = (
                     ('keyboardDisplayRequiresUserAction', 1),
                     ('_classId', knowledge["clazzId"]),
@@ -449,7 +460,6 @@ class Shuake():
                 for question in questionList:
                     questionName=question.find(attrs={"class":"Py-m1-title fs16"}).text.split("\n")[2].lstrip()
                     questionAnswer=answer(questionName)
-                    assert questionAnswer is not None
                     submits = question.find_all("input")
                     for submit in submits:
                         if submit["id"].find("type")<0:
@@ -470,7 +480,8 @@ class Shuake():
                                     questionAnswer = answer(formAnswers[0].text.split("\n")[3])
                                 answerwqbid+=formAnswers[0]["id-param"]
                                 answerwqbid += ","
-                                assert len(questionAnswer) > 1
+                                if len(questionAnswer) <= 1:
+                                    return
                                 dataAns=[]
                                 for quesAns in questionAnswer:
                                     flag = 0
@@ -494,19 +505,17 @@ class Shuake():
                                     flag = 1
                             else:
                                 raise Exception("题型："+question.find(attrs={"class":"quesType"}).text+"  需补充")
-                            assert flag == 1  # 若发生异常  答案没找到
+                            assert flag == 1# 若发生异常  答案不匹配
                         else:data[submit["id"]]=submit["value"]
                 data["answerwqbid"]=answerwqbid
-
                 self.session.headers['Content-Type']='application/x-www-form-urlencoded; charset=UTF-8'
                 response = self.session.post('https://mooc1-api.chaoxing.com/work/addStudentWorkNew', params=params,
                                          data=urlencode(data),allow_redirects=False)
                 del self.session.headers['Content-Type']
                 assert response.json()["msg"]=='success!'
-        except:
+        except Exception:
             loger.error(knowledge["courseName"]+"\t"+knowledge["parentnodeNmae"]+"\t"+knowledge["knowlegeName"]+"\t"+cardInfo["property"]['title'])
             loger.error('答题出错',exc_info=True)
-            # raise
 
     def read_book(self, cardInfo, reportInfo, knowledge, scoreInfo):
         readtime = self.get_read_time(knowledge, cardInfo, reportInfo)
@@ -647,22 +656,18 @@ class Shuake():
                     self.session=seria["session"]
                     self.puid=seria["puid"]
                     self.session.timeOut=config.timeOut
-                    resp=self.session.get('https://mooc1-1.chaoxing.com/work/validate')
-                    if resp.text.find("请重新登录")>=0:
-                        print("\r",self.user_info["ps"], "正在重新登录")
-                        time.sleep(2)
-                        return False
+                    resp=self.session.get('https://mooc1-1.chaoxing.com/work/validate',islogin=True)
                     params = (
                         ('view', 'json'),
                         ('rss', '1'),
                     )
-                    resp = self.session.get('http://mooc1-api.chaoxing.com/mycourse/backclazzdata', params=params)
-                    if resp.text.find("验证码")>=0:
+                    resp1 = self.session.get('http://mooc1-api.chaoxing.com/mycourse/backclazzdata',islogin=True, params=params)
+                    if resp.text.find("请重新登录")>=0 or resp1.text.find("请重新登录")>=0:
                         print("\r",self.user_info["ps"], "正在重新登录")
                         time.sleep(2)
                         return False
                     print("\r",self.user_info["ps"],"加载Session成功")
-                    return False
+                    return True
             except:
                 print("\r",self.user_info["ps"], "正在重新登录")
                 time.sleep(2)
@@ -711,12 +716,12 @@ if __name__ == '__main__':
         for user_uname in users_info:
             #if user_uname == "18110329539":
                  #continue
-            mythread = myThread(users_info[user_uname])
-            mythread.start()
-            threadList.append(mythread)
-            time.sleep(5)
-            #if user_uname == "18110329539":
-                #funShuake(users_info[user_uname])
+            # mythread = myThread(users_info[user_uname])
+            # mythread.start()
+            # threadList.append(mythread)
+            # time.sleep(5)
+            if user_uname == "15702959565":
+                funShuake(users_info[user_uname])
         for thread in threadList:
             thread.join()
     except Exception as e:

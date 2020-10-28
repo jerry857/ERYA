@@ -1,3 +1,4 @@
+import traceback
 class A():
     def __init__(self,name):
         print("A初始化")
@@ -12,7 +13,13 @@ class B(A):
 
     def get(self):
         super(B,self).get()
+
 if __name__ == '__main__':
-    b=B()
-    b.get()
-    pass
+    class YZM(Exception):
+        pass
+    try:
+        for i in range(10):
+            raise YZM
+    except Exception as e:
+        traceback.print_exc()
+        print("except1")

@@ -25059,3 +25059,900 @@ Traceback (most recent call last):
 TypeError: catching classes that do not inherit from BaseException is not allowed
 2020-10-24 21:15:43,389 - Shuake.py[line:629] - INFO: 运行
 2020-10-24 21:35:41,726 - Shuake.py[line:631] - INFO: 运行
+2020-10-24 21:47:22,423 - Shuake.py[line:639] - INFO: 运行
+2020-10-24 21:47:27,842 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:47:27,843 - Shuake.py[line:563] - INFO: 18925468581	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:47:51,602 - Shuake.py[line:639] - INFO: 运行
+2020-10-24 21:47:55,368 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:47:55,369 - Shuake.py[line:563] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:47:58,161 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:47:58,161 - Shuake.py[line:563] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:47:58,407 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:47:58,407 - Shuake.py[line:563] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:47:59,795 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:47:59,795 - Shuake.py[line:563] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:00,105 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:00,105 - Shuake.py[line:563] - INFO: 15081150997	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:00,397 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:00,397 - Shuake.py[line:563] - INFO: 15081150997	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:00,602 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:00,602 - Shuake.py[line:563] - INFO: 15081150997	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:01,956 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:01,956 - Shuake.py[line:563] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:05,185 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:05,185 - Shuake.py[line:563] - INFO: 15829380839	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:05,384 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:05,384 - Shuake.py[line:563] - INFO: 15829380839	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:06,719 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:06,720 - Shuake.py[line:563] - INFO: 15829380839	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:08,721 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:08,721 - Shuake.py[line:563] - INFO: 15829380839	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:10,860 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:10,861 - Shuake.py[line:563] - INFO: 18845142702	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:12,867 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:12,868 - Shuake.py[line:563] - INFO: 18845142702	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:15,365 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:15,366 - Shuake.py[line:563] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:15,595 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:15,596 - Shuake.py[line:563] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:16,944 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:16,945 - Shuake.py[line:563] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:19,627 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:19,627 - Shuake.py[line:563] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:19,834 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:19,835 - Shuake.py[line:563] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:20,375 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:20,375 - Shuake.py[line:563] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:20,586 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:20,586 - Shuake.py[line:563] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:21,240 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:21,241 - Shuake.py[line:563] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:21,925 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:21,925 - Shuake.py[line:563] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:23,435 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:23,435 - Shuake.py[line:563] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:24,682 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:24,682 - Shuake.py[line:563] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:24,878 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:24,878 - Shuake.py[line:563] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:25,238 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:25,238 - Shuake.py[line:563] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:25,467 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:25,467 - Shuake.py[line:563] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:26,344 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:26,345 - Shuake.py[line:563] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:26,854 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:26,854 - Shuake.py[line:563] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:28,564 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:28,564 - Shuake.py[line:563] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:29,615 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:29,615 - Shuake.py[line:563] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:29,823 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:29,823 - Shuake.py[line:563] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:31,197 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:31,197 - Shuake.py[line:563] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:31,475 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:31,476 - Shuake.py[line:563] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:33,249 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:33,249 - Shuake.py[line:563] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:33,351 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:33,352 - Shuake.py[line:563] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:33,524 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:33,524 - Shuake.py[line:563] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:33,714 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:33,715 - Shuake.py[line:563] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:34,947 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:34,947 - Shuake.py[line:563] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:36,296 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:36,297 - Shuake.py[line:563] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:37,730 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:37,731 - Shuake.py[line:563] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:37,949 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:37,949 - Shuake.py[line:563] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:38,230 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:38,231 - Shuake.py[line:563] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:38,541 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:38,542 - Shuake.py[line:563] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:38,778 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:38,778 - Shuake.py[line:563] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:39,420 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:39,420 - Shuake.py[line:563] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:40,144 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:40,144 - Shuake.py[line:563] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:41,810 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:41,810 - Shuake.py[line:563] - INFO: 18925468581	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:43,293 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:43,293 - Shuake.py[line:563] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:43,517 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:43,517 - Shuake.py[line:563] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:46,646 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:46,646 - Shuake.py[line:563] - INFO: 17691183327	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:51,735 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:51,736 - Shuake.py[line:563] - INFO: 15638127287	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:48:56,682 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:48:56,682 - Shuake.py[line:563] - INFO: 18700182108	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:49:01,384 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:49:01,385 - Shuake.py[line:563] - INFO: 13098880838	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:49:06,153 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:49:06,154 - Shuake.py[line:563] - INFO: 17809297831	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:49:11,639 - Shuake.py[line:562] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 546, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:49:11,639 - Shuake.py[line:563] - INFO: 15702959565	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:32,765 - Shuake.py[line:641] - INFO: 运行
+2020-10-24 21:51:37,773 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:37,774 - Shuake.py[line:565] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:40,404 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:40,404 - Shuake.py[line:565] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:40,602 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:40,603 - Shuake.py[line:565] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:41,331 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:41,331 - Shuake.py[line:565] - INFO: 15081150997	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:41,626 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:41,627 - Shuake.py[line:565] - INFO: 15081150997	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:41,838 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:41,840 - Shuake.py[line:565] - INFO: 15081150997	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:42,003 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:42,003 - Shuake.py[line:565] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:44,032 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:44,033 - Shuake.py[line:565] - INFO: 18740455867	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:44,475 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:44,476 - Shuake.py[line:565] - INFO: 15081150997	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:46,286 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:46,287 - Shuake.py[line:565] - INFO: 15829380839	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:46,507 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:46,507 - Shuake.py[line:565] - INFO: 15829380839	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:47,855 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:47,855 - Shuake.py[line:565] - INFO: 15829380839	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:50,018 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:50,019 - Shuake.py[line:565] - INFO: 15829380839	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:51,697 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:51,698 - Shuake.py[line:565] - INFO: 18845142702	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:53,688 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:53,688 - Shuake.py[line:565] - INFO: 18845142702	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:56,537 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:56,537 - Shuake.py[line:565] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:56,751 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:56,751 - Shuake.py[line:565] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:51:57,970 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:51:57,971 - Shuake.py[line:565] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:00,620 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:00,620 - Shuake.py[line:565] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:00,834 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:00,834 - Shuake.py[line:565] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:01,594 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:01,594 - Shuake.py[line:565] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:01,801 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:01,801 - Shuake.py[line:565] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:02,265 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:02,265 - Shuake.py[line:565] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:03,074 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:03,074 - Shuake.py[line:565] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:04,525 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:04,526 - Shuake.py[line:565] - INFO: 17561925661	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:05,687 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:05,688 - Shuake.py[line:565] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:05,905 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:05,906 - Shuake.py[line:565] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:06,343 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:06,343 - Shuake.py[line:565] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:06,586 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:06,587 - Shuake.py[line:565] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:07,229 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:07,229 - Shuake.py[line:565] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:08,043 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:08,043 - Shuake.py[line:565] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:09,337 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:09,337 - Shuake.py[line:565] - INFO: 15970198033	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:10,589 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:10,590 - Shuake.py[line:565] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:10,795 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:10,796 - Shuake.py[line:565] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:12,864 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:12,865 - Shuake.py[line:565] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:13,578 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:13,579 - Shuake.py[line:565] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:14,932 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:14,932 - Shuake.py[line:565] - INFO: 18182699011	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:15,336 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:15,337 - Shuake.py[line:565] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:15,623 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:15,623 - Shuake.py[line:565] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:15,820 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:15,820 - Shuake.py[line:565] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:17,065 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:17,065 - Shuake.py[line:565] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:17,449 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:17,449 - Shuake.py[line:565] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:19,556 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:19,556 - Shuake.py[line:565] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:19,856 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:19,856 - Shuake.py[line:565] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:19,962 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:19,962 - Shuake.py[line:565] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:20,059 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:20,059 - Shuake.py[line:565] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:20,162 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:20,163 - Shuake.py[line:565] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:21,357 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:21,357 - Shuake.py[line:565] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:21,798 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:21,799 - Shuake.py[line:565] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:23,167 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:23,168 - Shuake.py[line:565] - INFO: 18925468581	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:24,209 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:24,210 - Shuake.py[line:565] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:24,414 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:24,414 - Shuake.py[line:565] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:27,878 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:27,878 - Shuake.py[line:565] - INFO: 17691183327	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:32,973 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:32,974 - Shuake.py[line:565] - INFO: 15638127287	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:34,661 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:34,661 - Shuake.py[line:565] - INFO: 15638127287	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:37,795 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:37,795 - Shuake.py[line:565] - INFO: 18700182108	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:42,339 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:42,340 - Shuake.py[line:565] - INFO: 13098880838	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:47,340 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:47,341 - Shuake.py[line:565] - INFO: 17809297831	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:52:53,038 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:52:53,039 - Shuake.py[line:565] - INFO: 15702959565	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 21:54:53,051 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 21:54:53,051 - Shuake.py[line:565] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:01:47,871 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:01:47,871 - Shuake.py[line:565] - INFO: 15638127287	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:01:48,084 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:01:48,084 - Shuake.py[line:565] - INFO: 15638127287	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:19:42,386 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:19:42,386 - Shuake.py[line:565] - INFO: 15702959565	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:27:58,318 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:27:58,318 - Shuake.py[line:565] - INFO: 13098880838	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:28:04,682 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:28:04,683 - Shuake.py[line:565] - INFO: 17691183327	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:30:46,479 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:30:46,479 - Shuake.py[line:565] - INFO: 15702959565	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:30:46,700 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:30:46,700 - Shuake.py[line:565] - INFO: 15702959565	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:36:47,487 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:36:47,488 - Shuake.py[line:565] - INFO: 13619506250	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:37:26,336 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:37:26,337 - Shuake.py[line:565] - INFO: 13098880838	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:37:26,555 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:37:26,556 - Shuake.py[line:565] - INFO: 13098880838	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:38:37,598 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:38:37,598 - Shuake.py[line:565] - INFO: 17691183327	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 22:38:37,797 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 22:38:37,797 - Shuake.py[line:565] - INFO: 17691183327	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 23:15:09,538 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 23:15:09,538 - Shuake.py[line:565] - INFO: 18700182108	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 23:22:36,460 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 23:22:36,460 - Shuake.py[line:565] - INFO: 18925468581	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 23:24:45,061 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 23:24:45,061 - Shuake.py[line:565] - INFO: 18700182108	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 23:24:45,289 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 23:24:45,289 - Shuake.py[line:565] - INFO: 18700182108	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 23:25:17,257 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 23:25:17,258 - Shuake.py[line:565] - INFO: 15037671931	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 23:31:03,891 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 23:31:03,892 - Shuake.py[line:565] - INFO: 18925468581	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 23:31:04,111 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 23:31:04,111 - Shuake.py[line:565] - INFO: 18925468581	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 23:41:45,670 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 23:41:45,671 - Shuake.py[line:565] - INFO: 15638127287	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-24 23:56:06,185 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-24 23:56:06,186 - Shuake.py[line:565] - INFO: 17691183327	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 00:08:15,347 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 00:08:15,347 - Shuake.py[line:565] - INFO: 15702959565	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 00:08:49,760 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 00:08:49,761 - Shuake.py[line:565] - INFO: 17809297831	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 00:16:12,714 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 00:16:12,714 - Shuake.py[line:565] - INFO: 13098880838	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 00:21:13,984 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 00:21:13,984 - Shuake.py[line:565] - INFO: 17809297831	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 00:21:14,183 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 00:21:14,184 - Shuake.py[line:565] - INFO: 17809297831	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 00:30:00,264 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 00:30:00,265 - Shuake.py[line:565] - INFO: 18700182108	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 01:08:03,505 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 01:08:03,506 - Shuake.py[line:565] - INFO: 18925468581	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 01:18:48,138 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 01:18:48,139 - Shuake.py[line:565] - INFO: 15081150997	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 01:18:48,352 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 01:18:48,352 - Shuake.py[line:565] - INFO: 15081150997	获取chapter_info 失败  可能是资源下线，不是程序错误
+2020-10-25 01:54:00,455 - Shuake.py[line:564] - INFO: 
+Traceback (most recent call last):
+  File "D:/bin/chaoxing_auto_Shuake/com/main/Shuake.py", line 548, in get_chapters_info
+    chapters_a = chapters_lxml.find_all(name="a")
+AttributeError: 'NoneType' object has no attribute 'find_all'
+2020-10-25 01:54:00,455 - Shuake.py[line:565] - INFO: 17809297831	获取chapter_info 失败  可能是资源下线，不是程序错误
