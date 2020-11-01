@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*
-
 import sys
 import os
 import pickle
@@ -298,10 +297,13 @@ class Shuake():
                             if 'type' not in cardInfo:
                                 continue  # cardinfo 如果没有type信息 ，则此card为视频简介信息 不计分 跳过即可
                             elif cardInfo['type'] == "video":
+                                if "v" not in self.user_info["courseType"]: continue
                                 self.watch_video(cardInfo, reportInfo, knowledge, scoreInfo)
                             elif cardInfo['type'] == "read":
+                                if "r" not in self.user_info["courseType"]: continue
                                 self.read_book(cardInfo, reportInfo, knowledge, scoreInfo)
                             elif cardInfo['type'] == "workid":
+                                if "w" not in self.user_info["courseType"]: continue
                                 self.dati(cardInfo, reportInfo, knowledge)
                 except:
                     loger.error("刷课异常",exc_info=True)
@@ -319,11 +321,19 @@ class Shuake():
         cardInfo2 = self.session.get(
             'https://mooc1-api.chaoxing.com/ananas/status/{}'.format(cardInfo["objectId"]),
             params=params).json()
-        for i in range(math.ceil(cardInfo2['duration'] / 60)+1):
+        for i in range(math.ceil(cardInfo2['duration'] / 60)+3):
+            sperator = 60
             if i * 60 <= cardInfo2['duration']:#3个if为了让视频看完
                 playingTime = i * 60
             elif (i-1) * 60 <= cardInfo2['duration']:
                 playingTime=cardInfo2['duration']-30
+                sperator = 10
+            elif (i-2) * 60 <= cardInfo2['duration']:
+                playingTime=cardInfo2['duration']-20
+                sperator = 10
+            elif (i-3) * 60 <= cardInfo2['duration']:
+                playingTime=cardInfo2['duration']-10
+                sperator = 10
             else:
                 playingTime = cardInfo2['duration']
             print("\r{}\t当前：{}分\t正在刷课：".format(self.user_info["ps"], scoreInfo["dayScore"]),
@@ -333,7 +343,7 @@ class Shuake():
                   knowledge["knowlegeName"], cardInfo["property"]['name'], end="")
             # [clazzId][userid][jobid][objectId][currentTimeSec * 1000][d_yHJ!$pdA~5][duration * 1000][clipTime]
             enc = "[{}][{}][{}][{}][{}][d_yHJ!$pdA~5][{}][{}]".format(reportInfo["clazzId"],
-                                                                      self.puid, cardInfo["jobid"],
+                                                                      self.puid, cardInfo["property"]["_jobid"],
                                                                       cardInfo["objectId"],
                                                                       playingTime * 1000,
                                                                       cardInfo2['duration'] * 1000,
@@ -346,7 +356,7 @@ class Shuake():
                 ('clipTime', '0_' + str(cardInfo2['duration'])),
                 ('objectId', cardInfo["objectId"]),
                 ('otherInfo', cardInfo["otherInfo"]),
-                ('jobid', cardInfo["jobid"]),
+                ('jobid', cardInfo["property"]["_jobid"]),
                 ('userid', self.puid),
                 ('isdrag', '3'),
                 ('enc', md5enc),
@@ -355,9 +365,10 @@ class Shuake():
             )
             response = self.session.get(reportInfo["reportUrl"] + '/{}'.format(cardInfo2["dtoken"]),
                                         params=params)
+            assert "isPassed" in response.json()
             if response.json()["isPassed"]:
                 continue
-            time.sleep(60/self.user_info["speed"])
+            time.sleep(sperator/self.user_info["speed"])
 
     def dati(self, cardInfo, reportInfo, knowledge):
         def get_method(form):
@@ -411,7 +422,7 @@ class Shuake():
                 ('courseId', knowledge["courseId"]),
                 ('clazzId', knowledge["clazzId"]),
                 ('knowledgeId', knowledge["knowledgeId"]),
-                ('jobId', cardInfo["jobid"]),
+                ('jobId', cardInfo["property"]["_jobid"]),
                 ('enc', cardInfo["enc"]),
                 ('cpi', reportInfo['cpi']),
             )
@@ -527,7 +538,7 @@ class Shuake():
         if "jobid" not in cardInfo:
             jobid=cardInfo["property"]["_jobid"]
         else:
-            jobid=cardInfo["jobid"]
+            jobid=cardInfo["property"]["_jobid"]
         params = (
             ('jobid', jobid),
             ('knowledgeid', knowledge["knowledgeId"]),
@@ -587,7 +598,7 @@ class Shuake():
                 ('userid', 'null'),
                 ('ut', 's'),
                 ('clazzId', reportInfo["clazzId"]),
-                ('jobid', cardInfo["jobid"]),
+                ('jobid', cardInfo["property"]["_jobid"]),
                 ('isphone', 'true'),
                 ('enc', cardInfo["enc"]),
                 ('utenc', 'undefined'),
@@ -611,7 +622,7 @@ class Shuake():
                                    params=params).json()["data"]["enc"]
             params = (
                 ('_from_', '{}_{}_{}_{}'.format(knowledge['courseId'], reportInfo['clazzId'], self.puid, enc.lower())),
-                ('rtag', '{}_{}_{}'.format(knowledge['knowledgeId'], reportInfo["cpi"], cardInfo["jobid"])),
+                ('rtag', '{}_{}_{}'.format(knowledge['knowledgeId'], reportInfo["cpi"], cardInfo["property"]["_jobid"])),
             )
             response = self.session.get(
                 'https://special.zhexuezj.cn/mobile/mooc/tocourse/{}.html'.format(cardInfo["property"]["id"]),
@@ -716,12 +727,12 @@ if __name__ == '__main__':
         for user_uname in users_info:
             #if user_uname == "18110329539":
                  #continue
-            # mythread = myThread(users_info[user_uname])
-            # mythread.start()
-            # threadList.append(mythread)
-            # time.sleep(5)
-            if user_uname == "15702959565":
-                funShuake(users_info[user_uname])
+            mythread = myThread(users_info[user_uname])
+            mythread.start()
+            threadList.append(mythread)
+            time.sleep(5)
+            #if user_uname == "18235275180":
+                #funShuake(users_info[user_uname])
         for thread in threadList:
             thread.join()
     except Exception as e:
